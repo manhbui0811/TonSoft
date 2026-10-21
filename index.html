@@ -3,38 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TonSoft – Hệ sinh thái phần mềm quản lý cửa hàng cao cấp</title>
-<meta name="description" content="TonCoffee, TonFlora, TonMobile, TonBida: phần mềm quản lý bán hàng chuyên nghiệp, chạy mượt mà trên Windows. Tải và trải nghiệm miễn phí.">
+<title>TonSoft – Giải pháp quản lý bán hàng đơn giản & hiệu quả</title>
+<meta name="description" content="TonCoffee, TonFlora, TonMobile, TonBida: phần mềm quản lý bán hàng chạy trên Windows. Tải miễn phí, dùng ngay.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #f8fafc;
+  --bg: #f6f8fb;
   --surface: #ffffff;
-  --ink: #0f172a;
+  --surface-sub: #f0f4f8;
+  --ink: #1e293b;
   --muted: #64748b;
   --line: #e2e8f0;
-  --accent: #0f766e;
-  --accent-light: #ccfbf1;
+  --accent: #0d9488;
+  --accent-light: #e6fffa;
+  --accent-gradient: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
   --on: #ffffff;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07);
-  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.08);
-  --radius: 16px;
+  --shadow-soft: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
 }
 
 @media(prefers-color-scheme: dark) {
   :root {
-    --bg: #090d16;
-    --surface: #111827;
-    --ink: #f8fafc;
+    --bg: #0b0f17;
+    --surface: #151c28;
+    --surface-sub: #1e293b;
+    --ink: #f1f5f9;
     --muted: #94a3b8;
-    --line: #1e293b;
-    --accent-light: #134e4a;
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
-    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.4);
+    --line: #263346;
+    --accent-light: rgba(13, 148, 136, 0.15);
+    --shadow-soft: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -44,77 +47,84 @@ body {
   margin: 0; 
   background: var(--bg); 
   color: var(--ink); 
-  font: 16 / 1.7 "Plus Jakarta Sans", system-ui, -apple-system, sans-serif; 
+  font: 16px/1.7 "Inter", system-ui, -apple-system, sans-serif; 
   transition: background .3s, color .3s;
   -webkit-font-smoothing: antialiased;
 }
 a { color: inherit; text-decoration: none; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
 
-.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 
 header.top { 
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
-  padding: 24px 0; 
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 24px;
+  padding: 20px 24px; 
+  margin: 20px 0 30px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
 }
-.logo { font-weight: 800; font-size: 1.35rem; letter-spacing: -.03em; }
+@media(prefers-color-scheme: dark) {
+  header.top { background: rgba(21, 28, 40, 0.7); }
+}
+
+.logo { font-weight: 800; font-size: 1.3rem; letter-spacing: -.02em; }
 .logo span { color: var(--accent); }
-nav { display: flex; gap: 28px; }
+nav { display: flex; gap: 24px; }
 nav a { color: var(--muted); font-size: .95rem; font-weight: 500; transition: color .2s; }
 nav a:hover { color: var(--accent); }
 
-.hero { padding: 40px 0 24px; text-align: left; }
-h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.15; letter-spacing: -.03em; margin: 0 0 16px; font-weight: 800; }
-.lead { font-size: 1.2rem; color: var(--muted); max-width: 58ch; margin: 0; font-weight: 400; }
+.hero { padding: 20px 0 10px; text-align: left; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.2; letter-spacing: -.03em; margin: 0 0 18px; font-weight: 800; }
+.lead { font-size: 1.15rem; color: var(--muted); max-width: 58ch; margin: 0; font-weight: 400; line-height: 1.6; }
 
-.tabs { display: flex; gap: 10px; flex-wrap: wrap; margin: 36px 0 0; }
+.tabs { display: flex; gap: 12px; flex-wrap: wrap; margin: 32px 0 0; }
 .tab { 
   font: inherit; 
   font-weight: 600; 
-  border: 1px solid var(--line); 
+  border: none; 
   background: var(--surface); 
   color: var(--muted); 
   padding: 12px 24px; 
-  border-radius: 12px; 
+  border-radius: 999px; 
   cursor: pointer; 
-  transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: var(--shadow-sm);
+  transition: all .3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--line);
 }
-.tab:hover { border-color: var(--accent); color: var(--ink); transform: translateY(-1px); }
-.tab[aria-selected=true] { background: var(--accent); border-color: var(--accent); color: var(--on); box-shadow: var(--shadow-md); }
+.tab:hover { color: var(--ink); transform: translateY(-2px); }
+.tab[aria-selected=true] { 
+  background: var(--accent-gradient); 
+  color: var(--on); 
+  border-color: transparent;
+  box-shadow: 0 8px 20px -4px rgba(13, 148, 136, 0.4); 
+}
 
 .panel { 
   background: var(--surface); 
-  border: 1px solid var(--line); 
-  border-radius: 24px; 
-  padding: 48px; 
+  border-radius: var(--radius-lg); 
+  padding: 44px; 
   margin-top: 24px; 
-  box-shadow: var(--shadow-lg);
-  position: relative;
-  overflow: hidden;
-}
-.panel::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 6px;
-  background: var(--accent);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--line);
+  transition: all .3s ease;
 }
 
-.panel h2 { margin: 0 0 8px; font-size: 2.25rem; letter-spacing: -.03em; font-weight: 800; }
-.who { color: var(--accent); font-weight: 600; font-size: 1.05rem; margin: 0 0 20px; display: inline-block; background: var(--accent-light); padding: 4px 12px; border-radius: 8px; }
-.tag { font-size: 1.125rem; color: var(--muted); margin: 0 0 32px; max-width: 65ch; line-height: 1.6; }
+.panel h2 { margin: 0 0 8px; font-size: 2.1rem; letter-spacing: -.02em; font-weight: 800; }
+.who { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin: 0 0 18px; display: inline-block; background: var(--accent-light); padding: 6px 16px; border-radius: 999px; }
+.tag { font-size: 1.1rem; color: var(--muted); margin: 0 0 32px; max-width: 65ch; line-height: 1.65; }
 
 .feat { 
   list-style: none; 
   padding: 0; 
   margin: 0 0 36px; 
   display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
   gap: 16px 24px; 
 }
 .feat li { 
@@ -124,15 +134,13 @@ h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.15; letter-spacing: -
   font-size: 0.98rem;
 }
 .feat li::before { 
-  content: ""; 
+  content: "✓"; 
   position: absolute; 
   left: 0; 
-  top: .55em; 
-  width: 12px; 
-  height: 6px; 
-  border-left: 2.5px solid var(--accent); 
-  border-bottom: 2.5px solid var(--accent); 
-  transform: rotate(-45deg); 
+  top: 0; 
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.1rem;
 }
 
 .dl { 
@@ -141,119 +149,115 @@ h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.15; letter-spacing: -
   align-items: center; 
   flex-wrap: wrap; 
   padding: 24px 28px; 
-  border-radius: 16px; 
-  background: var(--bg);
-  border: 1px solid var(--line);
+  border-radius: var(--radius-md); 
+  background: var(--surface-sub);
   margin-bottom: 36px;
 }
 .btn { 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent); 
+  background: var(--accent-gradient); 
   color: var(--on); 
   font-weight: 700; 
   text-decoration: none; 
-  padding: 16px 32px; 
-  border-radius: 12px; 
-  transition: all .2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: var(--shadow-md);
-  font-size: 1.05rem;
+  padding: 14px 30px; 
+  border-radius: 999px; 
+  transition: all .3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 18px -4px rgba(13, 148, 136, 0.35);
+  font-size: 1rem;
 }
-.btn:hover { transform: translateY(-2px); filter: brightness(1.1); box-shadow: var(--shadow-lg); }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(13, 148, 136, 0.5); }
 
-.pick { display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+.pick { display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; color: var(--muted); font-weight: 500; }
 .pick select { 
   font: inherit; 
-  font-size: 0.95rem; 
+  font-size: 0.92rem; 
   color: var(--ink); 
   background: var(--surface); 
   border: 1px solid var(--line); 
-  border-radius: 10px; 
-  padding: 10px 14px; 
-  min-width: 220px; 
+  border-radius: var(--radius-sm); 
+  padding: 8px 14px; 
+  min-width: 200px; 
   cursor: pointer;
-  transition: border-color .2s;
+  outline: none;
 }
-.pick select:hover { border-color: var(--accent); }
-#dlmeta { font-size: 0.95rem; color: var(--ink); font-weight: 600; }
+#dlmeta { font-size: 0.92rem; color: var(--ink); font-weight: 600; }
 #dlmeta small { color: var(--muted); display: block; font-weight: 400; font-size: 0.85rem; margin-top: 2px; }
 
-h3 { margin: 40px 0 20px; font-size: 1.35rem; font-weight: 700; letter-spacing: -.02em; }
+h3 { margin: 40px 0 20px; font-size: 1.3rem; font-weight: 700; letter-spacing: -.01em; }
 
-.tw { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow-sm); }
-table { width: 100%; border-collapse: collapse; min-width: 600px; font-size: .95rem; }
-th, td { text-align: left; padding: 16px 20px; border-bottom: 1px solid var(--line); }
+.tw { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
+table { width: 100%; border-collapse: collapse; min-width: 580px; font-size: .95rem; }
+th, td { text-align: left; padding: 14px 20px; border-bottom: 1px solid var(--line); }
 tr:last-child td { border-bottom: 0; }
-th { color: var(--muted); font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; background: var(--bg); }
-.badge { background: var(--accent-light); color: var(--accent); font-size: .75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; margin-left: 10px; }
-.dl-link { color: var(--accent); font-weight: 600; transition: opacity .2s; }
-.dl-link:hover { opacity: 0.8; text-decoration: underline; }
+th { color: var(--muted); font-weight: 600; font-size: .85rem; background: var(--surface-sub); }
+.badge { background: var(--accent-light); color: var(--accent); font-size: .75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; margin-left: 8px; }
+.dl-link { color: var(--accent); font-weight: 600; }
+.dl-link:hover { text-decoration: underline; }
 
-section.info { padding: 60px 0 20px; }
-section.info h2 { font-size: 1.75rem; letter-spacing: -.03em; margin: 0 0 16px; font-weight: 800; }
-.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+section.info { padding: 48px 0 20px; }
+section.info h2 { font-size: 1.6rem; letter-spacing: -.02em; margin: 0 0 16px; font-weight: 700; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
 ol, ul.plain { padding-left: 20px; margin: 0; color: var(--muted); }
 ol li, ul.plain li { margin-bottom: 10px; }
-code { background: var(--bg); border: 1px solid var(--line); padding: 3px 8px; border-radius: 6px; font-size: .88em; font-family: monospace; color: var(--accent); }
+code { background: var(--surface-sub); border: 1px solid var(--line); padding: 3px 8px; border-radius: 6px; font-size: .88em; font-family: monospace; color: var(--accent); }
 
-footer { margin-top: 80px; padding: 32px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; text-align: center; }
+footer { margin-top: 60px; padding: 32px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; text-align: center; }
 
-.hls { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.hls { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
 .hl { 
-  background: var(--bg); 
-  border: 1px solid var(--line); 
-  border-radius: 16px; 
-  padding: 24px; 
-  transition: all .25s ease; 
+  background: var(--surface-sub); 
+  border-radius: var(--radius-md); 
+  padding: 22px; 
+  transition: all .3s cubic-bezier(0.16, 1, 0.3, 1); 
+  border: 1px solid transparent;
 }
-.hl:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow-md); }
+.hl:hover { transform: translateY(-3px); background: var(--surface); border-color: var(--line); box-shadow: var(--shadow-hover); }
 .hl .ic { 
-  width: 48px; 
-  height: 48px; 
-  border-radius: 12px; 
+  width: 44px; 
+  height: 44px; 
+  border-radius: var(--radius-sm); 
   display: grid; 
   place-items: center; 
   background: var(--accent-light); 
   color: var(--accent); 
-  margin-bottom: 16px; 
+  margin-bottom: 14px; 
 }
-.hl .ic svg { width: 24px; height: 24px; }
-.hl h4 { margin: 0 0 8px; font-size: 1.05rem; font-weight: 700; }
-.hl p { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.6; }
-.hl .eg { margin-top: 12px; padding-left: 12px; border-left: 2.5px solid var(--accent); color: var(--ink); font-size: .9rem; background: var(--surface); padding: 8px 12px; border-radius: 0 8px 8px 0; }
+.hl .ic svg { width: 22px; height: 22px; }
+.hl h4 { margin: 0 0 6px; font-size: 1.02rem; font-weight: 700; }
+.hl p { margin: 0; color: var(--muted); font-size: .93rem; line-height: 1.6; }
+.hl .eg { margin-top: 12px; padding: 10px 14px; background: var(--surface); border-radius: var(--radius-sm); color: var(--ink); font-size: .88rem; }
 
-.sub { color: var(--muted); margin: -12px 0 24px; font-size: .95rem; }
+.sub { color: var(--muted); margin: -10px 0 24px; font-size: .93rem; }
 .story { list-style: none; margin: 0; padding: 0; position: relative; }
 .story::before { content: ""; position: absolute; left: 19px; top: 12px; bottom: 12px; width: 2px; background: var(--line); }
-.story li { position: relative; padding: 0 0 28px 64px; }
+.story li { position: relative; padding: 0 0 24px 58px; }
 .story li:last-child { padding-bottom: 0; }
 .story .when { 
-  position: absolute; left: 0; top: 0; width: 40px; height: 40px; border-radius: 50%; 
-  background: var(--accent); color: var(--on); font-size: .75rem; font-weight: 700; 
-  display: grid; place-items: center; box-shadow: 0 0 0 6px var(--surface); 
+  position: absolute; left: 0; top: 0; width: 38px; height: 38px; border-radius: 50%; 
+  background: var(--accent-gradient); color: var(--on); font-size: .75rem; font-weight: 700; 
+  display: grid; place-items: center; box-shadow: 0 0 0 5px var(--surface); 
 }
-.story b { display: block; margin-bottom: 4px; font-size: 1.05rem; }
-.story .t { color: var(--muted); font-size: .95rem; line-height: 1.6; }
+.story b { display: block; margin-bottom: 2px; font-size: 1rem; }
+.story .t { color: var(--muted); font-size: .93rem; line-height: 1.5; }
 
-.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; }
 .chips li { 
-  padding: 8px 16px; 
+  padding: 6px 16px; 
   border-radius: 999px; 
-  background: var(--bg);
-  border: 1px solid var(--line); 
+  background: var(--surface-sub);
   color: var(--ink); 
   font-weight: 500; 
-  font-size: .92rem; 
+  font-size: .9rem; 
   transition: all .2s;
 }
-.chips li:hover { border-color: var(--accent); color: var(--accent); }
+.chips li:hover { background: var(--accent-light); color: var(--accent); }
 
 @media(prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
-@media(max-width: 640px) { 
+@media(max-width: 600px) { 
   .panel { padding: 24px; } 
-  nav { gap: 16px; } 
-  h1 { font-size: 2.2rem; }
+  header.top { flex-direction: column; gap: 12px; text-align: center; }
 }
 </style>
 </head>
@@ -270,8 +274,8 @@ footer { margin-top: 80px; padding: 32px 0 48px; border-top: 1px solid var(--lin
 
   <main>
     <section class="hero">
-      <h1>Phần mềm quản lý cửa hàng đẳng cấp, tinh gọn.</h1>
-      <p class="lead">Giải pháp tối ưu cho từng mô hình kinh doanh bán lẻ, dịch vụ và F&B. Chạy mượt mà trên Windows, cài đặt nhanh chóng.</p>
+      <h1>Quản lý cửa hàng nhẹ nhàng & dễ dàng hơn.</h1>
+      <p class="lead">Bộ phần mềm tối ưu cho Windows. Thiết kế tinh gọn, cài đặt nhanh chóng, giúp bạn tập trung vào kinh doanh.</p>
 
       <div class="tabs" id="tai" role="tablist" aria-label="Chọn phần mềm"></div>
       <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
@@ -280,185 +284,110 @@ footer { margin-top: 80px; padding: 32px 0 48px; border-top: 1px solid var(--lin
     <section class="info" id="cai-dat">
       <div class="cols">
         <div>
-          <h2>Hướng dẫn sử dụng</h2>
+          <h2>Hướng dẫn nhanh</h2>
           <ol>
-            <li>Chọn phần mềm và phiên bản bạn muốn, sau đó bấm nút tải về.</li>
-            <li>Giải nén hoặc đặt file thực thi vào một thư mục riêng biệt trên máy tính (ví dụ: <code>C:\TonSoft\</code>).</li>
-            <li>Mở file trực tiếp. Nếu Windows hiển thị cảnh báo bảo mật, chọn <b>Thông tin thêm</b> rồi chọn <b>Vẫn chạy</b>.</li>
+            <li>Chọn phần mềm phù hợp và bấm nút <b>Tải về</b>.</li>
+            <li>Lưu file vào một thư mục riêng (ví dụ <code>C:\TonSoft\</code>) và mở lên dùng ngay.</li>
+            <li>Nếu Windows hiển thị SmartScreen, chọn <b>More info</b> rồi bấm <b>Run anyway</b>.</li>
           </ol>
         </div>
         <div>
-          <h2>Yêu cầu hệ thống</h2>
+          <h2>Yêu cầu máy tính</h2>
           <ul class="plain">
-            <li>Hệ điều hành Windows 10 hoặc 11 (64-bit)</li>
-            <li>Bộ nhớ RAM tối thiểu từ 4 GB</li>
-            <li>Dung lượng trống ổ cứng khoảng 500 MB</li>
-            <li>Yêu cầu Microsoft Edge WebView2 Runtime (thường có sẵn trên Windows 11 và phần lớn Windows 10; nếu thiếu, <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener">tải tại đây</a>)</li>
+            <li>Windows 10 hoặc Windows 11 (64-bit)</li>
+            <li>RAM tối thiểu 4 GB</li>
+            <li>Microsoft Edge WebView2 (đã có sẵn trên hầu hết các máy Windows)</li>
           </ul>
         </div>
       </div>
-      <h3>Xác thực tính bảo mật của tệp</h3>
-      <p>Mã băm SHA256 của từng phiên bản được cung cấp trực tiếp trong bảng chi tiết phía trên. Bạn có thể sử dụng PowerShell để kiểm tra bằng lệnh: <code>certutil -hashfile TenFile.exe SHA256</code>.</p>
     </section>
 
     <section class="info" id="lien-he">
-      <h2>Hỗ trợ kỹ thuật</h2>
-      <p>Số điện thoại / Zalo: <a href="tel:09740413209"><b>09740413209</b></a><br>Hòm thư điện tử: <a href="mailto:manhbui0811@gmail.com">manhbui0811@gmail.com</a><br>Theo dõi lỗi hoặc cập nhật: <a id="issues" href="#" target="_blank" rel="noopener">Trang Issues trên GitHub</a></p>
+      <h2>Hỗ trợ & Liên hệ</h2>
+      <p>Zalo / Hotline: <a href="tel:09740413209"><b>09740413209</b></a><br>Email: <a href="mailto:manhbui0811@gmail.com">manhbui0811@gmail.com</a><br>Phản hồi góp ý: <a id="issues" href="#" target="_blank" rel="noopener">Gửi yêu cầu trên GitHub</a></p>
     </section>
   </main>
 
-  <footer>© <span id="y"></span> TonSoft. Toàn bộ bản quyền được bảo lưu.</footer>
+  <footer>© <span id="y"></span> TonSoft. Mọi quyền được bảo lưu.</footer>
 </div>
 
 <script>
 document.getElementById('y').textContent = new Date().getFullYear();
 
-/* ====== CHỈNH Ở ĐÂY ====== */
-const OWNER = "manhbui0811"; // tên tài khoản GitHub
+const OWNER = "manhbui0811";
 
 const PRODUCTS = [
   {
     id: "TonCoffee", name: "TonCoffee", color: "#0d9488",
-    who: "Dành riêng cho quán cà phê & trà sữa",
-    tagline: "Thao tác mượt mà trong vài cú chạm: order theo size, topping, tùy chỉnh đá/đường, tích hợp mã tự động tính tiền và in hóa đơn chuyên nghiệp.",
-    features: ["Gọi món linh hoạt theo size, lượng đá, lượng đường và topping", "Quản lý bàn theo khu vực hoặc bán mang đi nhanh chóng", "Hệ thống khuyến mãi tự động kích hoạt theo khung giờ", "Thanh toán đa dạng: tiền mặt, chuyển khoản, VietQR", "In hóa đơn khổ K58, K80, A5 linh hoạt", "Tích điểm thành viên thân thiết tự động", "Sổ thu chi minh bạch kết hợp Dashboard trực quan", "Nhập liệu danh mục và thực đơn nhanh chóng từ file Excel"],
+    who: "Quán Cà phê & Trà sữa",
+    tagline: "Chọn món nhanh chóng theo size, đá, đường, topping. Tự động tính tiền và hiển thị mã VietQR chính xác.",
+    features: ["Gọi món linh hoạt: size, đá, đường, topping", "Sơ đồ bàn theo khu vực hoặc bán mang đi", "Khuyến mãi tự bật theo khung giờ vàng", "Thanh toán tiền mặt hoặc quét mã VietQR", "In hóa đơn K58, K80, A5 linh hoạt", "Tích điểm tự động cho khách quen", "Sổ thu chi và báo cáo doanh thu gọn gàng"],
     highlights: [
-      { icon: "cup", title: "Tùy chỉnh món theo yêu cầu khách", text: "Dễ dàng thêm size, chọn mức đá, đường, topping hoặc ghi chú riêng cho từng ly nước chỉ với một chạm.", eg: "Trà sữa size L, 50% đá, 70% đường, thêm trân châu: hệ thống tự động cộng dồn giá chính xác." },
-      { icon: "table", title: "Quản lý khu vực & bàn linh hoạt", text: "Phân chia không gian quán trực quan, dễ dàng chuyển bàn, gộp bàn hoặc thêm món vào đơn đang mở.", eg: "Khu vực Tầng 1, Tầng 2, Sân vườn với trạng thái bàn hiển thị thời gian thực." },
-      { icon: "tag", title: "Khuyến mãi tự động theo khung giờ", text: "Thiết lập giảm giá theo phần trăm hoặc số tiền cố định áp dụng theo ngày trong tuần và khung giờ vàng.", eg: "Chương trình Happy Hour tự động giảm 10% các món trà sữa từ 14h - 16h." },
-      { icon: "qr", title: "Thanh toán quét mã VietQR nhanh gọn", text: "Hiển thị mã QR tự động điền chính xác số tiền cần thanh toán, hạn chế tối đa sai sót khi thối tiền mặt.", eg: "Khách chuyển khoản quét mã QR, biên lai và dòng tiền tự động khớp vào ca làm việc." },
-      { icon: "printer", title: "In hóa đơn & phiếu tạm tính", text: "Hỗ trợ khổ giấy K58, K80, A5 chuyên dụng với đầy đủ thông tin, hỗ trợ in lại phiếu rõ ràng.", eg: "In phiếu tạm tính có mã QR kèm theo trước khi khách quyết định thanh toán." },
-      { icon: "gift", title: "Tích điểm thân thiết cho khách hàng", text: "Gắn kết khách hàng lâu dài thông qua cơ chế tích điểm linh hoạt, quy đổi trừ tiền trực tiếp vào hóa đơn.", eg: "Tỉ lệ quy đổi điểm do chủ quán hoàn toàn chủ động thiết lập theo chiến lược." },
-      { icon: "wallet", title: "Sổ thu chi và kiểm soát dòng tiền", text: "Ghi nhận mọi khoản thu bán hàng cùng chi phí phát sinh như điện nước, nguyên vật liệu chặt chẽ.", eg: "Theo dõi chính xác dòng tiền ra vào hàng ngày, hàng tháng mà không sợ thất thoát." },
-      { icon: "chart", title: "Báo cáo doanh thu & biểu đồ trực quan", text: "Cung cấp cái nhìn toàn diện về doanh thu theo ca, món bán chạy nhất và lợi nhuận tạm tính.", eg: "Xuất dữ liệu ra file Excel dễ dàng để tổng kết cuối tháng hoặc báo cáo." },
-      { icon: "users", title: "Phân quyền nhân viên & bảo mật", text: "Mỗi nhân viên một tài khoản riêng biệt, phân tách rõ ràng quyền bán hàng và quyền quản lý cấp cao." }
+      { icon: "cup", title: "Gọi món linh hoạt", text: "Dễ dàng thêm topping, điều chỉnh đá đường theo sở thích của khách.", eg: "Ví dụ: Trà sữa L, 50% đá, thêm trân châu – tiền tự cộng chính xác." },
+      { icon: "table", title: "Sơ đồ bàn trực quan", text: "Xem nhanh bàn nào đang trống, bàn nào đang có khách hoặc chuyển bàn dễ dàng.", eg: "Phân chia Tầng 1, Tầng 2, Sân vườn rõ ràng." },
+      { icon: "qr", title: "Quét QR chuyển khoản", text: "Tạo mã QR có sẵn số tiền, khách quét là xong, không lo nhầm lẫn.", eg: "Khách trả tiền mặt một phần, còn lại quét QR rất tiện lợi." }
     ],
-    storyTitle: "Một ngày vận hành quán với TonCoffee",
+    storyTitle: "Một ngày ở quán với TonCoffee",
     story: [
-      { when: "08:00", title: "Mở cửa quán", text: "Đăng nhập hệ thống, thực đơn và sơ đồ bàn đã sẵn sàng, các chương trình khuyến mãi tự động kích hoạt." },
-      { when: "10:00", title: "Đón khách tại bàn", text: "Tiếp nhận order trà sữa với các tùy chọn đá đường riêng biệt cho khách ngồi tại Bàn 03." },
-      { when: "14:00", title: "Khung giờ vàng", text: "Chương trình Happy Hour tự động áp dụng giá ưu đãi mà nhân viên không cần chỉnh sửa thủ công." },
-      { when: "15:30", title: "Thanh toán linh hoạt", text: "Khách thanh toán kết hợp tiền mặt và quét mã QR chuyển khoản, hóa đơn in ra và điểm tích lũy được cập nhật." },
-      { when: "21:00", title: "Chốt ca & tổng kết", text: "Mở Dashboard kiểm tra doanh thu trong ngày, xuất file Excel và đối soát tiền mặt thực tế." }
+      { when: "08h", title: "Mở cửa", text: "Bật ứng dụng, sơ đồ bàn và thực đơn đã sẵn sàng." },
+      { when: "14h", title: "Giờ cao điểm", text: "Khuyến mãi tự động giảm giá mà không cần chỉnh tay." },
+      { when: "21h", title: "Chốt ca", text: "Xem nhanh tổng doanh thu trong ngày và xuất file Excel." }
     ],
     file: "TonCoffee.exe",
-    versions: [
-      { v: "1.0.0", date: "19/10/2026", note: "Phiên bản phát hành chính thức đầu tiên", sha: "" }
-    ]
+    versions: [{ v: "1.0.0", date: "19/10/2026", note: "Bản đầu tiên", sha: "" }]
   },
   {
-    id: "TonFlora", name: "TonFlora", color: "#059669",
-    who: "Dành cho cửa hàng bán lẻ đa ngành (Thời trang, Tạp hóa, Hoa tươi, Nhà thuốc...)",
-    tagline: "Giải pháp quản lý bán hàng toàn diện, tích hợp sẵn danh mục mẫu theo từng ngành nghề giúp bạn thiết lập và bắt đầu kinh doanh ngay lập tức.",
-    features: ["Hỗ trợ 8 mô hình cửa hàng với danh mục sản phẩm mẫu phong phú", "Quản lý đa phân loại sản phẩm: màu sắc, kích thước, dung lượng...", "Quét mã vạch nhanh chóng và tích hợp in tem nhãn đa dạng", "Quy trình bán hàng, đặt cọc và giao hàng chuyên nghiệp", "Kiểm soát tồn kho, nhập hàng và cảnh báo hàng sắp hết", "Chính sách khuyến mãi tự động và tích điểm thông minh", "Xử lý đổi trả hàng hóa, hủy đơn minh bạch bằng phiếu", "Báo cáo kinh doanh chi tiết và hỗ trợ xuất Excel"],
-    chipsTitle: "Hỗ trợ sẵn 8 mô hình kinh doanh phổ biến",
-    chips: ["Quần áo & thời trang", "Tạp hóa & văn phòng phẩm", "Hoa, cây cảnh & phụ kiện", "Bánh ngọt", "Trẻ em & sơ sinh", "Vật tư xây dựng", "Điện nước & gia dụng", "Nhà thuốc"],
+    id: "TonFlora", name: "TonFlora", color: "#10b981",
+    who: "Cửa hàng bán lẻ & Tiệm tạp hóa",
+    tagline: "Tích hợp sẵn danh mục sản phẩm mẫu cho nhiều ngành hàng, chỉ cần chọn là có thể bán ngay.",
+    features: ["Sẵn danh mục mẫu cho 8 loại cửa hàng", "Quản lý sản phẩm đa phân loại (màu, size...)", "Quét mã vạch & in tem nhãn tiện lợi", "Bán hàng, nhận cọc và giao hàng", "Theo dõi kho hàng và cảnh báo sắp hết", "Báo cáo doanh thu trực quan"],
+    chipsTitle: "Phù hợp với nhiều mô hình cửa hàng",
+    chips: ["Quần áo & Thời trang", "Tạp hóa", "Tiệm hoa", "Tiệm bánh", "Mẹ & Bé", "Nhà thuốc"],
     highlights: [
-      { icon: "store", title: "Mô hình mẫu chuẩn xác theo ngành", text: "Tự động thiết lập danh mục và sản phẩm mẫu phù hợp ngay từ lần khởi động đầu tiên.", eg: "Lựa chọn 'Nhà thuốc': Hệ thống chuẩn bị sẵn nhóm thuốc không kê đơn, thực phẩm chức năng và vật tư y tế." },
-      { icon: "tag", title: "Quản lý thuộc tính sản phẩm tùy biến", text: "Phân chia sản phẩm theo các thông số riêng biệt, mỗi biến thể quản lý tồn kho và giá bán độc lập.", eg: "Áo thun phân loại theo màu sắc và kích cỡ; bánh kem phân loại theo kích thước và hương vị." },
-      { icon: "scan", title: "Quét mã vạch & in tem nhãn tiện lợi", text: "Quét mã vạch thanh toán tức thì và tự thiết kế, in tem nhãn mã vạch trực tiếp từ phần mềm.", eg: "In tem dán cho lô hàng mới nhập về kho chỉ với vài thao tác đơn giản." },
-      { icon: "cart", title: "Quy trình bán hàng & đặt cọc linh hoạt", text: "Quản lý hiệu quả các đơn hàng giao tận nơi, đặt cọc trước hoặc dịch vụ làm theo yêu cầu.", eg: "Nhận đặt cọc làm bó hoa thiết kế riêng, hẹn giờ lấy hàng và theo dõi tiến độ dễ dàng." },
-      { icon: "swap", title: "Xử lý đổi trả và hoàn hàng minh bạch", text: "Lập phiếu hoàn trả hàng hóa, tự động cập nhật lại tồn kho và điều chỉnh sổ quỹ chính xác.", eg: "Khách trả lại một phần sản phẩm trong đơn, hệ thống tự động hoàn kho đúng sản phẩm đó." },
-      { icon: "box", title: "Kiểm soát tồn kho thông minh", text: "Theo dõi sát sao lượng hàng tồn, hàng đang giao, hàng khách đặt trước để chủ động nhập hàng.", eg: "Cảnh báo tự động khi sản phẩm chạm ngưỡng tồn kho tối thiểu." },
-      { icon: "gift", title: "Khuyến mãi và tích điểm khách hàng", text: "Tự động áp dụng mức giảm giá tốt nhất cho khách hàng, gia tăng tỷ lệ quay lại mua sắm.", eg: "Khách hàng sử dụng điểm tích lũy để trừ trực tiếp vào tổng tiền thanh toán hóa đơn." },
-      { icon: "chart", title: "Báo cáo kinh doanh toàn diện", text: "Cung cấp số liệu doanh thu, lợi nhuận, sản phẩm bán chạy theo thời gian thực.", eg: "Chủ cửa hàng dễ dàng phân quyền hiển thị báo cáo cho từng nhân viên." },
-      { icon: "users", title: "Phân quyền và bảo mật dữ liệu tối ưu", text: "Quản lý tài khoản nhân viên theo chức vụ, dữ liệu lưu trữ an toàn trên thiết bị của bạn." }
-    ],
-    storyTitle: "Một ngày vận hành tiệm với TonFlora",
-    story: [
-      { when: "07:30", title: "Khởi động", text: "Thiết lập hệ thống, chọn ngành hàng hoa tươi, điều chỉnh lại giá bán cho phù hợp với cửa hàng." },
-      { when: "09:00", title: "Nhập hàng mới", text: "Tạo phiếu nhập kho nhà cung cấp, kiểm tra số lượng và tiến hành in tem mã vạch dán lên sản phẩm." },
-      { when: "11:00", title: "Đơn đặt cọc", text: "Nhận đơn thiết kế hoa theo yêu cầu, ghi nhận tiền cọc và lưu vào danh sách đơn hàng chờ xử lý." },
-      { when: "16:00", title: "Giao dịch hoàn tất", text: "Khách đến nhận hoa, thanh toán số tiền còn lại qua QR, hệ thống tự động cộng điểm cho khách." },
-      { when: "21:30", title: "Tổng kết ngày", text: "Kiểm tra doanh thu, các mặt hàng sắp hết và xuất file báo cáo ngày gửi chủ cửa hàng." }
+      { icon: "store", title: "Có sẵn dữ liệu mẫu", text: "Không mất thời gian nhập từ đầu, mở app là có sẵn khung sản phẩm.", eg: "Ngành Nhà thuốc hay Thời trang đều có sẵn khung danh mục." },
+      { icon: "scan", title: "Quét & In mã vạch", text: "Thanh toán nhanh tại quầy và tự in tem dán lên sản phẩm.", eg: "Tự tạo tem mã vạch dán lên các món hàng nhỏ lẻ." }
     ],
     file: "TonFlora.exe",
-    versions: [
-      { v: "1.0.0", date: "19/10/2026", note: "Phiên bản phát hành đầu tiên", sha: "" }
-    ]
+    versions: [{ v: "1.0.0", date: "19/10/2026", note: "Bản đầu tiên", sha: "" }]
   },
   {
-    id: "TonMobile", name: "TonMobile", color: "#2563eb",
-    who: "Dành cho cửa hàng điện thoại, máy tính, linh kiện & phụ kiện (Mới & Cũ)",
-    tagline: "Tra cứu thông tin bảo hành, quản lý số IMEI/Serial chính xác và theo dõi quy trình thu mua máy cũ cực kỳ chuyên nghiệp trong một nền tảng duy nhất.",
-    features: ["Bán hàng siêu tốc: quét mã, nhập IMEI, thanh toán tiền mặt hoặc QR", "Quản lý chi tiết số IMEI / Serial cho từng sản phẩm bán ra", "Phân loại rõ ràng giữa máy mới 100% và máy cũ theo cấp độ ngoại hình", "Nghiệp vụ thu mua máy cũ chuyên nghiệp, nhập kho tự động", "Tính toán tự động thời hạn bảo hành và thời gian đổi trả dùng thử", "Quản lý và theo dõi tiến độ tiếp nhận bảo hành, sửa chữa", "Hệ thống kho hàng, kiểm kho và in tem nhãn mã vạch", "Báo cáo doanh thu chuyên sâu, hỗ trợ xuất Excel nhanh chóng"],
+    id: "TonMobile", name: "TonMobile", color: "#3b82f6",
+    who: "Cửa hàng Điện thoại & Máy tính",
+    tagline: "Tra cứu bảo hành theo IMEI, quản lý máy mới/mới cũ và thu mua máy cũ minh bạch.",
+    features: ["Quản lý mã IMEI/Serial theo từng đơn", "Phân loại máy Mới 100% và máy Cũ (A+, A-)", "Tự động tính hạn bảo hành và dùng thử", "Nghiệp vụ thu mua máy cũ nhập kho", "Theo dõi phiếu tiếp nhận bảo hành"],
     highlights: [
-      { icon: "cart", title: "Bán hàng và ghi nhận đơn nhanh chóng", text: "Thanh toán linh hoạt với tiền mặt hoặc chuyển khoản QR, hỗ trợ quản lý đơn đặt cọc và hẹn giao máy.", eg: "Khách đặt cọc trước 2 triệu đồng, hôm sau đến nhận máy và thanh toán phần còn lại." },
-      { icon: "tag", title: "Quản lý máy mới và máy cũ minh bạch", text: "Phân biệt rõ ràng tình trạng máy, giúp định giá chính xác và không bị nhầm lẫn tồn kho.", eg: "iPhone 12 cũ (độ mới A-) và iPhone 12 mới nguyên seal được phân định thành 2 mã quản lý riêng biệt." },
-      { icon: "scan", title: "Quản lý số IMEI / Serial chặt chẽ", text: "Mỗi sản phẩm gắn liền với số IMEI riêng biệt, dễ dàng tra cứu lịch sử mua bán và bảo hành.", eg: "Khách quay lại bảo hành sau nhiều tháng, chỉ cần gõ IMEI là hệ thống hiển thị chính xác lịch sử đơn hàng." },
-      { icon: "shield", title: "Theo dõi bảo hành & dùng thử tự động", text: "Tự động tính toán hạn bảo hành và thời gian đổi trả, tra cứu dễ dàng bằng số điện thoại hoặc IMEI.", eg: "Chính sách dùng thử 7 ngày được hệ thống theo dõi sát sao, hiển thị chính xác số ngày còn lại." },
-      { icon: "swap", title: "Thu mua máy cũ chuyên nghiệp", text: "Lập phiếu thu mua máy cũ ghi nhận IMEI, tình trạng và chi trả tiền mặt hoặc chuyển khoản gọn gàng.", eg: "Thu mua máy cũ của khách, máy tự động cập nhật vào kho và sẵn sàng bán ra như sản phẩm thông thường." },
-      { icon: "clip", title: "Quản lý tiếp nhận bảo hành / sửa chữa", text: "Theo dõi quy trình bảo hành qua các trạng thái: Tiếp nhận, Đang xử lý, Chờ linh kiện, Hoàn thành.", eg: "Ghi nhận lịch sử bảo hành nhiều lần của thiết bị để nắm rõ tình trạng kỹ thuật." },
-      { icon: "box", title: "Quản lý kho hàng & kiểm kê chính xác", text: "Kiểm soát lượng hàng tồn, hàng sắp hết, in tem nhãn mã vạch và nhập liệu nhanh chóng.", eg: "Nhập liệu danh mục sản phẩm từ file Excel chỉ trong một lần thiết lập." },
-      { icon: "chart", title: "Báo cáo doanh thu & tài chính chi tiết", text: "Theo dõi doanh thu thực tế, dòng tiền thu chi và các khoản dự kiến một cách rõ ràng.", eg: "Xuất báo cáo cuối ngày ra Excel để gửi cho ban quản lý cửa hàng." },
-      { icon: "users", title: "Phân quyền nhân viên & bảo mật dữ liệu", text: "Bảo vệ thông tin kinh doanh nhạy cảm với hệ thống phân quyền chi tiết cho từng tài khoản nhân viên." }
-    ],
-    story: [
-      { when: "08:30", title: "Thu mua máy cũ", text: "Tiếp nhận máy cũ từ khách, lập phiếu thu mua ghi nhận số IMEI và tình trạng máy, chi tiền và nhập kho." },
-      { when: "11:00", title: "Bán thiết bị mới", text: "Quét mã vạch phụ kiện và nhập số IMEI điện thoại, thanh toán qua QR, in hóa đơn kèm chính sách bảo hành." },
-      { when: "14:00", title: "Xử lý đổi trả", text: "Khách đổi máy trong thời gian dùng thử, hệ thống tự động kiểm tra thời hạn và hỗ trợ xử lý nhanh." },
-      { when: "16:30", title: "Tiếp nhận bảo hành", text: "Nhận máy lỗi khách mang đến, tạo phiếu tiếp nhận bảo hành để kỹ thuật viên xử lý." },
-      { when: "20:30", title: "Tổng kết cuối ngày", text: "Mở Dashboard kiểm tra tổng quan doanh thu, tồn kho và xuất báo cáo ngày." }
+      { icon: "scan", title: "Quản lý IMEI chặt chẽ", text: "Gõ hoặc quét IMEI để bán, tra lại lịch sử mua hàng cực nhanh.", eg: "Khách quay lại chỉ cần gõ IMEI là ra ngay ngày mua." },
+      { icon: "swap", title: "Thu mua máy cũ", text: "Lập phiếu thu mua gọn gàng, máy tự động vào kho bán lại.", eg: "Thu lại máy cũ, ghi rõ tình trạng và giá nhập." }
     ],
     file: "TonMobile.exe",
-    versions: [
-      { v: "1.0.0", date: "19/10/2026", note: "Phiên bản phát hành đầu tiên", sha: "" }
-    ]
+    versions: [{ v: "1.0.0", date: "19/10/2026", note: "Bản đầu tiên", sha: "" }]
   },
   {
-    id: "TonBida", name: "TonBida", color: "#dc2626",
-    who: "Dành cho CLB và cửa hàng Billiards (Bi-a)",
-    tagline: "Đồng hồ tính giờ tự động thông minh, quản lý sơ đồ bàn trực quan, kết hợp gọi đồ uống và thanh toán nhanh chóng chỉ trong một chạm.",
-    features: ["Sơ đồ bàn trực quan: mở bàn, tạm dừng, chuyển bàn, tính tiền", "Tính giờ tự động chính xác theo loại bàn và khung giờ cài đặt", "Hỗ trợ thiết lập các gói Combo giờ chơi kèm đồ uống ưu đãi", "Gọi đồ ăn, thức uống bổ sung trực tiếp vào bàn đang chơi", "Thanh toán linh hoạt với tiền mặt, chuyển khoản kèm VietQR", "Chính sách khuyến mãi áp dụng trực tiếp cho cả tiền giờ chơi", "Tích điểm thân thiết cho khách hàng thường xuyên", "Quản lý kho hàng, nhập nguyên vật liệu và kiểm kê tồn kho", "Báo cáo doanh thu chi tiết phân tách theo tiền giờ và tiền dịch vụ", "Phân quyền chặt chẽ giữa nhân viên phục vụ và chủ quán"],
+    id: "TonBida", name: "TonBida", color: "#ef4444",
+    who: "Câu lạc bộ Bi-a (Billiards)",
+    tagline: "Tính tiền giờ tự động theo khung giờ, quản lý sơ đồ bàn và đồ uống gọi kèm mượt mà.",
+    features: ["Đồng hồ tự động chạy theo sơ đồ bàn", "Tính giá tiền linh hoạt theo khung giờ", "Combo giờ chơi kèm nước tặng", "Thêm đồ ăn/uống vào bàn đang chơi", "Báo cáo doanh thu tiền giờ và dịch vụ riêng"],
     highlights: [
-      { icon: "table", title: "Sơ đồ bàn trực quan, quản lý tức thì", text: "Hiển thị trạng thái bàn theo thời gian thực: trống, đang chơi, tạm dừng hoặc chờ thanh toán.", eg: "Khách yêu cầu đổi bàn từ Bàn 3 sang Bàn 5: chỉ cần một thao tác chuyển bàn, toàn bộ thời gian và món đã gọi tự động đi theo." },
-      { icon: "clock", title: "Tính giờ tự động theo khung giá", text: "Cài đặt đơn giá theo từng loại bàn và khung giờ, hệ thống tự động bóc tách và tính tiền chính xác.", eg: "Khách chơi vắt qua khung giờ bình thường sang khung giờ vàng buổi tối, hệ thống tự tách đoạn và tính đúng giá từng khung." },
-      { icon: "tag", title: "Cấu hình bảng giá linh hoạt", text: "Tạo các loại bàn như bàn lỗ, bàn carom, bàn VIP với các khung giờ cao điểm, linh hoạt thay đổi dễ dàng.", eg: "Thiết lập giá giờ chơi buổi sáng ưu đãi hơn buổi tối chỉ với một lần cài đặt." },
-      { icon: "gift", title: "Gói Combo giờ chơi kèm đồ uống", text: "Thiết lập các gói combo hấp dẫn, tự động bóc tách giá trị đồ uống trên hóa đơn khi thanh toán.", eg: "Combo 2 giờ chơi kèm nước suối: chọn gói khi mở bàn, hệ thống tự động ghi nhận ưu đãi." },
-      { icon: "cup", title: "Gọi món bổ sung trực tiếp vào bàn", text: "Thêm đồ uống, đồ ăn vặt vào bàn đang chơi bất cứ lúc mà không làm gián đoạn đồng hồ tính giờ.", eg: "Bàn số 3 gọi thêm nước giữa giờ: nhân viên thêm vào đơn, đồng hồ tính giờ vẫn tiếp tục chạy bình thường." },
-      { icon: "qr", title: "Thanh toán nhanh gọn, in hóa đơn rõ ràng", text: "Tổng hợp tự động tiền giờ chơi và tiền dịch vụ, quét mã QR thanh toán và in hóa đơn chi tiết.", eg: "Khách thanh toán chuyển khoản qua mã QR hiển thị sẵn đúng số tiền trên màn hình thu ngân." },
-      { icon: "gift", title: "Khuyến mãi giảm giá tiền giờ chơi", text: "Áp dụng các chương trình ưu đãi giảm giá trực tiếp vào tiền giờ chơi hoặc tổng hóa đơn.", eg: "Chương trình giảm 10% tiền giờ chơi vào các buổi sáng ngày trong tuần." },
-      { icon: "box", title: "Quản lý kho đồ uống & vật tư chặt chẽ", text: "Tự động trừ tồn kho khi bán nước, quản lý nhà cung cấp và kiểm kê kho hàng nhanh chóng.", eg: "Nhập thêm lô nước ngọt mới, hệ thống tự động cộng dồn tồn kho và cập nhật giá vốn." },
-      { icon: "chart", title: "Báo cáo doanh thu chi tiết chuyên sâu", text: "Phân tích doanh thu rõ ràng giữa tiền giờ chơi và tiền dịch vụ, giúp đánh giá hiệu quả từng bàn.", eg: "Xem biểu đồ thống kê để biết bàn nào có tỷ lệ lấp đầy cao nhất trong tuần." },
-      { icon: "users", title: "Phân quyền nhân viên & bảo mật tối đa", text: "Nhân viên chỉ thực hiện thao tác mở bàn, bán hàng; các quyền báo cáo tài chính thuộc về chủ quán." }
-    ],
-    storyTitle: "Một ngày vận hành CLB Bi-a với TonBida",
-    story: [
-      { when: "09:00", title: "Mở cửa hoạt động", text: "Khởi động phần mềm, kiểm tra sơ đồ bàn, bảng giá và các khung giờ đã được thiết lập sẵn." },
-      { when: "14:00", title: "Khách mở bàn mới", text: "Thao tác mở Bàn 03, đồng hồ tự động chạy, khách gọi thêm nước uống phục vụ tại bàn." },
-      { when: "17:30", title: "Chuyển khung giờ", text: "Đến 18:00 hệ thống tự động chuyển sang đơn giá giờ tối, không cần nhân viên phải tính toán thủ công." },
-      { when: "19:30", title: "Kết thúc & thanh toán", text: "Bấm kết thúc bàn, hệ thống tổng hợp tiền giờ và tiền nước, khách quét mã QR thanh toán nhanh chóng." },
-      { when: "22:00", title: "Tổng kết cuối ngày", text: "Mở Dashboard kiểm tra doanh thu tổng quan, tỷ lệ sử dụng bàn và xuất file báo cáo kinh doanh." }
+      { icon: "clock", title: "Tính giờ tự động", text: "Tự chuyển giá khi vắt sang khung giờ tối mà không cần nhẩm tính.", eg: "Chơi từ 17h đến 19h tự bóc tách 2 khung giá chính xác." },
+      { icon: "table", title: "Sơ đồ bàn trực quan", text: "Xem trạng thái bàn trống hay đang chơi chỉ qua một ánh nhìn.", eg: "Chuyển bàn cho khách chỉ bằng một thao tác bấm." }
     ],
     file: "TonBida.exe",
-    versions: [
-      { v: "1.0.0", date: "21/10/2026", note: "Phiên bản phát hành chính thức đầu tiên", sha: "" }
-    ]
+    versions: [{ v: "1.0.0", date: "21/10/2026", note: "Bản đầu tiên", sha: "" }]
   }
 ];
-/* ========================= */
 
 const base = p => `https://github.com/${OWNER}/${p.id}/releases`;
 const $ = s => document.querySelector(s);
-const tabs = $("#tabs") || $(".tabs"), panel = $("#panel");
+const tabs = $(".tabs"), panel = $("#panel");
 const ICONS = {
   cart: '<path d="M3 4h2l2.4 11h10.2l2-8H6.2"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/>',
-  tag: '<path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.2"/>',
   scan: '<path d="M4 5v14M8 5v14M11 5v14M15 5v14M18 5v14"/>',
-  shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/>',
   swap: '<path d="M4 8h14l-3-3M20 16H6l3 3"/>',
-  clip: '<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h4"/>',
-  box: '<path d="M3 7l9-4 9 4v10l-9 4-9-4V7zM3 7l9 4 9-4M12 11v10"/>',
-  chart: '<path d="M5 20v-6M12 20V5M19 20v-10"/>',
-  store: '<path d="M4 10l1-5h14l1 5M5 10v10h14V10M9 20v-5h6v5"/><path d="M4 10a2.5 2.5 0 005 0 2.5 2.5 0 005 0 2.5 2.5 0 005 0"/>',
-  gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v9h14v-9M8 8a2.5 2.5 0 010-5c2 0 4 2.5 4 5 0-2.5 2-5 4-5a2.5 2.5 0 010 5"/>',
-  cup: '<path d="M5 8h12v6a5 5 0 01-5 5h-2a5 5 0 01-5-5V8z"/><path d="M17 9h1.5a2.5 2.5 0 010 5H17M8 3v2M12 3v2"/>',
+  store: '<path d="M4 10l1-5h14l1 5M5 10v10h14V10M9 20v-5h6v5"/>',
+  cup: '<path d="M5 8h12v6a5 5 0 01-5 5h-2a5 5 0 01-5-5V8z"/><path d="M17 9h1.5a2.5 2.5 0 010 5H17"/>',
   table: '<path d="M5 5h14v4H5zM6 9v10M18 9v10"/>',
-  qr: '<rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h2v2h-2zM18 14h2M14 18h2M18 18v2"/>',
-  printer: '<path d="M7 9V4h10v5M7 17H5a1 1 0 01-1-1v-6a1 1 0 011-1h14a1 1 0 011 1v6a1 1 0 01-1 1h-2"/><rect x="7" y="14" width="10" height="6"/>',
-  wallet: '<rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M16 15h2"/>',
-  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-  users: '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5a3 3 0 010 6M21 20c0-2.5-1.5-4.6-3.6-5.5"/>'
+  qr: '<rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'
 };
 const ico = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[n] || ""}</svg>`;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -466,8 +395,11 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":
 function show(i) {
   const p = PRODUCTS[i], latest = p.versions[0];
   document.documentElement.style.setProperty("--accent", p.color);
-  document.documentElement.style.setProperty("--accent-light", p.color + "15");
+  document.documentElement.style.setProperty("--accent-light", p.color + "18");
+  document.documentElement.style.setProperty("--accent-gradient", `linear-gradient(135deg, ${p.color} 0%, ${p.color}dd 100%)`);
+  
   tabs.querySelectorAll(".tab").forEach((t, k) => t.setAttribute("aria-selected", k === i));
+  
   panel.innerHTML = `
     <h2>${esc(p.name)}</h2>
     <div><span class="who">${esc(p.who)}</span></div>
@@ -475,37 +407,19 @@ function show(i) {
     <ul class="feat">${p.features.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
     <div class="dl">
       <a class="btn" id="dlbtn" href="${base(p)}/latest/download/${p.file}">Tải ${esc(p.name)} v${esc(latest.v)}</a>
-      <label class="pick">Chọn phiên bản
-        <select id="ver">${p.versions.map((x, k) => `<option value="${k}">v${esc(x.v)}${k === 0 ? " (mới nhất)" : ""} – ${esc(x.date)}</option>`).join("")}</select>
+      <label class="pick">Chọn bản
+        <select id="ver">${p.versions.map((x, k) => `<option value="${k}">v${esc(x.v)}${k === 0 ? " (Mới nhất)" : ""}</option>`).join("")}</select>
       </label>
-      <div id="dlmeta">Bản chạy trên Windows<small>Phát hành ngày ${esc(latest.date)}</small></div>
+      <div id="dlmeta">Windows 10 / 11<small>Phát hành ${esc(latest.date)}</small></div>
     </div>
-    ${p.chips ? `<h3>${esc(p.chipsTitle || "Phù hợp với")}</h3>
-    <ul class="chips">${p.chips.map(c => `<li>${esc(c)}</li>`).join("")}</ul>` : ""}
-    ${p.highlights ? `<h3>Các tính năng nổi bật của ${esc(p.name)}</h3>
-    <div class="hls">${p.highlights.map(h => `<article class="hl"><div class="ic" aria-hidden="true">${ico(h.icon)}</div><h4>${esc(h.title)}</h4><p>${esc(h.text)}</p>${h.eg ? `<p class="eg"><b>Ví dụ thực tế:</b> ${esc(h.eg)}</p>` : ""}</article>`).join("")}</div>` : ""}
-    ${p.story ? `<h3>${esc(p.storyTitle || "Quy trình vận hành thực tế")}</h3>
-    <p class="sub">Ví dụ minh họa quy trình làm việc trong một ngày.</p>
+    ${p.chips ? `<h3>Cửa hàng phù hợp</h3><ul class="chips">${p.chips.map(c => `<li>${esc(c)}</li>`).join("")}</ul>` : ""}
+    ${p.highlights ? `<h3>Điểm nổi bật</h3>
+    <div class="hls">${p.highlights.map(h => `<article class="hl"><div class="ic">${ico(h.icon)}</div><h4>${esc(h.title)}</h4><p>${esc(h.text)}</p>${h.eg ? `<p class="eg">${esc(h.eg)}</p>` : ""}</article>`).join("")}</div>` : ""}
+    ${p.story ? `<h3>Một ngày sử dụng</h3>
     <ol class="story">${p.story.map(x => `<li><span class="when">${esc(x.when)}</span><b>${esc(x.title)}</b><span class="t">${esc(x.text)}</span></li>`).join("")}</ol>` : ""}
-    <h3>Lịch sử các phiên bản</h3>
-    <div class="tw"><table>
-      <thead><tr><th>Phiên bản</th><th>Ngày phát hành</th><th>Ghi chú thay đổi</th><th>Tải xuống</th></tr></thead>
-      <tbody>${p.versions.map((x, k) => `
-        <tr>
-          <td><b>v${esc(x.v)}</b>${k === 0 ? '<span class="badge">Mới nhất</span>' : ""}</td>
-          <td>${esc(x.date)}</td>
-          <td>${esc(x.note)}${x.sha ? `<br><code>${esc(x.sha)}</code>` : ""}</td>
-          <td><a class="dl-link" href="${base(p)}/download/v${encodeURIComponent(x.v)}/${p.file}">Tải về (EXE)</a></td>
-        </tr>`).join("")}
-      </tbody></table></div>`;
+  `;
+  
   $("#issues").href = `https://github.com/${OWNER}/${p.id}/issues`;
-  const sel = $("#ver");
-  sel.addEventListener("change", () => {
-    const k = +sel.value, x = p.versions[k];
-    $("#dlbtn").href = k === 0 ? `${base(p)}/latest/download/${p.file}` : `${base(p)}/download/v${encodeURIComponent(x.v)}/${p.file}`;
-    $("#dlbtn").textContent = `Tải ${p.name} v${x.v}`;
-    $("#dlmeta").innerHTML = `${k === 0 ? "Bản mới nhất" : "Bản cũ"} cho Windows<small>Phát hành ngày ${esc(x.date)}</small>`;
-  });
   history.replaceState(null, "", "#" + p.id);
 }
 
