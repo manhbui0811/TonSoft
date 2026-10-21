@@ -52,21 +52,42 @@ section.info h2{font-size:1.5rem;letter-spacing:-.02em;margin:0 0 12px}
 ol,ul.plain{padding-left:20px;margin:0}
 code{background:var(--surface);border:1px solid var(--line);padding:2px 6px;border-radius:6px;font-size:.88em;word-break:break-all}
 footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.tag{color:var(--muted);font-size:1.05rem;margin:0 0 20px;max-width:62ch}
+.hls{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.hl{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;transition:transform .2s,border-color .2s}
+.hl:hover{transform:translateY(-3px);border-color:var(--accent)}
+.hl .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--accent);color:var(--on);margin-bottom:12px}
+.hl .ic svg{width:22px;height:22px}
+.hl h4{margin:0 0 6px;font-size:1.02rem}
+.hl p{margin:0;color:var(--muted);font-size:.93rem}
+.hl .eg{margin-top:10px;padding-left:10px;border-left:3px solid var(--accent);color:var(--ink);font-size:.88rem}
+.sub{color:var(--muted);margin:-6px 0 18px;font-size:.93rem}
+.story{list-style:none;margin:0;padding:0;position:relative}
+.story::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.story li{position:relative;padding:0 0 22px 58px}
+.story li:last-child{padding-bottom:0}
+.story .when{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--on);font-size:.72rem;font-weight:800;display:grid;place-items:center;box-shadow:0 0 0 5px var(--surface)}
+.story b{display:block;margin-bottom:2px}
+.story .t{color:var(--muted);font-size:.95rem}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0}
+.chips li{padding:7px 14px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);font-weight:500;font-size:.92rem}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 @media(max-width:560px){.panel{padding:22px}nav a{margin-left:14px}}
+.pick{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--muted)}
+.pick select{font:inherit;font-size:.95rem;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:9px 12px;min-width:200px;max-width:100%;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <a class="logo" href="#">Ton<span>Soft</span></a>
-    <nav><a href="#tai">Tải phần mềm</a><a href="#cai-dat">Cài đặt</a><a href="#lien-he">Liên hệ</a></nav>
+    <nav><a href="#tai">Tải phần mềm</a><a href="#cai-dat">Hướng dẫn</a><a href="#lien-he">Liên hệ</a></nav>
   </header>
 
   <main>
     <section class="hero">
       <h1>Quản lý cửa hàng, gọn và dễ dùng.</h1>
-      <p class="lead">Ba phần mềm cho ba loại cửa hàng. Chạy trên Windows, tải về cài là dùng.</p>
+      <p class="lead">Ba phần mềm cho ba loại cửa hàng. Chạy trên Windows, tải về mở là dùng.</p>
 
       <div class="tabs" id="tai" role="tablist" aria-label="Chọn phần mềm"></div>
       <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
@@ -75,11 +96,11 @@ footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);colo
     <section class="info" id="cai-dat">
       <div class="cols">
         <div>
-          <h2>Cách cài đặt</h2>
+          <h2>Cách dùng</h2>
           <ol>
-            <li>Bấm nút tải phiên bản bạn cần.</li>
-            <li>Mở file vừa tải. Nếu Windows báo chặn, chọn <b>Thông tin thêm</b> rồi <b>Vẫn chạy</b>.</li>
-            <li>Làm theo hướng dẫn trên màn hình.</li>
+            <li>Chọn phần mềm, chọn phiên bản (mặc định là bản mới nhất) rồi bấm nút tải.</li>
+            <li>Đặt file vào một thư mục riêng, ví dụ <code>C:\TonCoffee\</code>. Phần mềm là một file duy nhất, không cần cài thêm .NET.</li>
+            <li>Mở file. Nếu Windows báo chặn, chọn <b>Thông tin thêm</b> rồi <b>Vẫn chạy</b>.</li>
           </ol>
         </div>
         <div>
@@ -88,16 +109,17 @@ footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);colo
             <li>Windows 10 hoặc 11, 64-bit</li>
             <li>RAM từ 4 GB</li>
             <li>Trống 500 MB ổ cứng</li>
+            <li>Microsoft Edge WebView2 Runtime (Windows 11 và hầu hết Windows 10 đã có sẵn, nếu máy báo thiếu thì <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener">tải tại đây</a>)</li>
           </ul>
         </div>
       </div>
       <h3>Kiểm tra file tải về</h3>
-      <p>Mã SHA256 của mỗi bản nằm trong bảng trên. Mở PowerShell và chạy: <code>certutil -hashfile TenFile.exe SHA256</code></p>
+      <p>Mã SHA256 của mỗi bản nằm trong bảng trên. Mở PowerShell và chạy: <code>certutil -hashfile TonCoffee.exe SHA256</code> (đổi tên file cho đúng phần mềm bạn đã tải).</p>
     </section>
 
     <section class="info" id="lien-he">
       <h2>Liên hệ và hỗ trợ</h2>
-      <p>Zalo / điện thoại: <b>09xx xxx xxx</b><br>Email: <a href="mailto:contact@example.com">contact@example.com</a><br>Báo lỗi: <a id="issues" href="#">trang Issues trên GitHub</a></p>
+      <p>Zalo / điện thoại: <a href="tel:09740413209"><b>09740413209</b></a><br>Email: <a href="mailto:manhbui0811@gmail.com">manhbui0811@gmail.com</a><br>Báo lỗi: <a id="issues" href="#">trang Issues trên GitHub</a></p>
     </section>
   </main>
 
@@ -106,32 +128,93 @@ footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);colo
 
 <script>
 /* ====== CHỈNH Ở ĐÂY ====== */
-const OWNER = "TEN_BAN"; // tên tài khoản GitHub của bạn
+const OWNER = "manhbui0811"; // tên tài khoản GitHub
 
 const PRODUCTS = [
   {
     id: "TonCoffee", name: "TonCoffee", color: "#8a4b2a",
-    who: "Dành cho quán cà phê",
-    features: ["Bán hàng nhanh theo bàn", "Quản lý kho nguyên liệu", "In hóa đơn, phiếu pha chế", "Báo cáo doanh thu theo ngày"],
-    file: "TonCoffee-Setup.exe",
+    who: "Dành cho quán cà phê và trà sữa",
+    tagline: "Khách gọi trà sữa ít đá, bớt đường, thêm trân châu? Chọn vài cái chạm là xong, tiền tự tính, mã QR thanh toán hiện sẵn đúng số tiền.",
+    features: ["Gọi món theo size, mức đá, mức đường, topping, ghi chú", "Bán tại bàn (chia khu vực) hoặc mang đi", "Khuyến mãi tự áp theo ngày và khung giờ", "Thu tiền mặt, chuyển khoản, mã QR hiện sẵn", "In hóa đơn khổ K58, K80, A5", "Tích điểm khách quen", "Sổ thu chi và Dashboard doanh thu", "Tạo thực đơn riêng, nhập nhanh từ Excel"],
+    highlights: [
+      { icon: "cup", title: "Gọi món đủ kiểu khách thích", text: "Mỗi ly chọn được size, mức đá, mức đường, topping và ghi chú. Bạn tự dựng thực đơn, danh mục, size, topping, hoặc nhập nhanh từ file Excel.", eg: "Trà sữa truyền thống size L, 50% đá, 70% đường, thêm pudding: chọn xong là tiền tự tính." },
+      { icon: "table", title: "Tại bàn hay mang đi đều gọn", text: "Chia khu vực và bàn theo quán của bạn, chọn bàn khi khách ngồi, bỏ qua bàn khi khách mang đi. Khách gọi thêm thì thêm món vào đơn đang mở.", eg: "Tầng 1, Tầng 2, Ngoài trời, mỗi khu có các bàn riêng." },
+      { icon: "tag", title: "Khuyến mãi tự áp, đúng giờ", text: "Giảm theo phần trăm, giảm số tiền hoặc đồng giá. Chọn ngày trong tuần và khung giờ áp dụng, phần mềm tự tính khi bạn thêm món, không phải sửa giá tay.", eg: "Happy hour: giảm 10% trà sữa từ 14h đến 16h các ngày trong tuần." },
+      { icon: "qr", title: "Thu tiền nhanh, hoàn tiền rõ", text: "Một đơn thu được nhiều khoản, tiền mặt hoặc chuyển khoản. Mã VietQR hiện sẵn đúng số tiền. Đơn đã thu mà cần hoàn thì hủy bằng một thao tác, tiền và điểm tự điều chỉnh.", eg: "Khách đưa 50.000đ tiền mặt, phần còn lại quét QR: cả hai khoản nằm trong cùng một đơn." },
+      { icon: "printer", title: "In phiếu cho đúng lúc", text: "In hóa đơn khổ K58, K80 hoặc A5, chọn số liên, tự in ngay sau khi thanh toán. Có phiếu tạm tính kèm QR, in lại thì phiếu ghi rõ «BẢN IN LẠI».", eg: "Khách xin xem tiền trước khi trả: in phiếu tạm tính có sẵn mã QR." },
+      { icon: "gift", title: "Tích điểm cho khách quen", text: "Gắn khách vào đơn, mua là tích điểm, lần sau dùng điểm để trừ tiền ngay ở hộp thanh toán. Mức quy đổi do chủ quán tự đặt.", eg: "Ví dụ cứ 10.000đ được 1 điểm, 1 điểm trừ 100đ." },
+      { icon: "wallet", title: "Sổ thu chi luôn sẵn", text: "Tiền bán hàng tự ghi vào sổ. Các khoản ngoài bán hàng như mặt bằng, điện nước, mua nguyên liệu bạn ghi thêm; muốn bỏ thì hủy kèm lý do, không xóa mất dấu.", eg: "Cuối tháng mở sổ là thấy tiền vào, tiền ra theo từng danh mục." },
+      { icon: "chart", title: "Biết quán bán gì, lúc nào", text: "Dashboard cho xem doanh thu theo ngày, theo ca sáng, chiều, tối, theo cách thanh toán, món và topping bán chạy, cùng lợi nhuận tạm tính. Trang Đơn hàng có thêm đơn theo giờ, so với kỳ trước.", eg: "Cuối ca xuất Excel, nhập tiền mặt đếm được, file tự tính sẵn số chênh lệch." },
+      { icon: "users", title: "Nhân viên và dữ liệu an toàn", text: "Mỗi nhân viên một tài khoản. Nhân viên bán hàng và in phiếu, còn báo cáo, thu chi, hủy đơn đã thu mặc định do chủ quán giữ. Dữ liệu nằm ngay trên máy bạn, có sao lưu và khôi phục." }
+    ],
+    storyTitle: "Một ngày ở quán với TonCoffee",
+    story: [
+      { when: "8h", title: "Mở quán", text: "Đăng nhập là thấy ngay thực đơn, khu vực và bàn đã sẵn. Khuyến mãi tự bật đúng ngày, đúng giờ bạn đã đặt, không cần nhớ." },
+      { when: "10h", title: "Khách ngồi Bàn 03", text: "Chọn bàn, gọi trà sữa size L, 50% đá, 70% đường, thêm pudding. Khách gọi thêm ly nữa thì thêm vào đúng đơn đó." },
+      { when: "14h", title: "Giờ vàng", text: "Đúng 14h, khuyến mãi happy hour tự giảm trên các ly trà sữa. Nhân viên không phải sửa giá từng ly." },
+      { when: "15h", title: "Khách thanh toán", text: "Trả một phần bằng tiền mặt, phần còn lại quét QR hiện sẵn đúng số tiền. Hóa đơn in ra, điểm tích lũy được cộng cho khách." },
+      { when: "21h", title: "Chốt ca", text: "Mở Dashboard xem doanh thu theo ca và món bán chạy. Xuất Excel, nhập số tiền mặt đếm được để có sẵn chênh lệch." }
+    ],
+    file: "TonCoffee.exe",
     versions: [
       { v: "1.0.0", date: "19/10/2026", note: "Bản đầu tiên", sha: "" }
     ]
   },
   {
     id: "TonFlora", name: "TonFlora", color: "#2f7d5b",
-    who: "Dành cho cửa hàng quần áo và tạp hóa",
-    features: ["Quản lý hàng hóa, size, màu", "Quét mã vạch", "Theo dõi tồn kho", "Quản lý công nợ khách hàng"],
-    file: "TonFlora-Setup.exe",
+    who: "Dành cho cửa hàng bán lẻ nhiều ngành: thời trang, tạp hóa, hoa, bánh ngọt, đồ trẻ em, vật tư xây dựng, điện nước, nhà thuốc",
+    tagline: "Mở app lần đầu, chọn đúng loại cửa hàng của bạn, danh mục và sản phẩm mẫu hiện ra sẵn. Sửa giá, thêm hàng rồi bán ngay, không phải dựng từ con số 0.",
+    features: ["Chọn loại cửa hàng, có sẵn danh mục và sản phẩm mẫu", "Một sản phẩm, nhiều phân loại: màu, size, dung lượng… tự đặt", "Quét mã vạch, in tem mã vạch nhiều khổ", "Bán hàng, đặt cọc, giao hàng, thu tiền mặt hoặc QR", "Theo dõi tồn kho, nhập hàng, kiểm kho", "Khuyến mãi tự động và tích điểm khách hàng", "Hủy, hoàn hàng bằng phiếu rõ ràng", "Dashboard và xuất Excel"],
+    chipsTitle: "8 loại cửa hàng có sẵn, chọn một khi mở app lần đầu",
+    chips: ["Quần áo & thời trang", "Tạp hóa & văn phòng phẩm", "Hoa, cây cảnh & phụ kiện", "Bánh ngọt", "Trẻ em & sơ sinh", "Vật tư xây dựng", "Điện nước & gia dụng", "Nhà thuốc"],
+    highlights: [
+      { icon: "store", title: "Có sẵn hàng mẫu đúng ngành", text: "Mỗi loại cửa hàng có 5 đến 7 danh mục và khoảng 14 đến 30 sản phẩm mẫu, kèm đơn vị tính và giá tham khảo. Dòng giới thiệu trên hóa đơn cũng tự đặt đúng ngành.", eg: "Chọn «Nhà thuốc»: có ngay nhóm thuốc không kê đơn, vitamin, dụng cụ y tế, sơ cứu." },
+      { icon: "tag", title: "Một sản phẩm, nhiều phân loại tự đặt", text: "Mỗi sản phẩm chia được thành nhiều phân loại, mỗi phân loại một giá và một tồn kho. Bạn tự đặt tên cho hợp ngành mình, không bị gò vào «màu» hay «size».", eg: "Áo thun: «Đen / M», «Trắng / XL». Bánh kem: «Socola / 20cm». Keo dán gạch: «Bao 25kg»." },
+      { icon: "scan", title: "Quét mã vạch ngay ở quầy", text: "Quét mã để thêm hàng vào đơn. Món nào chưa có mã thì in tem mã vạch nhiều khổ giấy để dán.", eg: "Nhập lô hàng mới xong, in tem dán lên từng món chỉ vài thao tác." },
+      { icon: "cart", title: "Bán hàng, đặt cọc, giao hàng", text: "Thu tiền mặt hoặc quét QR chuyển khoản. Khách đặt cọc, hẹn ngày lấy hay cần giao tận nơi đều có chỗ ghi sẵn. Hàng dịch vụ cho sửa giá ngay trên dòng đơn.", eg: "Bánh kem vẽ theo yêu cầu: nhập giá theo mẫu khách chọn, thu cọc, hẹn ngày lấy." },
+      { icon: "swap", title: "Hủy, hoàn hàng rõ ràng", text: "Khách trả một phần hay hủy cả đơn đều lập bằng một phiếu: chọn dòng cần hoàn, nhập số tiền giữ lại nếu có. Hàng tự nhập lại kho, tiền hoàn ghi vào sổ thu chi.", eg: "Khách trả 2 trong 3 cái áo: chọn đúng 2 dòng, hàng quay về kho." },
+      { icon: "box", title: "Kho luôn khớp với quầy", text: "Nhập hàng từ nhà cung cấp, kiểm kho, báo hàng sắp hết. Hàng đã được khách cọc hoặc đang chờ giao được tính riêng, nên bạn biết còn bao nhiêu hàng có thể bán.", eg: "Quầy hiện cảnh báo khi số khách đặt vượt số còn lại, nhưng không chặn bạn bán." },
+      { icon: "gift", title: "Khuyến mãi và tích điểm", text: "Khuyến mãi tự áp vào đơn, phần mềm chọn mức tốt nhất cho đơn đó. Khách quen tích điểm khi mua và dùng điểm để trừ tiền.", eg: "Lần sau khách dùng điểm trừ thẳng vào hóa đơn, số điểm còn lại in trên phiếu." },
+      { icon: "chart", title: "Nhìn cả cửa hàng trong một màn hình", text: "Dashboard hiện doanh thu, số đơn, hàng bán chạy, hàng sắp hết và thu chi. Xem theo kỳ tối đa 31 ngày, xuất Excel khi cần.", eg: "Chủ cửa hàng quyết định ai được xem dashboard và phần thu chi." },
+      { icon: "users", title: "Nhân viên, hóa đơn, sao lưu", text: "Mỗi nhân viên một tài khoản, mỗi vai trò một bộ quyền. In hóa đơn khổ K80, K58 hoặc A5 kèm mã QR. Dữ liệu nằm ngay trên máy bạn, có sao lưu và khôi phục." }
+    ],
+    storyTitle: "Một ngày ở tiệm hoa với TonFlora",
+    story: [
+      { when: "7h", title: "Mở app lần đầu", text: "Tạo tài khoản chủ cửa hàng, chọn «Hoa, cây cảnh & phụ kiện». Hoa hồng, hoa ly, chậu cây và bó hoa mẫu hiện ra sẵn, bạn chỉnh lại giá cho đúng tiệm mình." },
+      { when: "9h", title: "Hàng mới về", text: "Lập phiếu nhập từ nhà cung cấp. Bấm Hoàn thành là tồn kho tăng, rồi in tem mã vạch cho những món cần dán." },
+      { when: "11h", title: "Khách đặt một bó hoa lớn", text: "Chọn «Bó hoa hồng», sửa giá theo mẫu khách chọn, ghi giờ hẹn lấy. Khách cọc trước, đơn nằm ở mục Đơn đang mở." },
+      { when: "16h", title: "Khách đến lấy hoa", text: "Thu nốt phần còn lại bằng QR chuyển khoản, bấm Hoàn thành. Hóa đơn in ra có sẵn điểm tích lũy của khách." },
+      { when: "21h", title: "Chốt ngày", text: "Mở Dashboard xem doanh thu, đơn còn mở, hàng sắp hết. Cần gửi chủ thì xuất Excel báo cáo ngày." }
+    ],
+    file: "TonFlora.exe",
     versions: [
       { v: "1.0.0", date: "19/10/2026", note: "Bản đầu tiên", sha: "" }
     ]
   },
   {
     id: "TonMobile", name: "TonMobile", color: "#2456c9",
-    who: "Dành cho cửa hàng điện tử và đồ cũ",
-    features: ["Quản lý theo IMEI, serial", "Nhập thu mua đồ cũ", "Theo dõi bảo hành", "Quản lý bán trả góp"],
-    file: "TonMobile-Setup.exe",
+    who: "Dành cho cửa hàng điện thoại, máy tính bảng, laptop, PC – linh kiện và phụ kiện (bán cả hàng mới lẫn hàng cũ)",
+    tagline: "Khách hỏi «máy này mua hôm nào, còn bảo hành không?», bạn gõ IMEI là có câu trả lời. Bán máy, thu máy cũ, tính hạn bảo hành, theo dõi kho: tất cả nằm trong một phần mềm.",
+    features: ["Bán hàng nhanh: quét mã vạch, thu tiền mặt hoặc QR chuyển khoản", "Ghi IMEI / serial ngay trên từng đơn", "Một mẫu máy, nhiều phiên bản: dung lượng, màu, tình trạng (Mới, A+, A-…)", "Thu mua máy cũ bằng phiếu riêng, máy tự vào kho", "Tự tính hạn bảo hành và hạn dùng thử đổi ý", "Nhận và theo dõi yêu cầu bảo hành", "Kho, nhập hàng, kiểm kho, in tem mã vạch", "Dashboard doanh thu, xuất Excel"],
+    highlights: [
+      { icon: "cart", title: "Bán hàng nhanh, ít bấm", text: "Quét mã vạch hoặc chọn máy, gắn khách, thu tiền mặt hay quét QR chuyển khoản. Khách đặt cọc, hẹn lấy sau hay giao tận nơi đều làm được.", eg: "Khách cọc 2 triệu hôm nay, mai đến lấy máy: thu nốt phần còn lại rồi bấm Hoàn thành." },
+      { icon: "tag", title: "Cùng một máy, gọi đúng tên từng bản", text: "Ngoài cấu hình, mỗi sản phẩm có thêm ô «Tình trạng», nên máy mới và máy cũ không bị lẫn kho, lẫn giá.", eg: "iPhone 12 · 128GB · A- và iPhone 12 · 128GB · Mới 100% là hai dòng riêng, mỗi dòng một giá, một tồn kho." },
+      { icon: "scan", title: "IMEI đi theo từng đơn", text: "Bán máy nào thì gõ hoặc quét IMEI máy đó vào đơn. Nhập sai số, phần mềm nhắc nhẹ bằng khung vàng nhưng không chặn bạn bán.", eg: "Vài tháng sau khách quay lại, tra IMEI là thấy đúng đơn đã bán." },
+      { icon: "shield", title: "Bảo hành và dùng thử tự tính", text: "Hoàn thành đơn là có sẵn hạn bảo hành và hạn dùng thử. Tra bằng IMEI hoặc số điện thoại khách, thấy ngay còn hạn hay đã hết.", eg: "Dùng thử 7 ngày: khách đổi ý vào ngày thứ 5, hộp hoàn hàng báo «Còn dùng thử 2 ngày»." },
+      { icon: "swap", title: "Thu máy cũ gọn như nhập hàng", text: "Khách bán lại máy cũ: lập phiếu thu cũ, ghi IMEI và tình trạng, trả tiền mặt hoặc chuyển khoản. Phiếu hoàn thành thì máy vào kho, khoản chi vào sổ quỹ.", eg: "Thu iPhone 12 giá 5 triệu, đặt tình trạng A-, máy nằm trong kho và bán lại như một sản phẩm bình thường." },
+      { icon: "clip", title: "Nhận bảo hành có sổ sách", text: "Máy lỗi mang đến, tạo phiếu theo dõi từng bước: Tiếp nhận, Đang xử lý, Chờ linh kiện, Hoàn thành. Tiền khách trả và tiền mua linh kiện tự vào sổ thu chi.", eg: "Một máy bảo hành nhiều lần, phần mềm nhắc «Đã bảo hành 2 lần» để bạn nắm tình hình." },
+      { icon: "box", title: "Kho luôn khớp với quầy", text: "Nhập hàng từ nhà cung cấp, kiểm kho, báo hàng sắp hết, in tem mã vạch nhiều khổ. Có sẵn danh mục và sản phẩm mẫu để bắt đầu ngay.", eg: "Đã có file Excel hàng hóa? Nhập một lần, lần sau nhập lại chỉ cập nhật chứ không nhân đôi." },
+      { icon: "chart", title: "Nhìn cả cửa hàng trong một màn hình", text: "Dashboard hiện doanh thu thực tế, doanh thu dự kiến, số đơn đang mở, hàng sắp hết và hàng tồn lâu. Xem theo kỳ tối đa 31 ngày, xuất Excel khi cần.", eg: "Cuối ngày bấm xuất Excel báo cáo ngày để gửi cho chủ cửa hàng." },
+      { icon: "users", title: "Khách quen và đội nhân viên", text: "Lưu lịch sử mua của từng khách, tích điểm, khuyến mãi tự áp dụng. Mỗi nhân viên một tài khoản, chỉ thấy phần được phép. Dữ liệu nằm ngay trên máy bạn, có sao lưu và khôi phục." }
+    ],
+    story: [
+      { when: "8h", title: "Khách bán lại chiếc iPhone cũ", text: "Bạn lập phiếu thu cũ: ghi IMEI, chọn tình trạng A-, trả 5 triệu. Bấm Hoàn thành, máy vào kho và khoản chi vào sổ quỹ." },
+      { when: "11h", title: "Khách mua laptop và phụ kiện", text: "Quét mã vạch, gõ IMEI, thu bằng QR chuyển khoản. Hóa đơn in ra có sẵn IMEI, hạn bảo hành và điều khoản dùng thử." },
+      { when: "14h", title: "Một khách khác đổi ý sau vài hôm", text: "Mở đơn, bấm hoàn hàng. Phần mềm báo máy còn dùng thử mấy ngày để bạn quyết định hoàn đủ tiền hay giữ lại một phần." },
+      { when: "16h", title: "Máy lỗi quay lại cửa hàng", text: "Gõ IMEI ra đơn cũ, còn hạn bảo hành thì bấm «Tạo yêu cầu BH», thông tin khách và máy được điền sẵn." },
+      { when: "20h", title: "Chốt ngày", text: "Mở Dashboard xem doanh thu, đơn còn mở, hàng sắp hết. Cần gửi chủ thì xuất Excel báo cáo ngày." }
+    ],
+    file: "TonMobile.exe",
     versions: [
       { v: "1.0.0", date: "19/10/2026", note: "Bản đầu tiên", sha: "" }
     ]
@@ -142,6 +225,25 @@ const PRODUCTS = [
 const base = p => `https://github.com/${OWNER}/${p.id}/releases`;
 const $ = s => document.querySelector(s);
 const tabs = $("#tabs") || $(".tabs"), panel = $("#panel");
+const ICONS = {
+  cart: '<path d="M3 4h2l2.4 11h10.2l2-8H6.2"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/>',
+  tag: '<path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.2"/>',
+  scan: '<path d="M4 5v14M8 5v14M11 5v14M15 5v14M18 5v14"/>',
+  shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/>',
+  swap: '<path d="M4 8h14l-3-3M20 16H6l3 3"/>',
+  clip: '<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h4"/>',
+  box: '<path d="M3 7l9-4 9 4v10l-9 4-9-4V7zM3 7l9 4 9-4M12 11v10"/>',
+  chart: '<path d="M5 20v-6M12 20V5M19 20v-10"/>',
+  store: '<path d="M4 10l1-5h14l1 5M5 10v10h14V10M9 20v-5h6v5"/><path d="M4 10a2.5 2.5 0 005 0 2.5 2.5 0 005 0 2.5 2.5 0 005 0"/>',
+  gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v9h14v-9M8 8a2.5 2.5 0 010-5c2 0 4 2.5 4 5 0-2.5 2-5 4-5a2.5 2.5 0 010 5"/>',
+  cup: '<path d="M5 8h12v6a5 5 0 01-5 5h-2a5 5 0 01-5-5V8z"/><path d="M17 9h1.5a2.5 2.5 0 010 5H17M8 3v2M12 3v2"/>',
+  table: '<path d="M5 5h14v4H5zM6 9v10M18 9v10"/>',
+  qr: '<rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h2v2h-2zM18 14h2M14 18h2M18 18v2"/>',
+  printer: '<path d="M7 9V4h10v5M7 17H5a1 1 0 01-1-1v-6a1 1 0 011-1h14a1 1 0 011 1v6a1 1 0 01-1 1h-2"/><rect x="7" y="14" width="10" height="6"/>',
+  wallet: '<rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M16 15h2"/>',
+  users: '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5a3 3 0 010 6M21 20c0-2.5-1.5-4.6-3.6-5.5"/>'
+};
+const ico = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[n] || ""}</svg>`;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function show(i) {
@@ -151,11 +253,22 @@ function show(i) {
   panel.innerHTML = `
     <h2>${esc(p.name)}</h2>
     <p class="who">${esc(p.who)}</p>
+    ${p.tagline ? `<p class="tag">${esc(p.tagline)}</p>` : ""}
     <ul class="feat">${p.features.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
     <div class="dl">
-      <a class="btn" href="${base(p)}/latest/download/${p.file}">Tải ${esc(p.name)} ${esc(latest.v)}</a>
-      <div>Bản mới nhất cho Windows<small>Phát hành ${esc(latest.date)}</small></div>
+      <a class="btn" id="dlbtn" href="${base(p)}/latest/download/${p.file}">Tải ${esc(p.name)} ${esc(latest.v)}</a>
+      <label class="pick">Chọn phiên bản
+        <select id="ver">${p.versions.map((x, k) => `<option value="${k}">v${esc(x.v)}${k === 0 ? " (mới nhất)" : ""} – ${esc(x.date)}</option>`).join("")}</select>
+      </label>
+      <div id="dlmeta">Bản mới nhất cho Windows<small>Phát hành ${esc(latest.date)}</small></div>
     </div>
+    ${p.chips ? `<h3>${esc(p.chipsTitle || "Phù hợp với")}</h3>
+    <ul class="chips">${p.chips.map(c => `<li>${esc(c)}</li>`).join("")}</ul>` : ""}
+    ${p.highlights ? `<h3>Những việc ${esc(p.name)} làm giúp bạn</h3>
+    <div class="hls">${p.highlights.map(h => `<article class="hl"><div class="ic" aria-hidden="true">${ico(h.icon)}</div><h4>${esc(h.title)}</h4><p>${esc(h.text)}</p>${h.eg ? `<p class="eg"><b>Ví dụ:</b> ${esc(h.eg)}</p>` : ""}</article>`).join("")}</div>` : ""}
+    ${p.story ? `<h3>${esc(p.storyTitle || "Một ngày ở cửa hàng với " + p.name)}</h3>
+    <p class="sub">Ví dụ minh họa các việc thường gặp.</p>
+    <ol class="story">${p.story.map(x => `<li><span class="when">${esc(x.when)}</span><b>${esc(x.title)}</b><span class="t">${esc(x.text)}</span></li>`).join("")}</ol>` : ""}
     <h3>Tất cả phiên bản</h3>
     <div class="tw"><table>
       <thead><tr><th>Phiên bản</th><th>Ngày</th><th>Thay đổi</th><th>Tải</th></tr></thead>
@@ -168,6 +281,13 @@ function show(i) {
         </tr>`).join("")}
       </tbody></table></div>`;
   $("#issues").href = `https://github.com/${OWNER}/${p.id}/issues`;
+  const sel = $("#ver");
+  sel.addEventListener("change", () => {
+    const k = +sel.value, x = p.versions[k];
+    $("#dlbtn").href = k === 0 ? `${base(p)}/latest/download/${p.file}` : `${base(p)}/download/v${encodeURIComponent(x.v)}/${p.file}`;
+    $("#dlbtn").textContent = `Tải ${p.name} ${x.v}`;
+    $("#dlmeta").innerHTML = `${k === 0 ? "Bản mới nhất" : "Bản cũ"} cho Windows<small>Phát hành ${esc(x.date)}</small>`;
+  });
   history.replaceState(null, "", "#" + p.id);
 }
 
