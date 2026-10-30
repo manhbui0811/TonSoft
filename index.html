@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TonSoft – Phần mềm quản lý cho cửa hàng</title>
-<meta name="description" content="TonCoffee, TonFlora, TonMobile, TonBida, TonPawn: phần mềm quản lý cửa hàng chạy trên Windows, có nhiều phiên bản để tải.">
+<meta name="description" content="TonSoft – bộ phần mềm quản lý cửa hàng đơn giản, dễ dùng trên Windows. Tải miễn phí phiên bản mới nhất của TonCoffee, TonFlora, TonMobile, TonBida và TonPawn.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -75,6 +75,71 @@ footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);colo
 @media(max-width:560px){.panel{padding:22px}nav a{margin-left:14px}}
 .pick{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--muted)}
 .pick select{font:inherit;font-size:.95rem;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:9px 12px;min-width:200px;max-width:100%;cursor:pointer}
+
+/* TonSoft refreshed interface */
+:root{--bg:#f4f7f5;--surface:#fff;--ink:#14231b;--muted:#637168;--line:#e2e9e4;--accent:#247451;--on:#fff;--shadow:0 18px 55px rgba(22,48,34,.08)}
+body{background:radial-gradient(ellipse at 12% 0%,rgba(47,125,91,.09),transparent 34%),var(--bg);line-height:1.65}
+.wrap{max-width:1120px}
+header.top{padding:18px 0;border-bottom:1px solid rgba(130,150,137,.18)}
+.logo{font-size:1.45rem;letter-spacing:-.055em}
+.logo:before{content:"";display:inline-block;width:10px;height:10px;margin:0 9px 2px 0;border-radius:3px;background:var(--accent);transform:rotate(45deg)}
+nav a{font-weight:600;font-size:.9rem;transition:color .2s}
+.hero{padding:68px 0 34px}
+.hero:before{content:"PHẦN MỀM QUẢN LÝ CỬA HÀNG";display:inline-flex;align-items:center;gap:8px;padding:7px 12px;margin-bottom:20px;border:1px solid rgba(47,125,91,.2);border-radius:999px;background:rgba(255,255,255,.7);color:var(--accent);font-size:.72rem;font-weight:800;letter-spacing:.11em}
+h1{max-width:17ch;font-size:clamp(2.45rem,6vw,4.5rem);letter-spacing:-.065em;line-height:1.04}
+.lead{max-width:62ch;font-size:1.08rem;line-height:1.8}
+.tabs{gap:10px;margin:34px 0 0}
+.tab{padding:11px 19px;border:1px solid var(--line);border-radius:12px;font-size:.94rem;box-shadow:0 3px 12px rgba(20,35,27,.025)}
+.tab[aria-selected=true]{box-shadow:0 8px 22px color-mix(in srgb,var(--accent) 20%,transparent);border-color:var(--accent)}
+.panel{margin-top:16px;padding:clamp(22px,4vw,42px);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:22px;box-shadow:var(--shadow)}
+.panel h2{font-size:clamp(1.8rem,4vw,2.45rem);letter-spacing:-.05em}
+.who{max-width:75ch;font-size:.94rem}
+.tag{max-width:76ch;font-size:1rem;line-height:1.8}
+.feat{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px 28px;margin:24px 0 30px}
+.feat li{font-size:.94rem;line-height:1.6}
+.dl{align-items:center;gap:18px;padding:22px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 8%,var(--bg)),var(--bg));border:1px solid color-mix(in srgb,var(--accent) 17%,var(--line));border-radius:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:11px;box-shadow:0 8px 20px color-mix(in srgb,var(--accent) 22%,transparent);transition:transform .2s,box-shadow .2s}
+.btn:before{content:"↓";font-size:1.15rem;line-height:1}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px color-mix(in srgb,var(--accent) 28%,transparent)}
+#dlmeta{font-size:.9rem;font-weight:700}
+#dlmeta small{font-size:.8rem;font-weight:400;margin-top:2px}
+.panel h3{margin:38px 0 16px;font-size:1.25rem;letter-spacing:-.025em}
+.hls{grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px}
+.hl{padding:20px;border-radius:15px;background:var(--surface);box-shadow:0 4px 18px rgba(20,35,27,.035)}
+.hl .ic{width:40px;height:40px;border-radius:11px}
+.hl h4{font-size:.98rem;letter-spacing:-.01em}
+.hl p{line-height:1.65}
+.story li{padding-bottom:24px}
+.story .when{box-shadow:0 0 0 5px var(--surface);font-size:.7rem}
+section.info{padding-top:52px}
+section.info h2{font-size:1.35rem;letter-spacing:-.035em}
+.cols{gap:28px}
+.cols>div{padding:25px;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+.cols li{margin:7px 0}
+footer{margin-top:60px}
+@media(max-width:650px){
+ .wrap{padding:0 16px}
+ header.top{align-items:flex-start;gap:12px;flex-wrap:wrap}
+ nav{display:flex;gap:14px;flex-wrap:wrap}
+ nav a{margin:0;font-size:.82rem}
+ .hero{padding:48px 0 24px}
+ .tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tab{padding:10px 8px;font-size:.86rem}
+ .tab:last-child:nth-child(odd){grid-column:1/-1}
+ .panel{padding:20px;border-radius:17px}
+ .dl{align-items:stretch}
+ .btn{width:100%}
+ #dlmeta{width:100%}
+}
+@media(prefers-color-scheme:dark){
+ :root{--bg:#101713;--surface:#18221c;--ink:#edf4ef;--muted:#a5b2a9;--line:#2b3a30;--shadow:0 18px 55px rgba(0,0,0,.2)}
+ body{background:radial-gradient(ellipse at 12% 0%,rgba(47,125,91,.14),transparent 34%),var(--bg)}
+ .hero:before{background:rgba(24,34,28,.8)}
+ .dl{background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+ .hl{box-shadow:none}
+ .cols>div{background:var(--surface)}
+}
+
 </style>
 </head>
 <body>
@@ -87,7 +152,7 @@ footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);colo
   <main>
     <section class="hero">
       <h1>Quản lý cửa hàng, gọn và dễ dùng.</h1>
-      <p class="lead">Năm phần mềm cho năm loại cửa hàng. Chạy trên Windows, tải về mở là dùng.</p>
+      <p class="lead">Bộ phần mềm quản lý dành cho cửa hàng Việt. Dễ sử dụng, đầy đủ tính năng cần thiết và dữ liệu được lưu ngay trên máy tính của bạn.</p>
 
       <div class="tabs" id="tai" role="tablist" aria-label="Chọn phần mềm"></div>
       <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
@@ -98,7 +163,7 @@ footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);colo
         <div>
           <h2>Cách dùng</h2>
           <ol>
-            <li>Chọn phần mềm, chọn phiên bản (mặc định là bản mới nhất) rồi bấm nút tải.</li>
+            <li>Chọn phần mềm phù hợp và bấm <b>Tải phiên bản mới nhất</b>.</li>
             <li>Đặt file vào một thư mục riêng, ví dụ <code>C:\TonCoffee\</code>. Phần mềm là một file duy nhất, không cần cài thêm .NET.</li>
             <li>Mở file. Nếu Windows báo chặn, chọn <b>Thông tin thêm</b> rồi <b>Vẫn chạy</b>.</li>
           </ol>
@@ -114,7 +179,7 @@ footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);colo
         </div>
       </div>
       <h3>Kiểm tra file tải về</h3>
-      <p>Mã SHA256 của mỗi bản nằm trong bảng trên. Mở PowerShell và chạy: <code>certutil -hashfile TonCoffee.exe SHA256</code> (đổi tên file cho đúng phần mềm bạn đã tải).</p>
+      <p>Sau khi tải, bạn có thể kiểm tra file bằng mã SHA256 do TonSoft cung cấp khi cần.</p>
     </section>
 
     <section class="info" id="lien-he">
@@ -320,11 +385,8 @@ function show(i) {
     ${p.tagline ? `<p class="tag">${esc(p.tagline)}</p>` : ""}
     <ul class="feat">${p.features.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
     <div class="dl">
-      <a class="btn" id="dlbtn" href="${base(p)}/latest/download/${p.file}">Tải ${esc(p.name)} ${esc(latest.v)}</a>
-      <label class="pick">Chọn phiên bản
-        <select id="ver">${p.versions.map((x, k) => `<option value="${k}">v${esc(x.v)}${k === 0 ? " (mới nhất)" : ""} – ${esc(x.date)}</option>`).join("")}</select>
-      </label>
-      <div id="dlmeta">Bản mới nhất cho Windows<small>Phát hành ${esc(latest.date)}</small></div>
+      <a class="btn" id="dlbtn" href="${base(p)}/latest/download/${p.file}">Tải ${esc(p.name)} – phiên bản mới nhất</a>
+      <div id="dlmeta">Dành cho Windows 10 / 11 (64-bit)<small>Phiên bản mới nhất · Phát hành ${esc(latest.date)}</small></div>
     </div>
     ${p.chips ? `<h3>${esc(p.chipsTitle || "Phù hợp với")}</h3>
     <ul class="chips">${p.chips.map(c => `<li>${esc(c)}</li>`).join("")}</ul>` : ""}
@@ -332,26 +394,8 @@ function show(i) {
     <div class="hls">${p.highlights.map(h => `<article class="hl"><div class="ic" aria-hidden="true">${ico(h.icon)}</div><h4>${esc(h.title)}</h4><p>${esc(h.text)}</p>${h.eg ? `<p class="eg"><b>Ví dụ:</b> ${esc(h.eg)}</p>` : ""}</article>`).join("")}</div>` : ""}
     ${p.story ? `<h3>${esc(p.storyTitle || "Một ngày ở cửa hàng với " + p.name)}</h3>
     <p class="sub">Ví dụ minh họa các việc thường gặp.</p>
-    <ol class="story">${p.story.map(x => `<li><span class="when">${esc(x.when)}</span><b>${esc(x.title)}</b><span class="t">${esc(x.text)}</span></li>`).join("")}</ol>` : ""}
-    <h3>Tất cả phiên bản</h3>
-    <div class="tw"><table>
-      <thead><tr><th>Phiên bản</th><th>Ngày</th><th>Thay đổi</th><th>Tải</th></tr></thead>
-      <tbody>${p.versions.map((x, k) => `
-        <tr>
-          <td><b>v${esc(x.v)}</b>${k === 0 ? '<span class="badge">Mới nhất</span>' : ""}</td>
-          <td>${esc(x.date)}</td>
-          <td>${esc(x.note)}${x.sha ? `<br><code>${esc(x.sha)}</code>` : ""}</td>
-          <td><a class="dl-link" href="${base(p)}/download/v${encodeURIComponent(x.v)}/${p.file}">Windows</a></td>
-        </tr>`).join("")}
-      </tbody></table></div>`;
+    <ol class="story">${p.story.map(x => `<li><span class="when">${esc(x.when)}</span><b>${esc(x.title)}</b><span class="t">${esc(x.text)}</span></li>`).join("")}</ol>` : ""}`;
   $("#issues").href = `https://github.com/${OWNER}/${repoOf(p)}/issues`;
-  const sel = $("#ver");
-  sel.addEventListener("change", () => {
-    const k = +sel.value, x = p.versions[k];
-    $("#dlbtn").href = k === 0 ? `${base(p)}/latest/download/${p.file}` : `${base(p)}/download/v${encodeURIComponent(x.v)}/${p.file}`;
-    $("#dlbtn").textContent = `Tải ${p.name} ${x.v}`;
-    $("#dlmeta").innerHTML = `${k === 0 ? "Bản mới nhất" : "Bản cũ"} cho Windows<small>Phát hành ${esc(x.date)}</small>`;
-  });
   history.replaceState(null, "", "#" + p.id);
 }
 
