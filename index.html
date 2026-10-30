@@ -250,7 +250,7 @@ const PRODUCTS = [
     ]
   },
   {
-    id: "TonPawn", name: "TonPawn", color: "#6d3fb5",
+    id: "TonPawn", name: "TonPawn", repo: "tonpawn", color: "#6d3fb5",
     who: "Dành cho tiệm cầm đồ",
     tagline: "Khách mang tài sản đến vay, bạn lập hợp đồng và chọn lãi suất, tiền lãi tự tính theo một công thức duy nhất. Chuộc, thanh lý, sổ quỹ và báo cáo lời lỗ đều khớp với nhau.",
     features: ["Hợp đồng cầm cố tài sản, có lưu nháp và nhân bản", "Cầm giấy tờ bằng biên lai riêng", "Loại tài sản tự đặt, mỗi loại một bộ thông tin riêng", "Tính lãi tự động, lãi thực thu sửa được khi chuộc", "Chuộc tài sản, thanh lý và lời lỗ theo cả vòng đời hợp đồng", "Hồ sơ khách hàng kèm ảnh căn cước", "Thư viện ảnh, in nhiều ảnh trên giấy A4", "Sổ quỹ thu chi, báo cáo lãi lỗ có đối chiếu", "Xuất Excel và báo cáo doanh thu hộ kinh doanh", "Phân quyền: nhân viên và chủ tiệm"],
@@ -282,7 +282,8 @@ const PRODUCTS = [
 ];
 /* ========================= */
 
-const base = p => `https://github.com/${OWNER}/${p.id}/releases`;
+const repoOf = p => p.repo || p.id; // tên repo trên GitHub (mặc định = id)
+const base = p => `https://github.com/${OWNER}/${repoOf(p)}/releases`;
 const $ = s => document.querySelector(s);
 const tabs = $("#tabs") || $(".tabs"), panel = $("#panel");
 const ICONS = {
@@ -343,7 +344,7 @@ function show(i) {
           <td><a class="dl-link" href="${base(p)}/download/v${encodeURIComponent(x.v)}/${p.file}">Windows</a></td>
         </tr>`).join("")}
       </tbody></table></div>`;
-  $("#issues").href = `https://github.com/${OWNER}/${p.id}/issues`;
+  $("#issues").href = `https://github.com/${OWNER}/${repoOf(p)}/issues`;
   const sel = $("#ver");
   sel.addEventListener("change", () => {
     const k = +sel.value, x = p.versions[k];
