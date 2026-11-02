@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TonSoft – Phần mềm quản lý cho cửa hàng</title>
-<meta name="description" content="TonSoft – bộ phần mềm quản lý cửa hàng đơn giản, dễ dùng trên Windows. Tải miễn phí phiên bản mới nhất của TonCoffee, TonFlora, TonMobile, TonBida và TonPawn.">
+<meta name="description" content="TonSoft – bộ phần mềm quản lý cửa hàng đơn giản, dễ dùng trên Windows. Tải miễn phí phiên bản mới nhất của TonCoffee, TonFlora, TonFloraX (giặt là), TonMobile, TonBida và TonPawn.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -359,6 +359,42 @@ const PRODUCTS = [
     versions: [
       { v: "1.0.0", date: "30/10/2026", note: "Bản đầu tiên", sha: "" }
     ]
+  },
+  {
+    id: "TonFloraX", name: "TonFloraX", label: "Tiệm giặt là", repo: "tonflorax", color: "#0b7a9b",
+    freeNote: "Dùng miễn phí 200 đơn hoàn thành mỗi tháng · Không cần cài đặt",
+    who: "Dành cho tiệm giặt là, giặt sấy, giặt hấp, ủi: nhận đồ theo kg hoặc theo món",
+    tagline: "Khách mang đồ đến, bạn ghi số kệ, tình trạng đồ, hẹn ngày trả và thu cọc ngay trên một đơn. Đồ đang giặt hay đã giặt xong, đồ nào sắp quá hẹn đều nhìn thấy rõ, khỏi nhớ trong đầu hay ghi sổ tay.",
+    features: ["Nhận đồ theo kg (chia nhỏ tới 0,1 kg) hoặc theo món", "Ghi số kệ, tình trạng đồ lúc nhận, hẹn ngày giờ trả", "Theo dõi giai đoạn: Đã nhận, Đang giặt, Giặt xong, Đã trả", "Thu cọc, thu nốt khi trả đồ, tiền mặt hoặc QR chuyển khoản", "Phụ thu lấy nhanh, giao nhận tận nơi có tính phí", "In phiếu nhận đồ, tem 50×30 dán lên túi, phiếu trả đồ", "Thẻ trả trước: khách nạp tiền, giặt đến đâu trừ đến đó", "Quản lý vật tư như nước giặt, nước xả, túi nilon, móc áo", "Khách hàng, tích điểm, khuyến mãi tự áp", "Dashboard giặt là: đang xử lý, quá hẹn, nhận hôm nay", "Sổ thu chi, thống kê, xuất Excel"],
+    chipsTitle: "Dịch vụ mẫu có sẵn khi mở app lần đầu, sửa giá cho đúng tiệm của bạn",
+    chips: ["Giặt theo kg", "Giặt theo món", "Giặt chăn màn rèm", "Giặt hấp / giặt khô", "Ủi", "Phụ kiện bán (túi, móc áo)"],
+    highlights: [
+      { icon: "drop", title: "Nhận đồ theo kg hoặc theo món", text: "Dịch vụ tính theo kg thì nhập số cân tới 0,1 kg, tiền dòng tự tính. Dịch vụ tính theo món thì chọn món và số lượng. Một đơn trộn được cả hai kiểu.", eg: "Giặt sấy 2,5 kg cộng 2 áo sơ mi giặt ủi: một đơn, một lần thu tiền." },
+      { icon: "hanger", title: "Số kệ, tình trạng đồ, hẹn trả", text: "Mỗi đơn ghi được số kệ hoặc túi, tình trạng đồ lúc nhận để tránh tranh cãi về sau, và ngày giờ hẹn trả. Đơn mới tự gợi ý hẹn trả sau 2 ngày, có nút chọn nhanh +1, +2 ngày.", eg: "Ghi «Áo trắng có vết ố cổ tay, khách đã đồng ý» ngay lúc nhận." },
+      { icon: "clock", title: "Giai đoạn giặt rõ từng đơn", text: "Mỗi đơn đi qua 4 bước: Đã nhận, Đang giặt, Giặt xong, Đã trả. Đổi giai đoạn bằng một nút ngay đầu đơn, danh sách Đơn đang mở có sẵn nhãn và bộ lọc theo giai đoạn. Đơn quá hẹn được đánh dấu đỏ.", eg: "Sáng mở app, lọc «Giặt xong» là biết những túi nào chờ khách đến lấy." },
+      { icon: "wallet", title: "Thu cọc, thu nốt, trả đồ một chỗ", text: "Nhận đồ không bắt phải thu tiền ngay, có nút thu cọc khi cần. Lúc khách đến lấy, hộp Bàn giao thu nốt phần còn lại, đánh dấu đã trả và đóng đơn. Đơn còn nợ thì không cho đóng nên không sót tiền.", eg: "Khách cọc 50.000đ lúc gửi, lấy đồ thì chỉ phải trả phần còn lại." },
+      { icon: "qr", title: "Thu tiền mặt hoặc QR chuyển khoản", text: "Một đơn thu được nhiều khoản. Mã VietQR hiện sẵn đúng số tiền. Đơn đã thu mà khách hủy hoặc lấy thiếu thì lập phiếu hủy, hoàn một phần hay cả đơn, tiền ghi vào sổ thu chi.", eg: "Khách đưa 100.000đ tiền mặt, phần còn lại quét QR, cả hai nằm trong cùng đơn." },
+      { icon: "printer", title: "In phiếu và tem đúng lúc", text: "Phiếu nhận đồ có số kệ, tình trạng, hẹn trả và mã QR của đơn. Tem 50×30 có mã vạch để dán lên túi, quét mã là mở đúng đơn. Có phiếu tạm tính, phiếu trả đồ kèm hóa đơn, in lại thì ghi rõ bản in lại. Hỗ trợ khổ K58, K80, A5.", eg: "Nút In ở POS mở danh sách loại phiếu, bấm một lần là in." },
+      { icon: "gift", title: "Thẻ trả trước cho khách quen", text: "Khách nạp tiền vào thẻ, mỗi lần giặt dùng thẻ để thanh toán, số dư luôn hiện trong hồ sơ khách. Tiền nạp ghi vào sổ thu chi, nạp nhầm thì hủy được, trả lại tiền thẻ cũng có sổ sách. Số dư không bao giờ âm.", eg: "Khách nạp 500.000đ, mỗi lần giặt trừ dần, lịch sử nạp và dùng xem được trong hồ sơ." },
+      { icon: "box", title: "Quản lý nước giặt, nước xả", text: "Vật tư dùng trong tiệm tách riêng khỏi hàng bán: không hiện ở POS nhưng có tồn kho, mức báo sắp hết và nhập hàng từ nhà cung cấp. Dùng đến đâu bấm xuất dùng đến đó. Túi nilon, móc áo bán cho khách thì là sản phẩm bình thường.", eg: "Có sẵn 6 vật tư mẫu như nước giặt, nước xả, túi nilon, móc áo." },
+      { icon: "truck", title: "Phụ thu và giao nhận tận nơi", text: "Phụ thu lấy nhanh thêm vào đơn như một dịch vụ, đơn có dòng này tự được đánh dấu lấy nhanh. Khách cần giao tận nơi thì ghi người nhận, số điện thoại, địa chỉ và phí giao ngay trong đơn.", eg: "Giặt lấy nhanh trong ngày: thêm dòng «Phụ thu lấy nhanh», đơn tự nổi lên." },
+      { icon: "chart", title: "Dashboard giặt là", text: "Tab Giặt là cho xem số đơn đang xử lý theo từng giai đoạn, số đơn quá hẹn, đồ nhận hôm nay (kg và món) và doanh thu theo từng dịch vụ. Số liệu tự làm mới sau mỗi phút, nên màn hình để ở quầy là thấy việc cần làm.", eg: "Đầu giờ chiều thấy «Quá hẹn: 2», bấm vào là gọi khách ngay." },
+      { icon: "percent", title: "Khách quen, tích điểm, khuyến mãi", text: "Gắn khách vào đơn, mua là tích điểm, lần sau dùng điểm trừ tiền. Khuyến mãi tự áp vào đơn, phần mềm chọn mức tốt nhất. Mức quy đổi điểm do chủ tiệm đặt.", eg: "Ví dụ cứ 10.000đ được 1 điểm, 1 điểm trừ 100đ." },
+      { icon: "users", title: "Nhân viên và dữ liệu an toàn", text: "Mỗi nhân viên một tài khoản. Nhân viên nhận đồ, thu tiền, đổi giai đoạn, in phiếu; báo cáo đầy đủ, thu chi, kiểm kho, hủy phiếu mặc định do chủ tiệm giữ. Dữ liệu nằm ngay trên máy bạn, có sao lưu và khôi phục, giao diện sáng hoặc tối." }
+    ],
+    storyTitle: "Một ngày ở tiệm giặt với TonFloraX",
+    story: [
+      { when: "7h30", title: "Mở tiệm", text: "Đăng nhập là thấy Dashboard giặt là: bao nhiêu đơn đang giặt, đồ nào hẹn trả hôm nay, có đơn nào quá hẹn từ hôm qua không." },
+      { when: "9h", title: "Khách gửi một túi đồ", text: "Mở POS, gắn khách, chọn «Giặt sấy thường», nhập 3,2 kg. Ghi số kệ, ghi lại áo có vết ố, hẹn trả sau 2 ngày. Khách cọc trước một phần." },
+      { when: "9h10", title: "In phiếu, dán tem", text: "In phiếu nhận đồ đưa khách, in tem 50×30 dán lên túi. Lúc sau quét mã trên tem là mở đúng đơn." },
+      { when: "11h", title: "Đồ giặt xong", text: "Đổi đơn sang «Đang giặt», rồi «Giặt xong» khi sấy gấp xong. Nước giặt gần hết thì xem Kho để nhập thêm." },
+      { when: "16h", title: "Khách đến lấy đồ", text: "Mở hộp Bàn giao: thu nốt phần còn lại bằng QR, đánh dấu đã trả và đóng đơn. Phiếu trả đồ kèm hóa đơn in ra, điểm tích lũy được cộng." },
+      { when: "21h", title: "Chốt ngày", text: "Xem doanh thu theo dịch vụ, đối chiếu sổ thu chi, xuất Excel nếu cần gửi chủ. Nhớ sao lưu dữ liệu." }
+    ],
+    file: "TonFloraX.exe",
+    versions: [
+      { v: "1.0.0", date: "02/11/2026", note: "Bản đầu tiên", sha: "" }
+    ]
   }
 ];
 /* ========================= */
@@ -386,6 +422,9 @@ const ICONS = {
   clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
   image: '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-8 8"/>',
   percent: '<path d="M19 5L5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>',
+  drop: '<path d="M12 3s6 6.2 6 10.5a6 6 0 01-12 0C6 9.2 12 3 12 3z"/><path d="M9.5 14a2.5 2.5 0 002.5 2.5"/>',
+  hanger: '<path d="M12 8a2.2 2.2 0 10-2.2-2.2M12 8v2l9 6a1 1 0 01-.6 1.8H3.6A1 1 0 013 16l9-6"/>',
+  truck: '<path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/>',
   users: '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5a3 3 0 010 6M21 20c0-2.5-1.5-4.6-3.6-5.5"/>'
 };
 const ico = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[n] || ""}</svg>`;
@@ -424,7 +463,7 @@ function show(i) {
     <ol class="story">${p.story.map(x => `<li><span class="when">${esc(x.when)}</span><b>${esc(x.title)}</b><span class="t">${esc(x.text)}</span></li>`).join("")}</ol>` : ""}
     <div class="dl" style="margin-top:36px">
       <a class="btn" href="${base(p)}/latest/download/${p.file}">Tải ${esc(p.name)} về máy</a>
-      <div id="dlmeta">Tải về, bấm mở là dùng ngay<small>Miễn phí · Không cần cài đặt</small></div>
+      <div id="dlmeta">Tải về, bấm mở là dùng ngay<small>${esc(p.freeNote || "Miễn phí · Không cần cài đặt")}</small></div>
     </div>`;
   $("#issues").href = `https://github.com/${OWNER}/${repoOf(p)}/issues`;
   history.replaceState(null, "", "#" + p.id);
