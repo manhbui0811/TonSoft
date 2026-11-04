@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TonSoft – Phần mềm quản lý cho cửa hàng</title>
 <meta name="description" content="TonSoft – bộ phần mềm quản lý cửa hàng đơn giản, dễ dùng trên Windows. Tải miễn phí phiên bản mới nhất của TonCoffee, TonFlora, TonFloraX (giặt là), TonMobile, TonBida và TonPawn.">
+<link rel="canonical" href="https://manhbui0811.github.io/TonSoft/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TonSoft">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:url" content="https://manhbui0811.github.io/TonSoft/">
+<meta property="og:title" content="TonFlora – Quản lý bán hàng miễn phí trọn đời | TonSoft">
+<meta property="og:description" content="Dành cho anh chị em kinh doanh nhỏ lẻ, khởi nghiệp. Tải về là dùng, không cần cài đặt, không phí hàng tháng.">
+<meta property="og:image" content="https://manhbui0811.github.io/TonSoft/images/og-tonflora.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TonFlora – phần mềm quản lý bán hàng miễn phí trọn đời của TonSoft">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TonFlora – Quản lý bán hàng miễn phí trọn đời | TonSoft">
+<meta name="twitter:description" content="Dành cho anh chị em kinh doanh nhỏ lẻ, khởi nghiệp. Tải về là dùng, không cần cài đặt.">
+<meta name="twitter:image" content="https://manhbui0811.github.io/TonSoft/images/og-tonflora.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -155,6 +171,34 @@ footer{margin-top:60px}
 .steps3 b{display:block}
 .steps3 .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--on);font-weight:800;display:grid;place-items:center}
 .warn{margin:12px 0 28px;font-size:.88rem;color:var(--muted)}
+.shot{margin:0 0 22px;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.shot img{display:block;width:100%;height:auto}
+.shot.banner{margin-bottom:18px}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:22px 18px;align-items:start}
+.gal figure{margin:0}
+.gal .shot{aspect-ratio:1366/728;background:var(--bg);margin:0 0 8px;cursor:zoom-in;transition:transform .2s,border-color .2s}
+.gal .shot:hover{transform:translateY(-3px);border-color:var(--accent)}
+.gal .shot img{height:100%;object-fit:contain}
+.gal b{display:block;line-height:1.35}
+.gal figcaption span{color:var(--muted);font-size:.9rem}
+.ss{margin:0 0 8px;padding:18px;border-radius:16px;background:color-mix(in srgb,var(--accent) 8%,var(--surface));border:1px dashed var(--accent)}
+.ss h3{margin:0 0 12px!important}
+.ssl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px}
+.ssl li{display:flex;flex-direction:column;gap:8px}
+.ssl .hd{display:flex;gap:10px;align-items:center;font-weight:700}
+.ssl .n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--on);display:grid;place-items:center;font-weight:800}
+.ssn{margin:10px 2px 0;font-size:.88rem;color:var(--muted)}
+.seg{display:inline-flex;padding:4px;border-radius:999px;background:var(--bg);border:1px solid var(--line);margin:0 0 14px}
+.seg button{font:inherit;font-weight:700;border:0;background:transparent;color:var(--muted);padding:8px 20px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--accent);color:var(--on)}
+.themeshot{margin:0 0 8px;cursor:zoom-in}
+.themeshot img[hidden]{display:none}
+h1{max-width:none!important;font-size:clamp(2rem,5.2vw,3.3rem)!important}
+.hero{padding-top:28px!important}
+#lb{border:0;padding:0;background:transparent;max-width:96vw;max-height:94vh;overflow:visible}
+#lb::backdrop{background:rgba(0,0,0,.82)}
+#lb img{display:block;max-width:96vw;max-height:86vh;width:auto;height:auto;border-radius:12px;margin:0 auto}
+#lb p{margin:10px 0 0;text-align:center;color:#fff;font-weight:700}
 </style>
 </head>
 <body>
@@ -206,6 +250,8 @@ footer{margin-top:60px}
   <footer>© <span id="y"></span> TonSoft. Mọi quyền được bảo lưu.</footer>
 </div>
 
+<dialog id="lb" aria-label="Ảnh phóng to"><img alt=""><p></p></dialog>
+
 <script>
 /* ====== CHỈNH Ở ĐÂY ====== */
 const OWNER = "manhbui0811"; // tên tài khoản GitHub
@@ -242,30 +288,26 @@ const PRODUCTS = [
   },
   {
     id: "TonFlora", name: "TonFlora", label: "Cửa hàng bán lẻ", color: "#2f7d5b",
-    who: "Dành cho cửa hàng bán lẻ nhiều ngành: thời trang, tạp hóa, hoa, bánh ngọt, đồ trẻ em, vật tư xây dựng, điện nước, nhà thuốc",
-    tagline: "Mở app lần đầu, chọn đúng loại cửa hàng của bạn, danh mục và sản phẩm mẫu hiện ra sẵn. Sửa giá, thêm hàng rồi bán ngay, không phải dựng từ con số 0.",
-    features: ["Chọn loại cửa hàng, có sẵn danh mục và sản phẩm mẫu", "Một sản phẩm, nhiều phân loại: màu, size, dung lượng… tự đặt", "Quét mã vạch, in tem mã vạch nhiều khổ", "Bán hàng, đặt cọc, giao hàng, thu tiền mặt hoặc QR", "Theo dõi tồn kho, nhập hàng, kiểm kho", "Khuyến mãi tự động và tích điểm khách hàng", "Hủy, hoàn hàng bằng phiếu rõ ràng", "Thống kê và xuất Excel"],
-    chipsTitle: "8 loại cửa hàng có sẵn, chọn một khi mở app lần đầu",
+    tagline: "Chọn ngành, có sẵn hàng mẫu. Sửa giá rồi bán ngay.",
+    features: [],
+    chipsTitle: "8 ngành có sẵn hàng mẫu",
     chips: ["Quần áo & thời trang", "Tạp hóa & văn phòng phẩm", "Hoa, cây cảnh & phụ kiện", "Bánh ngọt", "Trẻ em & sơ sinh", "Vật tư xây dựng", "Điện nước & gia dụng", "Nhà thuốc"],
-    highlights: [
-      { icon: "store", title: "Có sẵn hàng mẫu đúng ngành", text: "Mỗi loại cửa hàng có 5 đến 7 danh mục và khoảng 14 đến 30 sản phẩm mẫu, kèm đơn vị tính và giá tham khảo. Dòng giới thiệu trên hóa đơn cũng tự đặt đúng ngành.", eg: "Chọn «Nhà thuốc»: có ngay nhóm thuốc không kê đơn, vitamin, dụng cụ y tế, sơ cứu." },
-      { icon: "tag", title: "Một sản phẩm, nhiều phân loại tự đặt", text: "Mỗi sản phẩm chia được thành nhiều phân loại, mỗi phân loại một giá và một tồn kho. Bạn tự đặt tên cho hợp ngành mình, không bị gò vào «màu» hay «size».", eg: "Áo thun: «Đen / M», «Trắng / XL». Bánh kem: «Socola / 20cm». Keo dán gạch: «Bao 25kg»." },
-      { icon: "scan", title: "Quét mã vạch ngay ở quầy", text: "Quét mã để thêm hàng vào đơn. Món nào chưa có mã thì in tem mã vạch nhiều khổ giấy để dán.", eg: "Nhập lô hàng mới xong, in tem dán lên từng món chỉ vài thao tác." },
-      { icon: "cart", title: "Bán hàng, đặt cọc, giao hàng", text: "Thu tiền mặt hoặc quét QR chuyển khoản. Khách đặt cọc, hẹn ngày lấy hay cần giao tận nơi đều có chỗ ghi sẵn. Hàng dịch vụ cho sửa giá ngay trên dòng đơn.", eg: "Bánh kem vẽ theo yêu cầu: nhập giá theo mẫu khách chọn, thu cọc, hẹn ngày lấy." },
-      { icon: "swap", title: "Hủy, hoàn hàng rõ ràng", text: "Khách trả một phần hay hủy cả đơn đều lập bằng một phiếu: chọn dòng cần hoàn, nhập số tiền giữ lại nếu có. Hàng tự nhập lại kho, tiền hoàn ghi vào sổ thu chi.", eg: "Khách trả 2 trong 3 cái áo: chọn đúng 2 dòng, hàng quay về kho." },
-      { icon: "box", title: "Kho luôn khớp với quầy", text: "Nhập hàng từ nhà cung cấp, kiểm kho, báo hàng sắp hết. Hàng đã được khách cọc hoặc đang chờ giao được tính riêng, nên bạn biết còn bao nhiêu hàng có thể bán.", eg: "Quầy hiện cảnh báo khi số khách đặt vượt số còn lại, nhưng không chặn bạn bán." },
-      { icon: "gift", title: "Khuyến mãi và tích điểm", text: "Khuyến mãi tự áp vào đơn, phần mềm chọn mức tốt nhất cho đơn đó. Khách quen tích điểm khi mua và dùng điểm để trừ tiền.", eg: "Lần sau khách dùng điểm trừ thẳng vào hóa đơn, số điểm còn lại in trên phiếu." },
-      { icon: "chart", title: "Nhìn cả cửa hàng trong một màn hình", text: "Thống kê hiện doanh thu, số đơn, hàng bán chạy, hàng sắp hết và thu chi. Xem theo kỳ tối đa 31 ngày, xuất Excel khi cần.", eg: "Chủ cửa hàng quyết định ai được xem thống kê và phần thu chi." },
-      { icon: "users", title: "Nhân viên, hóa đơn, sao lưu", text: "Mỗi nhân viên một tài khoản, mỗi vai trò một bộ quyền. In hóa đơn khổ K80, K58 hoặc A5 kèm mã QR. Dữ liệu nằm ngay trên máy bạn, có sao lưu và khôi phục." }
+    image: "images/og-tonflora.jpg", imageAlt: "TonFlora – quản lý bán hàng miễn phí trọn đời",
+    shotsTitle: "Xem nhanh TonFlora",
+    shots: [
+      { img: "images/tonflora/01-chon-nganh.webp", w: 1184, h: 712, t: "Chọn ngành", s: "Có sẵn danh mục và sản phẩm mẫu" },
+      { img: "images/tonflora/02-ban-hang.webp", w: 1366, h: 728, t: "Bán hàng", s: "Bấm chọn món, tiền tự tính" },
+      { img: "images/tonflora/03-thanh-toan-qr.webp", w: 1366, h: 728, t: "Thanh toán", s: "Tiền mặt hoặc quét mã QR" },
+      { img: "images/tonflora/05-san-pham.webp", w: 1365, h: 730, t: "Sản phẩm", s: "Một món, nhiều phân loại" },
+      { img: "images/tonflora/06-tem-ma-vach.webp", w: 1366, h: 728, t: "In tem mã vạch", s: "Quét mã ngay ở quầy" },
+      { img: "images/tonflora/04-hoa-don.webp", w: 1023, h: 641, t: "In hóa đơn", s: "Khổ K80, K58, A5" },
+      { img: "images/tonflora/07-thu-chi.webp", w: 1366, h: 728, t: "Sổ thu chi", s: "Tiền vào, tiền ra rõ ràng" },
+      { img: "images/tonflora/08-thong-ke.webp", w: 1366, h: 728, t: "Thống kê", s: "Doanh thu và lợi nhuận, xuất Excel" }
     ],
-    storyTitle: "Một ngày ở tiệm hoa với TonFlora",
-    story: [
-      { when: "7h", title: "Mở app lần đầu", text: "Tạo tài khoản chủ cửa hàng, chọn «Hoa, cây cảnh & phụ kiện». Hoa hồng, hoa ly, chậu cây và bó hoa mẫu hiện ra sẵn, bạn chỉnh lại giá cho đúng tiệm mình." },
-      { when: "9h", title: "Hàng mới về", text: "Lập phiếu nhập từ nhà cung cấp. Bấm Hoàn thành là tồn kho tăng, rồi in tem mã vạch cho những món cần dán." },
-      { when: "11h", title: "Khách đặt một bó hoa lớn", text: "Chọn «Bó hoa hồng», sửa giá theo mẫu khách chọn, ghi giờ hẹn lấy. Khách cọc trước, đơn nằm ở mục Đơn đang mở." },
-      { when: "16h", title: "Khách đến lấy hoa", text: "Thu nốt phần còn lại bằng QR chuyển khoản, bấm Hoàn thành. Hóa đơn in ra có sẵn điểm tích lũy của khách." },
-      { when: "21h", title: "Chốt ngày", text: "Mở Thống kê xem doanh thu, đơn còn mở, hàng sắp hết. Cần gửi chủ thì xuất Excel báo cáo ngày." }
-    ],
+    noSteps: true,
+    smartNote: true,
+    theme: { title: "Sáng hay tối tùy bạn", sub: "Đổi chế độ chỉ với một lần bấm", w: 1366, h: 728,
+      light: "images/tonflora/09-che-do-sang.webp", dark: "images/tonflora/10-che-do-toi.webp" },
     file: "TonFlora.exe",
     versions: [
       { v: "1.0.0", date: "19/10/2026", note: "Bản đầu tiên", sha: "" }
@@ -439,21 +481,29 @@ function show(i) {
     <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/${esc(p.video)}" title="Video hướng dẫn ${esc(p.name)}" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
     <p class="vidl">Không xem được? <a href="https://www.youtube.com/watch?v=${esc(p.video)}" target="_blank" rel="noopener">Mở trên YouTube</a></p>` : ""}
     <h2>${esc(p.name)}<small>${esc(p.label)}</small></h2>
-    <p class="who">${esc(p.who)}</p>
+    ${p.who ? `<p class="who">${esc(p.who)}</p>` : ""}
     ${p.tagline ? `<p class="tag">${esc(p.tagline)}</p>` : ""}
     <span class="quick">✓ Chỉ cần tải về và dùng ngay</span>
     <div class="dl">
       <a class="btn" id="dlbtn" href="${base(p)}/latest/download/${p.file}">Tải ${esc(p.name)} về máy</a>
       <div id="dlmeta">Dùng được ngay trên Windows 10 / 11 (64-bit)<small>Bản mới nhất · Phát hành ${esc(latest.date)}</small></div>
     </div>
-    <ol class="steps3">
+    ${p.smartNote ? `<p class="ssn">Nếu Windows SmartScreen báo chặn: chọn <b>Thông tin thêm</b> → <b>Vẫn chạy</b>.</p>` : ""}
+    ${p.image ? `<figure class="shot banner" style="margin-top:22px"><img src="${esc(p.image)}" alt="${esc(p.imageAlt || p.name)}" width="1200" height="630" decoding="async"></figure>` : ""}
+    ${p.noSteps ? "" : `<ol class="steps3">
       <li><span class="n">1</span><span><b>Tải về</b>Bấm nút xanh ở trên</span></li>
       <li><span class="n">2</span><span><b>Mở file</b>Bấm đúp, không cần cài đặt</span></li>
       <li><span class="n">3</span><span><b>Dùng ngay</b>Đăng nhập và bắt đầu làm việc</span></li>
     </ol>
-    <p class="warn">Windows báo chặn? Chọn <b>Thông tin thêm</b> rồi <b>Vẫn chạy</b>.</p>
-    <h3 style="margin-top:8px">${esc(p.name)} có những gì</h3>
-    <ul class="feat">${p.features.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
+    <p class="warn">Windows báo chặn? Chọn <b>Thông tin thêm</b> rồi <b>Vẫn chạy</b>.</p>`}
+    ${p.features && p.features.length ? `<h3 style="margin-top:8px">${esc(p.name)} có những gì</h3>
+    <ul class="feat">${p.features.map(f => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}
+    ${p.shots ? `<h3>${esc(p.shotsTitle || "Xem nhanh")}</h3>
+    <div class="gal">${p.shots.map(x => `<figure><div class="shot"><img src="${esc(x.img)}" alt="${esc(x.t)}: ${esc(x.s)}" width="${x.w}" height="${x.h}" loading="lazy" decoding="async" data-zoom></div><figcaption><b>${esc(x.t)}</b><span>${esc(x.s)}</span></figcaption></figure>`).join("")}</div>` : ""}
+    ${p.theme ? `<h3>${esc(p.theme.title)}</h3>
+    <div class="seg" role="group" aria-label="Chế độ hiển thị"><button type="button" data-m="light" aria-pressed="true">☀ Sáng</button><button type="button" data-m="dark" aria-pressed="false">☾ Tối</button></div>
+    <figure class="shot themeshot"><img data-t="light" src="${esc(p.theme.light)}" alt="${esc(p.name)} chế độ sáng" width="${p.theme.w}" height="${p.theme.h}" loading="lazy" decoding="async" data-zoom><img data-t="dark" src="${esc(p.theme.dark)}" alt="${esc(p.name)} chế độ tối" width="${p.theme.w}" height="${p.theme.h}" loading="lazy" decoding="async" data-zoom hidden></figure>
+    <p class="sub">${esc(p.theme.sub)}</p>` : ""}
     ${p.chips ? `<h3>${esc(p.chipsTitle || "Phù hợp với")}</h3>
     <ul class="chips">${p.chips.map(c => `<li>${esc(c)}</li>`).join("")}</ul>` : ""}
     ${p.highlights ? `<h3>Những việc ${esc(p.name)} làm giúp bạn</h3>
@@ -465,12 +515,26 @@ function show(i) {
       <a class="btn" href="${base(p)}/latest/download/${p.file}">Tải ${esc(p.name)} về máy</a>
       <div id="dlmeta">Tải về, bấm mở là dùng ngay<small>${esc(p.freeNote || "Miễn phí · Không cần cài đặt")}</small></div>
     </div>`;
+  if (p.theme && matchMedia("(prefers-color-scheme: dark)").matches) { const d = panel.querySelector('.seg [data-m="dark"]'); if (d) d.click(); }
   $("#issues").href = `https://github.com/${OWNER}/${repoOf(p)}/issues`;
   history.replaceState(null, "", "#" + p.id);
 }
 
 tabs.innerHTML = PRODUCTS.map((p, i) =>
   `<button class="tab" role="tab" aria-selected="false" data-i="${i}">${esc(p.name)}<small>${esc(p.label)}</small></button>`).join("");
+const lb = $("#lb");
+panel.addEventListener("click", e => {
+  const mb = e.target.closest(".seg button");
+  if (mb) { const m = mb.dataset.m, f = panel.querySelector(".themeshot");
+    mb.parentNode.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === mb));
+    f.querySelectorAll("img").forEach(x => x.hidden = x.dataset.t !== m); return; }
+  const im = e.target.closest("img[data-zoom]"); if (!im || !lb.showModal) return;
+  lb.querySelector("img").src = im.src; lb.querySelector("img").alt = im.alt;
+  const cap = im.closest("figure").querySelector("b");
+  lb.querySelector("p").textContent = cap ? cap.textContent : im.alt;
+  lb.showModal();
+});
+lb.addEventListener("click", () => lb.close());
 tabs.addEventListener("click", e => { const b = e.target.closest(".tab"); if (b) show(+b.dataset.i); });
 
 const start = PRODUCTS.findIndex(p => "#" + p.id === location.hash);
