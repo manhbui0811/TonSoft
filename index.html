@@ -1,533 +1,2151 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TonSoft – Phần mềm quản lý cho cửa hàng</title>
-<meta name="description" content="TonSoft – bộ phần mềm quản lý cửa hàng đơn giản, dễ dùng trên Windows. Tải miễn phí phiên bản mới nhất của TonCoffee, TonFlora, TonFloraX (giặt là), TonMobile, TonBida và TonPawn.">
-<link rel="canonical" href="https://manhbui0811.github.io/TonSoft/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="TonSoft">
-<meta property="og:locale" content="vi_VN">
-<meta property="og:url" content="https://manhbui0811.github.io/TonSoft/">
-<meta property="og:title" content="TonFlora – Quản lý bán hàng miễn phí trọn đời | TonSoft">
-<meta property="og:description" content="Dành cho anh chị em kinh doanh nhỏ lẻ, khởi nghiệp. Tải về là dùng, không cần cài đặt, không phí hàng tháng.">
-<meta property="og:image" content="https://manhbui0811.github.io/TonSoft/images/og-tonflora.jpg">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="TonFlora – phần mềm quản lý bán hàng miễn phí trọn đời của TonSoft">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="TonFlora – Quản lý bán hàng miễn phí trọn đời | TonSoft">
-<meta name="twitter:description" content="Dành cho anh chị em kinh doanh nhỏ lẻ, khởi nghiệp. Tải về là dùng, không cần cài đặt.">
-<meta name="twitter:image" content="https://manhbui0811.github.io/TonSoft/images/og-tonflora.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#f5f6f2;--surface:#fff;--ink:#16211b;--muted:#5b6760;--line:#dfe3dc;--accent:#2f7d5b;--on:#fff}
-@media(prefers-color-scheme:dark){:root{--bg:#121714;--surface:#1b221e;--ink:#eef2ee;--muted:#9aa79f;--line:#2c3630}}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;transition:background .3s}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.wrap{max-width:960px;margin:0 auto;padding:0 20px}
-header.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
-.logo{font-weight:800;font-size:1.25rem;letter-spacing:-.02em;text-decoration:none}
-.logo span{color:var(--accent)}
-nav a{margin-left:20px;text-decoration:none;color:var(--muted);font-size:.95rem}
-nav a:hover{color:var(--ink)}
-.hero{padding:56px 0 36px}
-h1{font-size:clamp(2.2rem,6vw,3.9rem);line-height:1.08;letter-spacing:-.03em;margin:0 0 16px;font-weight:800;max-width:15ch}
-.lead{font-size:1.15rem;color:var(--muted);max-width:52ch;margin:0}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:32px 0 0}
-.tab{font:inherit;font-weight:700;border:2px solid var(--line);background:var(--surface);color:var(--ink);padding:10px 18px;border-radius:999px;cursor:pointer;transition:all .2s}
-.tab[aria-selected=true]{background:var(--accent);border-color:var(--accent);color:var(--on)}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:32px;margin-top:20px;border-top:6px solid var(--accent)}
-.panel h2{margin:0 0 4px;font-size:1.9rem;letter-spacing:-.02em}
-.who{color:var(--muted);margin:0 0 20px}
-.feat{list-style:none;padding:0;margin:0 0 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px 24px}
-.feat li{padding-left:26px;position:relative}
-.feat li::before{content:"";position:absolute;left:0;top:.5em;width:14px;height:8px;border-left:3px solid var(--accent);border-bottom:3px solid var(--accent);transform:rotate(-45deg) scale(.8)}
-.dl{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:20px;border-radius:14px;background:var(--bg)}
-.btn{display:inline-block;background:var(--accent);color:var(--on);font-weight:700;text-decoration:none;padding:14px 26px;border-radius:12px;transition:transform .15s}
-.btn:hover{transform:translateY(-2px)}
-.dl small{color:var(--muted);display:block}
-h3{margin:36px 0 12px;font-size:1.1rem}
-.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
-table{width:100%;border-collapse:collapse;min-width:520px;font-size:.95rem}
-th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line)}
-tr:last-child td{border-bottom:0}
-th{color:var(--muted);font-weight:500;font-size:.85rem}
-.badge{background:var(--accent);color:var(--on);font-size:.75rem;font-weight:700;padding:2px 8px;border-radius:6px;margin-left:8px}
-.dl-link{color:var(--accent);font-weight:700}
-section.info{padding:48px 0 0}
-section.info h2{font-size:1.5rem;letter-spacing:-.02em;margin:0 0 12px}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px}
-ol,ul.plain{padding-left:20px;margin:0}
-code{background:var(--surface);border:1px solid var(--line);padding:2px 6px;border-radius:6px;font-size:.88em;word-break:break-all}
-footer{margin-top:64px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
-.tag{color:var(--muted);font-size:1.05rem;margin:0 0 20px;max-width:62ch}
-.hls{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
-.hl{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;transition:transform .2s,border-color .2s}
-.hl:hover{transform:translateY(-3px);border-color:var(--accent)}
-.hl .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--accent);color:var(--on);margin-bottom:12px}
-.hl .ic svg{width:22px;height:22px}
-.hl h4{margin:0 0 6px;font-size:1.02rem}
-.hl p{margin:0;color:var(--muted);font-size:.93rem}
-.hl .eg{margin-top:10px;padding-left:10px;border-left:3px solid var(--accent);color:var(--ink);font-size:.88rem}
-.sub{color:var(--muted);margin:-6px 0 18px;font-size:.93rem}
-.story{list-style:none;margin:0;padding:0;position:relative}
-.story::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--line)}
-.story li{position:relative;padding:0 0 22px 58px}
-.story li:last-child{padding-bottom:0}
-.story .when{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--on);font-size:.72rem;font-weight:800;display:grid;place-items:center;box-shadow:0 0 0 5px var(--surface)}
-.story b{display:block;margin-bottom:2px}
-.story .t{color:var(--muted);font-size:.95rem}
-.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0}
-.chips li{padding:7px 14px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);font-weight:500;font-size:.92rem}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-@media(max-width:560px){.panel{padding:22px}nav a{margin-left:14px}}
-.pick{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--muted)}
-.pick select{font:inherit;font-size:.95rem;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:9px 12px;min-width:200px;max-width:100%;cursor:pointer}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TonFlora – Phần mềm quản lý bán hàng Miễn Phí Trọn Đời | TonSoft</title>
+  <meta name="description" content="TonFlora – Phần mềm quản lý bán hàng miễn phí trọn đời cho cửa hàng bán lẻ, tạp hóa, thời trang, hoa tươi, siêu thị mini... Tải về dùng ngay, không cần cài đặt, không phí tháng.">
+  <link rel="canonical" href="https://manhbui0811.github.io/TonSoft/">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TonFlora by TonSoft">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:url" content="https://manhbui0811.github.io/TonSoft/">
+  <meta property="og:title" content="TonFlora – Quản lý bán hàng Miễn Phí Trọn Đời cho cửa hàng bán lẻ">
+  <meta property="og:description" content="Dành riêng cho hộ kinh doanh nhỏ lẻ, khởi nghiệp. 100% Không phí tháng - Tải về là dùng ngay, lưu dữ liệu offline an toàn.">
+  <meta property="og:image" content="images/og-tonflora.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
-/* TonSoft refreshed interface */
-:root{--bg:#f4f7f5;--surface:#fff;--ink:#14231b;--muted:#637168;--line:#e2e9e4;--accent:#247451;--on:#fff;--shadow:0 18px 55px rgba(22,48,34,.08)}
-body{background:radial-gradient(ellipse at 12% 0%,rgba(47,125,91,.09),transparent 34%),var(--bg);line-height:1.65}
-.wrap{max-width:1120px}
-header.top{padding:18px 0;border-bottom:1px solid rgba(130,150,137,.18)}
-.logo{font-size:1.45rem;letter-spacing:-.055em}
-.logo:before{content:"";display:inline-block;width:10px;height:10px;margin:0 9px 2px 0;border-radius:3px;background:var(--accent);transform:rotate(45deg)}
-nav a{font-weight:600;font-size:.9rem;transition:color .2s}
-.hero{padding:68px 0 34px}
-.hero:before{content:"PHẦN MỀM QUẢN LÝ CỬA HÀNG";display:inline-flex;align-items:center;gap:8px;padding:7px 12px;margin-bottom:20px;border:1px solid rgba(47,125,91,.2);border-radius:999px;background:rgba(255,255,255,.7);color:var(--accent);font-size:.72rem;font-weight:800;letter-spacing:.11em}
-h1{max-width:17ch;font-size:clamp(2.45rem,6vw,4.5rem);letter-spacing:-.065em;line-height:1.04}
-.lead{max-width:62ch;font-size:1.08rem;line-height:1.8}
-.tabs{gap:10px;margin:34px 0 0}
-.tab{padding:11px 19px;border:1px solid var(--line);border-radius:12px;font-size:.94rem;box-shadow:0 3px 12px rgba(20,35,27,.025)}
-.tab[aria-selected=true]{box-shadow:0 8px 22px color-mix(in srgb,var(--accent) 20%,transparent);border-color:var(--accent)}
-.panel{margin-top:16px;padding:clamp(22px,4vw,42px);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:22px;box-shadow:var(--shadow)}
-.panel h2{font-size:clamp(1.8rem,4vw,2.45rem);letter-spacing:-.05em}
-.who{max-width:75ch;font-size:.94rem}
-.tag{max-width:76ch;font-size:1rem;line-height:1.8}
-.feat{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px 28px;margin:24px 0 30px}
-.feat li{font-size:.94rem;line-height:1.6}
-.dl{align-items:center;gap:18px;padding:22px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 8%,var(--bg)),var(--bg));border:1px solid color-mix(in srgb,var(--accent) 17%,var(--line));border-radius:16px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:11px;box-shadow:0 8px 20px color-mix(in srgb,var(--accent) 22%,transparent);transition:transform .2s,box-shadow .2s}
-.btn:before{content:"↓";font-size:1.15rem;line-height:1}
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px color-mix(in srgb,var(--accent) 28%,transparent)}
-#dlmeta{font-size:.9rem;font-weight:700}
-#dlmeta small{font-size:.8rem;font-weight:400;margin-top:2px}
-.panel h3{margin:38px 0 16px;font-size:1.25rem;letter-spacing:-.025em}
-.hls{grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px}
-.hl{padding:20px;border-radius:15px;background:var(--surface);box-shadow:0 4px 18px rgba(20,35,27,.035)}
-.hl .ic{width:40px;height:40px;border-radius:11px}
-.hl h4{font-size:.98rem;letter-spacing:-.01em}
-.hl p{line-height:1.65}
-.story li{padding-bottom:24px}
-.story .when{box-shadow:0 0 0 5px var(--surface);font-size:.7rem}
-section.info{padding-top:52px}
-section.info h2{font-size:1.35rem;letter-spacing:-.035em}
-.cols{gap:28px}
-.cols>div{padding:25px;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
-.cols li{margin:7px 0}
-footer{margin-top:60px}
-@media(max-width:650px){
- .wrap{padding:0 16px}
- header.top{align-items:flex-start;gap:12px;flex-wrap:wrap}
- nav{display:flex;gap:14px;flex-wrap:wrap}
- nav a{margin:0;font-size:.82rem}
- .hero{padding:48px 0 24px}
- .tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
- .tab{padding:10px 8px;font-size:.86rem}
- .tab:last-child:nth-child(odd){grid-column:1/-1}
- .panel{padding:20px;border-radius:17px}
- .dl{align-items:stretch}
- .btn{width:100%}
- #dlmeta{width:100%}
-}
-@media(prefers-color-scheme:dark){
- :root{--bg:#101713;--surface:#18221c;--ink:#edf4ef;--muted:#a5b2a9;--line:#2b3a30;--shadow:0 18px 55px rgba(0,0,0,.2)}
- body{background:radial-gradient(ellipse at 12% 0%,rgba(47,125,91,.14),transparent 34%),var(--bg)}
- .hero:before{background:rgba(24,34,28,.8)}
- .dl{background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
- .hl{box-shadow:none}
- .cols>div{background:var(--surface)}
-}
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TonFlora – Quản lý bán hàng Miễn Phí Trọn Đời">
+  <meta name="twitter:description" content="Miễn phí 100%, không phí duy trì. Dễ dùng, tải về chạy ngay trên Windows.">
+  <meta name="twitter:image" content="images/og-tonflora.jpg">
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-/* Tab, video, 3 bước */
-.tab{display:flex;flex-direction:column;align-items:center;gap:1px;line-height:1.3;text-align:center}
-.tab small{font-weight:500;font-size:.76rem;opacity:.85}
-.panel h2 small{display:block;margin-top:2px;font-size:.95rem;font-weight:500;letter-spacing:0;color:var(--muted)}
-.vidt{margin:0 0 10px;font-weight:700;font-size:1.05rem}
-.vid{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000;margin:0 0 8px}
-.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.vidl{margin:0 0 28px;font-size:.88rem;color:var(--muted)}
-.quick{display:inline-block;margin:0 0 18px;padding:6px 14px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,var(--surface));color:var(--accent);font-weight:700;font-size:.9rem}
-.steps3{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
-.steps3 li{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--surface);font-size:.92rem;line-height:1.45}
-.steps3 b{display:block}
-.steps3 .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--on);font-weight:800;display:grid;place-items:center}
-.warn{margin:12px 0 28px;font-size:.88rem;color:var(--muted)}
-.shot{margin:0 0 22px;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
-.shot img{display:block;width:100%;height:auto}
-.shot.banner{margin-bottom:18px}
-.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:22px 18px;align-items:start}
-.gal figure{margin:0}
-.gal .shot{aspect-ratio:1366/728;background:var(--bg);margin:0 0 8px;cursor:zoom-in;transition:transform .2s,border-color .2s}
-.gal .shot:hover{transform:translateY(-3px);border-color:var(--accent)}
-.gal .shot img{height:100%;object-fit:contain}
-.gal b{display:block;line-height:1.35}
-.gal figcaption span{color:var(--muted);font-size:.9rem}
-.ss{margin:0 0 8px;padding:18px;border-radius:16px;background:color-mix(in srgb,var(--accent) 8%,var(--surface));border:1px dashed var(--accent)}
-.ss h3{margin:0 0 12px!important}
-.ssl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px}
-.ssl li{display:flex;flex-direction:column;gap:8px}
-.ssl .hd{display:flex;gap:10px;align-items:center;font-weight:700}
-.ssl .n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--on);display:grid;place-items:center;font-weight:800}
-.ssn{margin:10px 2px 0;font-size:.88rem;color:var(--muted)}
-.seg{display:inline-flex;padding:4px;border-radius:999px;background:var(--bg);border:1px solid var(--line);margin:0 0 14px}
-.seg button{font:inherit;font-weight:700;border:0;background:transparent;color:var(--muted);padding:8px 20px;border-radius:999px;cursor:pointer}
-.seg button[aria-pressed=true]{background:var(--accent);color:var(--on)}
-.themeshot{margin:0 0 8px;cursor:zoom-in}
-.themeshot img[hidden]{display:none}
-h1{max-width:none!important;font-size:clamp(2rem,5.2vw,3.3rem)!important}
-.hero{padding-top:28px!important}
-.panel .intro{margin:26px 0 4px}
-.panel .intro .ih{font-size:clamp(1.15rem,2.6vw,1.5rem);line-height:1.3;letter-spacing:-.02em;margin:0 0 14px}
-.intro p{margin:0 0 12px;max-width:68ch}
-.intro .free{display:inline-block;padding:10px 18px;border-radius:12px;background:var(--accent);color:var(--on);font-weight:800;margin:4px 0 16px}
-#lb{border:0;padding:0;background:transparent;max-width:96vw;max-height:94vh;overflow:visible}
-#lb::backdrop{background:rgba(0,0,0,.82)}
-#lb img{display:block;max-width:96vw;max-height:86vh;width:auto;height:auto;border-radius:12px;margin:0 auto}
-#lb p{margin:10px 0 0;text-align:center;color:#fff;font-weight:700}
-</style>
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --primary-deep: #047857;
+      --primary-light: #ecfdf5;
+      --primary-glow: rgba(16, 185, 129, 0.28);
+      
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.12);
+      
+      --bg: #0c120e;
+      --bg-card: #131d17;
+      --bg-card-hover: #19261f;
+      --surface: #17231c;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(16, 185, 129, 0.35);
+      
+      --ink: #f0fdf4;
+      --ink-muted: #94a3b8;
+      --ink-dim: #64748b;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
+      --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.25);
+      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.45);
+      --shadow-glow: 0 0 40px rgba(16, 185, 129, 0.25);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", "Be Vietnam Pro", system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16, 185, 129, 0.25), transparent 70%),
+        radial-gradient(circle at 90% 20%, rgba(5, 150, 105, 0.12), transparent 40%),
+        radial-gradient(circle at 10% 60%, rgba(16, 185, 129, 0.08), transparent 50%);
+      background-attachment: fixed;
+    }
+
+    a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
+    img { max-width: 100%; height: auto; display: block; }
+    button { font: inherit; cursor: pointer; border: none; outline: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== HEADER & NAVBAR ========== */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(12, 18, 14, 0.82);
+      border-bottom: 1px solid var(--surface-border);
+      transition: all 0.3s ease;
+    }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #34d399, #059669);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    }
+    .brand span.flora {
+      color: #34d399;
+      background: linear-gradient(120deg, #6ee7b7, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand small {
+      font-size: 0.65rem;
+      background: rgba(16, 185, 129, 0.15);
+      color: #6ee7b7;
+      padding: 2px 7px;
+      border-radius: 6px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-left: 2px;
+    }
+    nav.nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    nav.nav-links a {
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    nav.nav-links a:hover {
+      color: #fff;
+    }
+
+    /* Products Dropdown */
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-dropdown-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .nav-dropdown:hover .nav-dropdown-btn,
+    .nav-dropdown-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: -20px;
+      width: 320px;
+      background: #111a14;
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 10px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(16, 185, 129, 0.15);
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 110;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .nav-dropdown:hover .dropdown-menu {
+      display: flex;
+      animation: fadeInDown 0.2s ease forwards;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      transition: background 0.15s;
+    }
+    .dropdown-item:hover {
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .dropdown-item.active {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .dropdown-item-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .dropdown-item strong {
+      font-size: 0.9rem;
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .dropdown-item p {
+      font-size: 0.76rem;
+      color: var(--ink-muted);
+      line-height: 1.3;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .btn-nav-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: 999px;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-nav-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5);
+    }
+
+    /* Mobile menu button */
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      color: var(--ink);
+      padding: 6px;
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero-section {
+      padding: 70px 0 60px;
+      position: relative;
+    }
+    .hero-content {
+      text-align: center;
+      max-width: 880px;
+      margin: 0 auto 48px;
+    }
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #6ee7b7;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+      animation: pulseGlow 3s infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.3); }
+      50% { box-shadow: 0 0 20px 4px rgba(16, 185, 129, 0.2); }
+    }
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 8px #34d399;
+    }
+    .hero-title {
+      font-size: clamp(2.3rem, 5.5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+    }
+    .hero-title .text-gradient {
+      background: linear-gradient(135deg, #ffffff 30%, #a7f3d0 80%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-title .highlight-free {
+      color: #34d399;
+      position: relative;
+      display: inline-block;
+    }
+    .hero-title .highlight-free::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 6px;
+      background: rgba(16, 185, 129, 0.4);
+      border-radius: 4px;
+      z-index: -1;
+    }
+    .hero-desc {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin: 0 auto 36px;
+      max-width: 720px;
+    }
+    .hero-desc strong {
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .btn-main-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 18px 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-main-download:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 16px 40px rgba(16, 185, 129, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+    }
+    .btn-main-download svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.2s;
+    }
+    .btn-main-download:hover svg {
+      transform: translateY(2px);
+    }
+    .download-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.88rem;
+      color: var(--ink-dim);
+    }
+    .download-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .download-meta svg {
+      width: 15px;
+      height: 15px;
+      color: #34d399;
+    }
+
+    /* SmartScreen gentle tip */
+    .smartscreen-tip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(234, 179, 8, 0.08);
+      border: 1px solid rgba(234, 179, 8, 0.25);
+      padding: 7px 16px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      color: #fde047;
+      margin-top: 4px;
+    }
+    .smartscreen-tip svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Hero Showcase Mockup */
+    .hero-mockup-wrapper {
+      position: relative;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .mockup-window {
+      background: #111a14;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7), 0 0 60px rgba(16, 185, 129, 0.2);
+      overflow: hidden;
+      position: relative;
+    }
+    .mockup-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      background: #0d1610;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .mockup-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .mockup-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #334155;
+    }
+    .mockup-dot.red { background: #ef4444; }
+    .mockup-dot.yellow { background: #eab308; }
+    .mockup-dot.green { background: #22c55e; }
+    .mockup-title {
+      font-size: 0.8rem;
+      color: var(--ink-dim);
+      font-weight: 600;
+    }
+    .mockup-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .mockup-screen {
+      position: relative;
+      cursor: zoom-in;
+    }
+    .mockup-screen img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    /* Floating badges on mockup */
+    .floating-card {
+      position: absolute;
+      background: rgba(19, 29, 23, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 12px 18px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 10;
+      animation: floatSlow 4s ease-in-out infinite alternate;
+    }
+    .floating-card.card-left {
+      top: 15%;
+      left: -24px;
+    }
+    .floating-card.card-right {
+      bottom: 12%;
+      right: -24px;
+      animation-delay: -2s;
+    }
+    @keyframes floatSlow {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-10px); }
+    }
+    .floating-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      display: grid;
+      place-items: center;
+    }
+    .floating-info h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .floating-info p {
+      font-size: 0.78rem;
+      color: #94a3b8;
+    }
+
+    /* ========== TRUST & STATS BAR ========== */
+    .stats-bar {
+      padding: 40px 0 50px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--surface-border);
+      padding: 24px 20px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-highlight);
+    }
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #34d399;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 4px;
+    }
+    .stat-sub {
+      font-size: 0.8rem;
+      color: var(--ink-dim);
+    }
+
+    /* ========== SECTION HEADINGS ========== */
+    .section-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 50px;
+    }
+    .section-tag {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: #34d399;
+      margin-bottom: 12px;
+      background: rgba(16, 185, 129, 0.1);
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    /* ========== WHY CHOOSE US (COMPARISON) ========== */
+    .comparison-section {
+      padding: 70px 0;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .comp-col {
+      padding: 36px 32px;
+      border-radius: var(--radius-xl);
+      position: relative;
+    }
+    .comp-col.bad {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .comp-col.good {
+      background: linear-gradient(145deg, #13241b, #0f1c15);
+      border: 2px solid rgba(16, 185, 129, 0.5);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(16, 185, 129, 0.15);
+    }
+    .good-badge {
+      position: absolute;
+      top: -14px;
+      right: 28px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .comp-header {
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .comp-header h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .comp-header p {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+    }
+    .comp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .comp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .comp-item .icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .comp-col.bad .icon { color: #f87171; }
+    .comp-col.good .icon { color: #34d399; }
+    .comp-item strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .comp-item p {
+      color: var(--ink-muted);
+      font-size: 0.88rem;
+    }
+
+    /* ========== INDUSTRIES / CHIPS ========== */
+    .industries-section {
+      padding: 70px 0;
+    }
+    .industry-chips-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      max-width: 1000px;
+      margin: 0 auto 36px;
+    }
+    .industry-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--surface-border);
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      transition: all 0.2s ease;
+    }
+    .industry-chip:hover {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.4);
+      color: #6ee7b7;
+      transform: translateY(-2px);
+    }
+    .industry-chip svg {
+      width: 18px;
+      height: 18px;
+      color: #34d399;
+    }
+    .industry-banner {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 78, 59, 0.2));
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .industry-banner p {
+      font-size: 1.05rem;
+      color: #d1fae5;
+    }
+
+    /* ========== DETAILED FEATURES (Z-PATTERN) ========== */
+    .features-section {
+      padding: 80px 0;
+    }
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 90px;
+    }
+    .feature-row.reverse {
+      direction: rtl;
+    }
+    .feature-row.reverse .feature-text {
+      direction: ltr;
+    }
+    .feature-row.reverse .feature-img-box {
+      direction: ltr;
+    }
+    .feature-text {
+      max-width: 480px;
+    }
+    .feature-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.12);
+      padding: 4px 12px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+    .feature-title {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    .feature-desc {
+      color: var(--ink-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+    .feature-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .feature-points li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+    }
+    .feature-points svg {
+      width: 18px;
+      height: 18px;
+      color: #10b981;
+      flex-shrink: 0;
+    }
+    .feature-img-box {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--shadow-lg);
+      cursor: zoom-in;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .feature-img-box:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+    .feature-img-box img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+    .feature-img-caption {
+      padding: 12px 18px;
+      background: rgba(12, 18, 14, 0.9);
+      border-top: 1px solid var(--surface-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+    }
+    .feature-img-caption strong {
+      color: #fff;
+    }
+
+    /* ========== THEME TOGGLE PREVIEW ========== */
+    .theme-preview-section {
+      padding: 70px 0;
+      background: rgba(255, 255, 255, 0.01);
+      border-top: 1px solid var(--surface-border);
+      border-bottom: 1px solid var(--surface-border);
+    }
+    .theme-switch-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .theme-segmented {
+      display: inline-flex;
+      background: #121d16;
+      border: 1px solid var(--surface-border);
+      border-radius: 999px;
+      padding: 4px;
+      gap: 4px;
+    }
+    .theme-segmented button {
+      padding: 10px 24px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      background: transparent;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .theme-segmented button[aria-pressed="true"] {
+      background: #10b981;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    }
+    .theme-display-box {
+      max-width: 1040px;
+      margin: 0 auto;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--shadow-lg);
+      cursor: zoom-in;
+    }
+    .theme-display-box img[hidden] {
+      display: none;
+    }
+
+    /* ========== GALLERY GRID ========== */
+    .gallery-section {
+      padding: 80px 0;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+    }
+    .gallery-card {
+      background: var(--bg-card);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: var(--shadow-md);
+    }
+    .gallery-thumb {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #000;
+      cursor: zoom-in;
+    }
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .gallery-card:hover .gallery-thumb img {
+      transform: scale(1.03);
+    }
+    .gallery-info {
+      padding: 16px 20px;
+    }
+    .gallery-info h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .gallery-info p {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+    }
+
+    /* ========== STEPS SECTION ========== */
+    .steps-section {
+      padding: 70px 0;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      position: relative;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .step-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+    .step-num {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    }
+    .step-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .step-card p {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ========== FAQ SECTION ========== */
+    .faq-section {
+      padding: 80px 0;
+    }
+    .faq-list {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover {
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 20px 24px;
+      background: transparent;
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-question svg {
+      width: 20px;
+      height: 20px;
+      color: #34d399;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .faq-item.active .faq-question svg {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 24px;
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 0 24px 22px;
+    }
+
+    /* ========== ECOSYSTEM / OTHER PRODUCTS ========== */
+    .eco-section {
+      padding: 70px 0;
+      background: rgba(255, 255, 255, 0.015);
+      border-top: 1px solid var(--surface-border);
+    }
+    .eco-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .eco-card {
+      background: var(--bg-card);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 22px 18px;
+      transition: transform 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .eco-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .eco-top h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .eco-top p.tag {
+      font-size: 0.8rem;
+      color: #34d399;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .eco-top p.desc {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .eco-link {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #6ee7b7;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .eco-link:hover {
+      color: #a7f3d0;
+      text-decoration: underline;
+    }
+
+    /* ========== BOTTOM CTA SECTION ========== */
+    .cta-banner {
+      padding: 80px 0 90px;
+      position: relative;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, #103423 0%, #0d1e15 100%);
+      border: 2px solid rgba(16, 185, 129, 0.4);
+      border-radius: var(--radius-xl);
+      padding: 60px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 50px rgba(16, 185, 129, 0.2);
+    }
+    .cta-box h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    .cta-box p {
+      font-size: 1.15rem;
+      color: #a7f3d0;
+      max-width: 640px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    /* ========== FOOTER ========== */
+    footer.site-footer {
+      border-top: 1px solid var(--surface-border);
+      padding: 50px 0 36px;
+      background: #090e0b;
+      color: var(--ink-dim);
+      font-size: 0.9rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .footer-brand p {
+      max-width: 380px;
+      line-height: 1.6;
+      color: var(--ink-muted);
+    }
+    .footer-col h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col a {
+      color: var(--ink-muted);
+    }
+    .footer-col a:hover {
+      color: #34d399;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* ========== LIGHTBOX MODAL ========== */
+    dialog#lightbox {
+      border: none;
+      background: transparent;
+      max-width: 95vw;
+      max-height: 95vh;
+      margin: auto;
+      padding: 0;
+      outline: none;
+      overflow: visible;
+    }
+    dialog#lightbox::backdrop {
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+    }
+    .lightbox-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 84vh;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .lightbox-caption {
+      margin-top: 12px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      background: #1f2937;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+    }
+
+    /* ========== RESPONSIVENESS ========== */
+    @media (max-width: 992px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-row, .feature-row.reverse {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        margin-bottom: 60px;
+      }
+      .feature-text { max-width: 100%; }
+      .steps-grid { grid-template-columns: 1fr; gap: 20px; }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+      .floating-card { display: none; }
+    }
+    @media (max-width: 768px) {
+      nav.nav-links { display: none; }
+      .header-actions .btn-nav-download { display: none; }
+      .menu-toggle { display: block; }
+      .hero-title { font-size: 2.2rem; }
+      .btn-main-download { width: 100%; padding: 16px 24px; font-size: 1.05rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .cta-box { padding: 40px 20px; }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <a class="logo" href="#">Ton<span>Soft</span></a>
-    <nav><a href="#tai">Tải phần mềm</a><a href="#lien-he">Liên hệ</a></nav>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#" class="brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div>Ton<span class="flora">Flora</span><small>Free</small></div>
+      </a>
+
+      <nav class="nav-links">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" type="button">
+            Phần mềm
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown-menu">
+            <a href="index.html" class="dropdown-item active">
+              <div class="dropdown-item-icon" style="background:rgba(16,185,129,0.2);color:#34d399">🏪</div>
+              <div>
+                <strong>TonFlora (Đang xem)</strong>
+                <p>Cửa hàng bán lẻ, tạp hóa, thời trang</p>
+              </div>
+            </a>
+            <a href="coffee.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background:rgba(217,119,6,0.2);color:#fbbf24">☕</div>
+              <div>
+                <strong>TonCoffee</strong>
+                <p>Quán cà phê, trà sữa, sinh tố</p>
+              </div>
+            </a>
+            <a href="mobile.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background:rgba(37,99,235,0.2);color:#60a5fa">📱</div>
+              <div>
+                <strong>TonMobile</strong>
+                <p>Cửa hàng điện thoại, laptop, linh kiện</p>
+              </div>
+            </a>
+            <a href="bida.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background:rgba(220,38,38,0.2);color:#f87171">🎱</div>
+              <div>
+                <strong>TonBida</strong>
+                <p>Quán bi-a, câu lạc bộ bida</p>
+              </div>
+            </a>
+            <a href="pawn.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background:rgba(124,58,237,0.2);color:#c084fc">💎</div>
+              <div>
+                <strong>TonPawn</strong>
+                <p>Tiệm cầm đồ, quản lý vay lãi</p>
+              </div>
+            </a>
+            <a href="florax.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background:rgba(2,132,199,0.2);color:#38bdf8">🧺</div>
+              <div>
+                <strong>TonFloraX</strong>
+                <p>Tiệm giặt là, giặt sấy, giặt hấp</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <a href="#tinh-nang">Tính năng</a>
+        <a href="#nganh-hang">Ngành hàng</a>
+        <a href="#giao-dien">Giao diện</a>
+        <a href="#huong-dan">Cách dùng</a>
+        <a href="#cau-hoi">Hỏi đáp</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://github.com/manhbui0811/TonFlora/releases/latest/download/TonFlora.exe" class="btn-nav-download">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          Tải Miễn Phí
+        </a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <h1>Quản lý cửa hàng: tải về là dùng.</h1>
-      <p class="lead">Bộ phần mềm quản lý dành cho cửa hàng Việt. Chỉ một file, tải về, bấm mở là dùng ngay, không cần cài đặt phức tạp. Dữ liệu lưu ngay trên máy tính của bạn.</p>
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="pill-badge">
+          <span class="pill-dot"></span>
+          Dành Cho Hộ Kinh Doanh, Cửa Hàng Bán Lẻ & Khởi Nghiệp
+        </div>
 
-      <div class="tabs" id="tai" role="tablist" aria-label="Chọn loại cửa hàng của bạn"></div>
-      <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
-    </section>
+        <h1 class="hero-title">
+          Quản Lý Bán Hàng Đơn Giản, Chuyên Nghiệp &amp; <span class="highlight-free">Miễn Phí Trọn Đời</span>
+        </h1>
 
-    <section class="info" id="lien-he">
-      <h2>Liên hệ và hỗ trợ</h2>
-      <p>Fanpage: <a href="https://www.facebook.com/tonsoftvn/" target="_blank" rel="noopener"><b>facebook.com/tonsoftvn</b></a><br>Email: <a href="mailto:manhbui0811@gmail.com">manhbui0811@gmail.com</a><br>Báo lỗi: <a id="issues" href="#">trang Issues trên GitHub</a></p>
-    </section>
-  </main>
+        <p class="hero-desc">
+          Kinh doanh đã có đủ thứ chi phí phải lo, tại sao phải tốn thêm tiền triệu thuê phần mềm mỗi năm? 
+          <strong>TonFlora</strong> giúp bạn bán hàng siêu tốc, in bill, quét VietQR, kiểm kho và sổ quỹ – 
+          <strong>Tải 1 file là mở dùng ngay</strong>, không cần cài đặt, dữ liệu lưu an toàn 100% trên máy tính.
+        </p>
 
-  <footer>© <span id="y"></span> TonSoft. Mọi quyền được bảo lưu.</footer>
-</div>
+        <div class="hero-cta-group">
+          <a href="https://github.com/manhbui0811/TonFlora/releases/latest/download/TonFlora.exe" class="btn-main-download">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+            </svg>
+            Tải TonFlora Về Máy (Bản Mới Nhất)
+          </a>
 
-<dialog id="lb" aria-label="Ảnh phóng to"><img alt=""><p></p></dialog>
+          <div class="download-meta">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Windows 10 / 11 (64-bit)
+            </span>
+            <span>•</span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Không Phí Tháng / Năm
+            </span>
+            <span>•</span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Offline An Toàn
+            </span>
+          </div>
 
-<script>
-/* ====== CHỈNH Ở ĐÂY ====== */
-const OWNER = "manhbui0811"; // tên tài khoản GitHub
+          <div class="smartscreen-tip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            Nếu Windows SmartScreen báo xanh lần đầu: Chọn <strong>Thông tin thêm (More info)</strong> → <strong>Vẫn chạy (Run anyway)</strong>.
+          </div>
+        </div>
+      </div>
 
-const PRODUCTS = [
-  {
-    id: "TonCoffee", name: "TonCoffee", label: "Quán cà phê, trà sữa", color: "#8a4b2a",
-    who: "Dành cho quán cà phê và trà sữa",
-    tagline: "Khách gọi trà sữa ít đá, bớt đường, thêm trân châu? Chọn vài cái chạm là xong, tiền tự tính, mã QR thanh toán hiện sẵn đúng số tiền.",
-    features: ["Gọi món theo size, mức đá, mức đường, topping, ghi chú", "Bán tại bàn (chia khu vực) hoặc mang đi", "Khuyến mãi tự áp theo ngày và khung giờ", "Thu tiền mặt, chuyển khoản, mã QR hiện sẵn", "In hóa đơn khổ K58, K80, A5", "Tích điểm khách quen", "Sổ thu chi và Thống kê doanh thu", "Tạo thực đơn riêng, nhập nhanh từ Excel"],
-    highlights: [
-      { icon: "cup", title: "Gọi món đủ kiểu khách thích", text: "Mỗi ly chọn được size, mức đá, mức đường, topping và ghi chú. Bạn tự dựng thực đơn, danh mục, size, topping, hoặc nhập nhanh từ file Excel.", eg: "Trà sữa truyền thống size L, 50% đá, 70% đường, thêm pudding: chọn xong là tiền tự tính." },
-      { icon: "table", title: "Tại bàn hay mang đi đều gọn", text: "Chia khu vực và bàn theo quán của bạn, chọn bàn khi khách ngồi, bỏ qua bàn khi khách mang đi. Khách gọi thêm thì thêm món vào đơn đang mở.", eg: "Tầng 1, Tầng 2, Ngoài trời, mỗi khu có các bàn riêng." },
-      { icon: "tag", title: "Khuyến mãi tự áp đúng giờ", text: "Giảm theo phần trăm, giảm số tiền hoặc đồng giá. Chọn ngày trong tuần và khung giờ áp dụng, phần mềm tự tính khi bạn thêm món, không phải sửa giá tay.", eg: "Giờ vàng: giảm 10% trà sữa từ 14h đến 16h các ngày trong tuần." },
-      { icon: "qr", title: "Thu tiền nhanh, hoàn tiền rõ", text: "Một đơn thu được nhiều khoản, tiền mặt hoặc chuyển khoản. Mã VietQR hiện sẵn đúng số tiền. Đơn đã thu mà cần hoàn thì hủy bằng một thao tác, tiền và điểm tự điều chỉnh.", eg: "Khách đưa 50.000đ tiền mặt, phần còn lại quét QR: cả hai khoản nằm trong cùng một đơn." },
-      { icon: "printer", title: "In phiếu cho đúng lúc", text: "In hóa đơn khổ K58, K80 hoặc A5, chọn số liên, tự in ngay sau khi thanh toán. Có phiếu tạm tính kèm QR, in lại thì phiếu ghi rõ «BẢN IN LẠI».", eg: "Khách xin xem tiền trước khi trả: in phiếu tạm tính có sẵn mã QR." },
-      { icon: "gift", title: "Tích điểm cho khách quen", text: "Gắn khách vào đơn, mua là tích điểm, lần sau dùng điểm để trừ tiền ngay ở hộp thanh toán. Mức quy đổi do chủ quán tự đặt.", eg: "Ví dụ cứ 10.000đ được 1 điểm, 1 điểm trừ 100đ." },
-      { icon: "wallet", title: "Sổ thu chi luôn sẵn", text: "Tiền bán hàng tự ghi vào sổ. Các khoản ngoài bán hàng như mặt bằng, điện nước, mua nguyên liệu bạn ghi thêm; muốn bỏ thì hủy kèm lý do, không xóa mất dấu.", eg: "Cuối tháng mở sổ là thấy tiền vào, tiền ra theo từng danh mục." },
-      { icon: "chart", title: "Biết quán bán gì, lúc nào", text: "Thống kê cho xem doanh thu theo ngày, theo ca sáng, chiều, tối, theo cách thanh toán, món và topping bán chạy, cùng lợi nhuận tạm tính. Trang Đơn hàng có thêm đơn theo giờ, so với kỳ trước.", eg: "Cuối ca xuất Excel, nhập tiền mặt đếm được, file tự tính sẵn số chênh lệch." },
-      { icon: "users", title: "Nhân viên và dữ liệu an toàn", text: "Mỗi nhân viên một tài khoản. Nhân viên bán hàng và in phiếu, còn báo cáo, thu chi, hủy đơn đã thu mặc định do chủ quán giữ. Dữ liệu nằm ngay trên máy bạn, có sao lưu và khôi phục." }
-    ],
-    storyTitle: "Một ngày ở quán với TonCoffee",
-    story: [
-      { when: "8h", title: "Mở quán", text: "Đăng nhập là thấy ngay thực đơn, khu vực và bàn đã sẵn. Khuyến mãi tự bật đúng ngày, đúng giờ bạn đã đặt, không cần nhớ." },
-      { when: "10h", title: "Khách ngồi Bàn 03", text: "Chọn bàn, gọi trà sữa size L, 50% đá, 70% đường, thêm pudding. Khách gọi thêm ly nữa thì thêm vào đúng đơn đó." },
-      { when: "14h", title: "Giờ vàng", text: "Đúng 14h, khuyến mãi giờ vàng tự giảm trên các ly trà sữa. Nhân viên không phải sửa giá từng ly." },
-      { when: "15h", title: "Khách thanh toán", text: "Trả một phần bằng tiền mặt, phần còn lại quét QR hiện sẵn đúng số tiền. Hóa đơn in ra, điểm tích lũy được cộng cho khách." },
-      { when: "21h", title: "Chốt ca", text: "Mở Thống kê xem doanh thu theo ca và món bán chạy. Xuất Excel, nhập số tiền mặt đếm được để có sẵn chênh lệch." }
-    ],
-    file: "TonCoffee.exe",
-    versions: [
-      { v: "1.0.0", date: "19/10/2026", note: "Bản đầu tiên", sha: "" }
-    ]
-  },
-  {
-    id: "TonFlora", name: "TonFlora", label: "Cửa hàng bán lẻ", color: "#2f7d5b",
-    features: [],
-    intro: [
-      ["h", "ANH CHỊ EM KINH DOANH NHỎ LẺ, MỚI KHỞI NGHIỆP ĐÃ CÓ PHẦN MỀM QUẢN LÝ BÁN HÀNG MIỄN PHÍ TRỌN ĐỜI!"],
-      ["p", "Kinh doanh đã có đủ thứ chi phí phải lo, tại sao còn phải mất thêm tiền thuê phần mềm quản lý hàng tháng?"],
-      ["p", "TonFlora được Tonsoft phát triển với mong muốn giúp các cửa hàng nhỏ, hộ kinh doanh và những người mới khởi nghiệp quản lý bán hàng dễ dàng hơn mà không phải lo chi phí phần mềm."],
-      ["f", "Miễn phí trọn đời – Không phí tháng – Không phí năm!"],
-      ["p", "Từ quần áo, tạp hóa, hoa tươi, bánh ngọt đến điện nước, vật tư xây dựng, nhà thuốc và nhiều ngành hàng khác... TonFlora đều có thể đáp ứng."],
-      ["p", "Chỉ cần tải về, chọn mô hình kinh doanh và bắt đầu sử dụng. Danh mục, sản phẩm mẫu đã được chuẩn bị sẵn, không cần mất công thiết lập từ đầu."]
-    ],
-    chipsTitle: "8 ngành có sẵn hàng mẫu",
-    chips: ["Quần áo & thời trang", "Tạp hóa & văn phòng phẩm", "Hoa, cây cảnh & phụ kiện", "Bánh ngọt", "Trẻ em & sơ sinh", "Vật tư xây dựng", "Điện nước & gia dụng", "Nhà thuốc"],
-    image: "images/og-tonflora.jpg", imageAlt: "TonFlora – quản lý bán hàng miễn phí trọn đời",
-    shotsTitle: "Xem nhanh TonFlora",
-    shots: [
-      { img: "images/tonflora/01-chon-nganh.webp", w: 1184, h: 712, t: "Chọn ngành", s: "Có sẵn danh mục và sản phẩm mẫu" },
-      { img: "images/tonflora/02-ban-hang.webp", w: 1366, h: 728, t: "Bán hàng", s: "Bấm chọn món, tiền tự tính" },
-      { img: "images/tonflora/03-thanh-toan-qr.webp", w: 1366, h: 728, t: "Thanh toán", s: "Tiền mặt hoặc quét mã QR" },
-      { img: "images/tonflora/05-san-pham.webp", w: 1365, h: 730, t: "Sản phẩm", s: "Một món, nhiều phân loại" },
-      { img: "images/tonflora/06-tem-ma-vach.webp", w: 1366, h: 728, t: "In tem mã vạch", s: "Quét mã ngay ở quầy" },
-      { img: "images/tonflora/04-hoa-don.webp", w: 1023, h: 641, t: "In hóa đơn", s: "Khổ K80, K58, A5" },
-      { img: "images/tonflora/07-thu-chi.webp", w: 1366, h: 728, t: "Sổ thu chi", s: "Tiền vào, tiền ra rõ ràng" },
-      { img: "images/tonflora/08-thong-ke.webp", w: 1366, h: 728, t: "Thống kê", s: "Doanh thu và lợi nhuận, xuất Excel" }
-    ],
-    noSteps: true,
-    smartNote: true,
-    theme: { title: "Sáng hay tối tùy bạn", sub: "Đổi chế độ chỉ với một lần bấm", w: 1366, h: 728,
-      light: "images/tonflora/09-che-do-sang.webp", dark: "images/tonflora/10-che-do-toi.webp" },
-    file: "TonFlora.exe",
-    versions: [
-      { v: "1.0.0", date: "19/10/2026", note: "Bản đầu tiên", sha: "" }
-    ]
-  },
-  {
-    id: "TonMobile", name: "TonMobile", label: "Cửa hàng điện thoại, máy tính", color: "#2456c9",
-    who: "Dành cho cửa hàng điện thoại, máy tính bảng, laptop, PC – linh kiện và phụ kiện (bán cả hàng mới lẫn hàng cũ)",
-    tagline: "Khách hỏi «máy này mua hôm nào, còn bảo hành không?», bạn gõ IMEI là có câu trả lời. Bán máy, thu máy cũ, tính hạn bảo hành, theo dõi kho: tất cả nằm trong một phần mềm.",
-    features: ["Bán hàng nhanh: quét mã vạch, thu tiền mặt hoặc QR chuyển khoản", "Ghi IMEI / serial ngay trên từng đơn", "Một mẫu máy, nhiều phiên bản: dung lượng, màu, tình trạng (Mới, A+, A-…)", "Thu mua máy cũ bằng phiếu riêng, máy tự vào kho", "Tự tính hạn bảo hành và hạn dùng thử đổi ý", "Nhận và theo dõi yêu cầu bảo hành", "Kho, nhập hàng, kiểm kho, in tem mã vạch", "Thống kê doanh thu, xuất Excel"],
-    highlights: [
-      { icon: "cart", title: "Bán hàng nhanh, ít bấm", text: "Quét mã vạch hoặc chọn máy, gắn khách, thu tiền mặt hay quét QR chuyển khoản. Khách đặt cọc, hẹn lấy sau hay giao tận nơi đều làm được.", eg: "Khách cọc 2 triệu hôm nay, mai đến lấy máy: thu nốt phần còn lại rồi bấm Hoàn thành." },
-      { icon: "tag", title: "Cùng một máy, gọi đúng tên từng bản", text: "Ngoài cấu hình, mỗi sản phẩm có thêm ô «Tình trạng», nên máy mới và máy cũ không bị lẫn kho, lẫn giá.", eg: "iPhone 12 · 128GB · A- và iPhone 12 · 128GB · Mới 100% là hai dòng riêng, mỗi dòng một giá, một tồn kho." },
-      { icon: "scan", title: "IMEI đi theo từng đơn", text: "Bán máy nào thì gõ hoặc quét IMEI máy đó vào đơn. Nhập sai số, phần mềm nhắc nhẹ bằng khung vàng nhưng không chặn bạn bán.", eg: "Vài tháng sau khách quay lại, tra IMEI là thấy đúng đơn đã bán." },
-      { icon: "shield", title: "Bảo hành và dùng thử tự tính", text: "Hoàn thành đơn là có sẵn hạn bảo hành và hạn dùng thử. Tra bằng IMEI hoặc số điện thoại khách, thấy ngay còn hạn hay đã hết.", eg: "Dùng thử 7 ngày: khách đổi ý vào ngày thứ 5, hộp hoàn hàng báo «Còn dùng thử 2 ngày»." },
-      { icon: "swap", title: "Thu máy cũ gọn như nhập hàng", text: "Khách bán lại máy cũ: lập phiếu thu cũ, ghi IMEI và tình trạng, trả tiền mặt hoặc chuyển khoản. Phiếu hoàn thành thì máy vào kho, khoản chi vào sổ quỹ.", eg: "Thu iPhone 12 giá 5 triệu, đặt tình trạng A-, máy nằm trong kho và bán lại như một sản phẩm bình thường." },
-      { icon: "clip", title: "Nhận bảo hành có sổ sách", text: "Máy lỗi mang đến, tạo phiếu theo dõi từng bước: Tiếp nhận, Đang xử lý, Chờ linh kiện, Hoàn thành. Tiền khách trả và tiền mua linh kiện tự vào sổ thu chi.", eg: "Một máy bảo hành nhiều lần, phần mềm nhắc «Đã bảo hành 2 lần» để bạn nắm tình hình." },
-      { icon: "box", title: "Kho luôn khớp với quầy", text: "Nhập hàng từ nhà cung cấp, kiểm kho, báo hàng sắp hết, in tem mã vạch nhiều khổ. Có sẵn danh mục và sản phẩm mẫu để bắt đầu ngay.", eg: "Đã có file Excel hàng hóa? Nhập một lần, lần sau nhập lại chỉ cập nhật chứ không nhân đôi." },
-      { icon: "chart", title: "Nhìn cả cửa hàng trong một màn hình", text: "Thống kê hiện doanh thu thực tế, doanh thu dự kiến, số đơn đang mở, hàng sắp hết và hàng tồn lâu. Xem theo kỳ tối đa 31 ngày, xuất Excel khi cần.", eg: "Cuối ngày bấm xuất Excel báo cáo ngày để gửi cho chủ cửa hàng." },
-      { icon: "users", title: "Khách quen và đội nhân viên", text: "Lưu lịch sử mua của từng khách, tích điểm, khuyến mãi tự áp dụng. Mỗi nhân viên một tài khoản, chỉ thấy phần được phép. Dữ liệu nằm ngay trên máy bạn, có sao lưu và khôi phục." }
-    ],
-    storyTitle: "Một ngày ở cửa hàng điện thoại với TonMobile",
-    story: [
-      { when: "8h", title: "Khách bán lại chiếc iPhone cũ", text: "Bạn lập phiếu thu cũ: ghi IMEI, chọn tình trạng A-, trả 5 triệu. Bấm Hoàn thành, máy vào kho và khoản chi vào sổ quỹ." },
-      { when: "11h", title: "Khách mua laptop và phụ kiện", text: "Quét mã vạch, gõ IMEI, thu bằng QR chuyển khoản. Hóa đơn in ra có sẵn IMEI, hạn bảo hành và điều khoản dùng thử." },
-      { when: "14h", title: "Một khách khác đổi ý sau vài hôm", text: "Mở đơn, bấm hoàn hàng. Phần mềm báo máy còn dùng thử mấy ngày để bạn quyết định hoàn đủ tiền hay giữ lại một phần." },
-      { when: "16h", title: "Máy lỗi quay lại cửa hàng", text: "Gõ IMEI ra đơn cũ, còn hạn bảo hành thì bấm «Tạo yêu cầu BH», thông tin khách và máy được điền sẵn." },
-      { when: "20h", title: "Chốt ngày", text: "Mở Thống kê xem doanh thu, đơn còn mở, hàng sắp hết. Cần gửi chủ thì xuất Excel báo cáo ngày." }
-    ],
-    file: "TonMobile.exe",
-    versions: [
-      { v: "1.0.0", date: "19/10/2026", note: "Bản đầu tiên", sha: "" }
-    ]
-  },
-  {
-    id: "TonBida", name: "TonBida", label: "Quán bi-a", color: "#b3363f",
-    who: "Dành cho quán và cửa hàng bi-a",
-    tagline: "Khách mở bàn, đồng hồ tự chạy. Kết thúc là có sẵn tiền giờ cộng tiền nước, mã QR hiện đúng số tiền. Không còn ghi giờ vào sổ tay rồi nhẩm tính.",
-    features: ["Sơ đồ bàn: mở, tạm dừng, chuyển bàn, kết thúc và tính tiền", "Tính giờ tự động theo loại bàn và khung giờ", "Combo giờ chơi kèm nước tặng", "Gọi đồ uống, đồ ăn vặt ngay trên bàn đang chơi", "Thu tiền mặt hoặc chuyển khoản, mã QR hiện sẵn", "Khuyến mãi áp được cả vào tiền giờ chơi", "Tích điểm khách quen", "Kho, nhập hàng, nhà cung cấp, kiểm kho", "Thống kê doanh thu, xuất Excel", "Nhân viên và chủ quán có quyền khác nhau"],
-    highlights: [
-      { icon: "table", title: "Nhìn sơ đồ là biết bàn nào đang chơi", text: "Mỗi bàn là một thẻ có đồng hồ chạy, phân biệt bàn trống, đang chơi, tạm dừng và chờ thu tiền. Mở bàn, tạm dừng, chuyển bàn, sửa giờ hay hủy bàn đều làm ngay trên thẻ. Có tìm, lọc và nhóm bàn khi quán nhiều bàn.", eg: "Khách đổi từ bàn 3 sang bàn 5: chuyển bàn một thao tác, giờ chơi và món đã gọi đi theo." },
-      { icon: "clock", title: "Tính giờ tự động, đúng bảng giá", text: "Bạn đặt giá theo từng loại bàn và theo khung giờ. Khách chơi vắt qua hai khung giá, phần mềm tự tách từng đoạn và tính đúng giá của đoạn đó, có làm tròn phút và mức tối thiểu theo cấu hình của quán.", eg: "Bàn lỗ 60.000đ/giờ, giờ tối 18h đến 23h là 80.000đ. Khách chơi 17h30 đến 19h30 thì tiền giờ là 150.000đ." },
-      { icon: "tag", title: "Bảng giá theo loại bàn và khung giờ", text: "Tạo nhiều loại bàn như bàn lỗ, bàn carom, bàn VIP, mỗi loại một giá. Thêm các khung giờ cao điểm, khung cả ngày hoặc khung qua nửa đêm. Đổi giá chỉ sửa ở một nơi.", eg: "Giờ vàng buổi tối giá cao hơn, buổi sáng giá mềm hơn, đặt một lần là chạy." },
-      { icon: "gift", title: "Combo giờ chơi, nước tặng", text: "Tạo combo giờ chơi kèm nước tặng và chọn ngay khi mở bàn. Phần nước tặng được tách giá rõ ràng trên đơn. Khách không dùng nữa thì bỏ combo ngay trên đơn.", eg: "Combo chơi 2 giờ kèm nước: chọn combo lúc mở bàn là xong." },
-      { icon: "cup", title: "Gọi đồ uống ngay trên bàn", text: "Khách gọi nước, đồ ăn vặt lúc nào cũng thêm được vào đơn của bàn đang chơi. Khách mua mang đi hoặc không ngồi bàn thì dùng Bán lẻ, không cần mở bàn.", eg: "Bàn 3 gọi thêm hai chai nước giữa giờ: thêm vào đơn, đồng hồ vẫn chạy." },
-      { icon: "qr", title: "Thu tiền nhanh, hóa đơn có giờ chơi", text: "Bấm Kết thúc và thu, phần mềm cộng tiền giờ và tiền món. Thu tiền mặt hoặc chuyển khoản, mã VietQR hiện sẵn đúng số tiền. Hóa đơn in ra có tên bàn và dòng tiền giờ chơi. Khách xin xem tiền trước khi chơi tiếp thì in phiếu tạm tính.", eg: "Khách trả một phần tiền mặt, phần còn lại quét QR, cả hai nằm trong một đơn." },
-      { icon: "gift", title: "Khuyến mãi và tích điểm", text: "Khuyến mãi tự áp theo ngày và khung giờ, chọn được cả «Tiền giờ chơi» để giảm giờ. Khách quen được tích điểm trên tổng tiền giờ và món, lần sau dùng điểm để trừ tiền.", eg: "Giảm 10% tiền giờ vào các buổi sáng ngày thường." },
-      { icon: "box", title: "Kho đồ uống luôn khớp", text: "Nhập hàng từ nhà cung cấp, kiểm kho, báo hàng sắp hết. Bán xong tự trừ kho, hủy hoặc hoàn đơn thì hàng quay lại kho. Có sẵn danh mục và sản phẩm mẫu cho quán bi-a để bắt đầu ngay.", eg: "Nhập thùng nước mới về, tồn kho tăng và giá nhập được ghi lại." },
-      { icon: "chart", title: "Chủ quán biết bàn nào sinh lời", text: "Thống kê có Tổng quan, Bán hàng, Bàn và giờ chơi, Nhân viên. Xem được tiền giờ so với tiền món, doanh thu theo bàn và theo khung giờ. Giá nhập và lãi chỉ chủ quán xem. Xuất Excel khi cần.", eg: "Cuối tuần xem bàn nào đông khách nhất và khung giờ nào lấp đầy." },
-      { icon: "users", title: "Nhân viên và sao lưu dữ liệu", text: "Mỗi nhân viên một tài khoản, nhân viên chỉ thấy phần được phép, các phần tiền bạc do chủ quán giữ. Dữ liệu nằm ngay trên máy của bạn, có sao lưu và khôi phục." }
-    ],
-    storyTitle: "Một ngày ở quán bi-a với TonBida",
-    story: [
-      { when: "9h", title: "Mở quán", text: "Đăng nhập là thấy sơ đồ bàn, bảng giá và khung giờ đã đặt sẵn. Lần đầu dùng có thể nạp danh mục, sản phẩm, bàn và bảng giá mẫu." },
-      { when: "14h", title: "Khách mở bàn 3", text: "Bấm mở bàn, đồng hồ bắt đầu chạy. Khách gọi hai chai nước, thêm vào đơn của bàn." },
-      { when: "17h30", title: "Chơi sang khung giờ tối", text: "Đến 18h bảng giá chuyển sang khung giờ tối. Phần mềm tự tính từng đoạn đúng giá, nhân viên không phải nhẩm." },
-      { when: "19h30", title: "Kết thúc và thu tiền", text: "Bấm Kết thúc và thu: tiền giờ cộng tiền nước, quét QR hiện sẵn đúng số tiền. Hóa đơn in ra có tên bàn và giờ chơi." },
-      { when: "22h", title: "Chốt ngày", text: "Mở Thống kê xem doanh thu, tiền giờ so với tiền món và bàn nào được chơi nhiều. Cần gửi chủ thì xuất Excel." }
-    ],
-    file: "TonBida.exe",
-    versions: [
-      { v: "1.0.0", date: "21/10/2026", note: "Bản đầu tiên", sha: "" }
-    ]
-  },
-  {
-    id: "TonPawn", name: "TonPawn", label: "Tiệm cầm đồ", video: "cKakW7PkTvw", repo: "tonpawn", color: "#6d3fb5",
-    who: "Dành cho tiệm cầm đồ",
-    tagline: "Khách mang tài sản đến vay, bạn lập hợp đồng và chọn lãi suất, tiền lãi tự tính theo một công thức duy nhất. Chuộc, thanh lý, sổ quỹ và báo cáo lời lỗ đều khớp với nhau.",
-    features: ["Hợp đồng cầm cố tài sản, có lưu nháp và sao chép", "Cầm giấy tờ bằng biên lai riêng", "Loại tài sản tự đặt, mỗi loại một bộ thông tin riêng", "Tính lãi tự động, lãi thực thu sửa được khi chuộc", "Chuộc tài sản, thanh lý và lời lỗ theo cả vòng đời hợp đồng", "Hồ sơ khách hàng kèm ảnh căn cước", "Thư viện ảnh, in nhiều ảnh trên giấy A4", "Sổ quỹ thu chi, báo cáo lãi lỗ có đối chiếu", "Xuất Excel và báo cáo doanh thu hộ kinh doanh", "Nhân viên và chủ tiệm có quyền khác nhau"],
-    highlights: [
-      { icon: "clip", title: "Lập hợp đồng cầm cố gọn", text: "Chọn khách, chọn loại tài sản, nhập thông tin tài sản, số tiền vay, lãi suất và ngày hẹn. Chưa chốt thì lưu nháp, chốt xong mới thành hợp đồng có mã. Hợp đồng cũ có thể sao chép để lập lại nhanh.", eg: "Hợp đồng đầu tiên của năm 2026 có mã dạng HDTS26-0001, cầm giấy tờ có mã HDGT26-0001." },
-      { icon: "tag", title: "Mỗi loại tài sản một bộ thông tin riêng", text: "Bạn tự tạo danh mục loại tài sản và đặt các trường cần ghi cho từng loại, trường nào bắt buộc cũng chọn được. Khi lập hợp đồng chọn loại là đúng các ô cần nhập hiện ra.", eg: "Xe máy ghi biển số, số khung, số máy. Điện thoại ghi IMEI và tình trạng." },
-      { icon: "percent", title: "Tính lãi một công thức, không nhẩm", text: "Lãi đơn theo tháng, một tháng tính 30 ngày, làm tròn lên bội số 1.000đ. Lãi suất và số ngày được lưu cùng hợp đồng nên đổi cấu hình sau này không làm sai hồ sơ cũ. Giao diện không tự tính, mọi con số lấy từ một nơi duy nhất.", eg: "Vay 10.000.000đ, lãi 5%/tháng, 20 ngày thì tiền lãi là 334.000đ." },
-      { icon: "swap", title: "Chuộc tài sản, thu đúng số tiền", text: "Khách đến chuộc, phần mềm tính lại lãi đến đúng ngày trả. Bạn được sửa lãi thực thu và ghi phí riêng, lãi dự kiến và lãi thực thu lưu tách nhau. Có mã QR chuyển khoản và phiếu trả để in.", eg: "Khách trả sớm và được giảm lãi: sửa lãi thực thu, báo cáo luôn tính theo số đã thu thật." },
-      { icon: "box", title: "Thanh lý và biết ngay lời hay lỗ", text: "Tài sản quá hạn đem bán, nhập tiền bán và tiền trả dư cho khách. Phần mềm cộng lãi đã thu, tiền bán, trừ gốc đã cho vay và chi phí để ra lời lỗ của cả vòng đời hợp đồng.", eg: "Một hợp đồng cho vay, thu lãi vài kỳ rồi thanh lý: xem một dòng lời hay lỗ." },
-      { icon: "shield", title: "Cầm giấy tờ có biên lai riêng", text: "Cầm đăng ký xe, giấy tờ nhà và các giấy tờ khác bằng biên lai riêng, có số hiệu, nơi cấp, ngày cấp và trường theo loại giấy tờ. Dùng chung công thức tính lãi với cầm cố tài sản.", eg: "Gốc 5.000.000đ, lãi 3%/tháng: giữ 10 ngày là 50.000đ, 15 ngày là 75.000đ." },
-      { icon: "image", title: "Thư viện ảnh và ảnh căn cước", text: "Ảnh tài sản, giấy tờ và căn cước khách nằm trong một thư viện, có tìm, lọc theo loại và phân trang. Một ảnh đính được vào nhiều hợp đồng. Chọn nhiều ảnh rồi in lên giấy A4, kéo thả đổi vị trí và cắt đúng vùng cần in.", eg: "Chọn mặt trước và mặt sau căn cước của khách, in chung một tờ A4." },
-      { icon: "wallet", title: "Sổ quỹ và báo cáo khớp nhau", text: "Tiền cho khách vay và các khoản thu được ghi vào sổ quỹ cùng lúc với đổi trạng thái hợp đồng. Báo cáo lãi lỗ có đối chiếu với sổ quỹ. Hợp đồng đến hạn và quá hạn nổi bật ở màn Tổng quan. Không xóa mất dấu, chỉ hủy kèm lý do.", eg: "Hủy một hợp đồng đã chuộc: các khoản liên quan trong sổ quỹ bị hủy theo, báo cáo tự cập nhật." },
-      { icon: "chart", title: "Xuất Excel và báo cáo hộ kinh doanh", text: "Xuất Excel danh sách hợp đồng, giấy tờ, khách hàng và báo cáo lãi, thanh lý theo kỳ. Có thể xuất sổ doanh thu theo mẫu hộ kinh doanh bằng file Word.", eg: "Cuối tháng xuất file gửi kế toán hoặc nộp theo mẫu." },
-      { icon: "users", title: "Nhân viên và quyền hạn", text: "Mỗi nhân viên một tài khoản. Nhân viên lập hợp đồng, quản lý khách và xem Tổng quan, còn báo cáo, thu chi và các thao tác hủy nhạy cảm do chủ tiệm giữ. Dữ liệu nằm ngay trên máy của bạn, có sao lưu và khôi phục." }
-    ],
-    storyTitle: "Một ngày ở tiệm cầm đồ với TonPawn",
-    story: [
-      { when: "8h", title: "Mở tiệm", text: "Mở màn Tổng quan là thấy ngay có bao nhiêu hợp đồng đến hạn, quá hạn, tiền đã cho vay và lãi đã thu trong kỳ." },
-      { when: "9h30", title: "Khách mang xe máy đến vay", text: "Chọn khách hoặc tạo mới kèm ảnh căn cước, chọn loại tài sản, nhập biển số, số khung, số tiền vay, lãi suất và ngày hẹn. Lưu nháp hoặc lập hợp đồng, in phiếu nhận." },
-      { when: "11h", title: "Khách đến chuộc", text: "Mở hợp đồng, bấm chuộc. Lãi tự tính đến ngày trả, sửa lãi thực thu nếu hai bên thỏa thuận. Thu tiền, in phiếu trả, sổ quỹ tự ghi." },
-      { when: "15h", title: "Tài sản quá hạn đem thanh lý", text: "Nhập tiền bán và phần trả dư cho khách. Phần mềm tính ra lời hoặc lỗ của cả hợp đồng." },
-      { when: "21h", title: "Chốt ngày", text: "Xem báo cáo trong kỳ, đối chiếu sổ quỹ, xuất Excel khi cần. Nhớ sao lưu dữ liệu và thư mục ảnh." }
-    ],
-    file: "TonPawn.exe",
-    versions: [
-      { v: "1.0.0", date: "30/10/2026", note: "Bản đầu tiên", sha: "" }
-    ]
-  },
-  {
-    id: "TonFloraX", name: "TonFloraX", label: "Tiệm giặt là", repo: "tonflorax", color: "#0b7a9b",
-    freeNote: "Dùng miễn phí 200 đơn hoàn thành mỗi tháng · Không cần cài đặt",
-    who: "Dành cho tiệm giặt là, giặt sấy, giặt hấp, ủi: nhận đồ theo kg hoặc theo món",
-    tagline: "Khách mang đồ đến, bạn ghi số kệ, tình trạng đồ, hẹn ngày trả và thu cọc ngay trên một đơn. Đồ đang giặt hay đã giặt xong, đồ nào sắp quá hẹn đều nhìn thấy rõ, khỏi nhớ trong đầu hay ghi sổ tay.",
-    features: ["Nhận đồ theo kg (chia nhỏ tới 0,1 kg) hoặc theo món", "Ghi số kệ, tình trạng đồ lúc nhận, hẹn ngày giờ trả", "Theo dõi giai đoạn: Đã nhận, Đang giặt, Giặt xong, Đã trả", "Thu cọc, thu nốt khi trả đồ, tiền mặt hoặc QR chuyển khoản", "Phụ thu lấy nhanh, giao nhận tận nơi có tính phí", "In phiếu nhận đồ, tem 50×30 dán lên túi, phiếu trả đồ", "Thẻ trả trước: khách nạp tiền, giặt đến đâu trừ đến đó", "Quản lý vật tư như nước giặt, nước xả, túi nilon, móc áo", "Khách hàng, tích điểm, khuyến mãi tự áp", "Dashboard giặt là: đang xử lý, quá hẹn, nhận hôm nay", "Sổ thu chi, thống kê, xuất Excel"],
-    chipsTitle: "Dịch vụ mẫu có sẵn khi mở app lần đầu, sửa giá cho đúng tiệm của bạn",
-    chips: ["Giặt theo kg", "Giặt theo món", "Giặt chăn màn rèm", "Giặt hấp / giặt khô", "Ủi", "Phụ kiện bán (túi, móc áo)"],
-    highlights: [
-      { icon: "drop", title: "Nhận đồ theo kg hoặc theo món", text: "Dịch vụ tính theo kg thì nhập số cân tới 0,1 kg, tiền dòng tự tính. Dịch vụ tính theo món thì chọn món và số lượng. Một đơn trộn được cả hai kiểu.", eg: "Giặt sấy 2,5 kg cộng 2 áo sơ mi giặt ủi: một đơn, một lần thu tiền." },
-      { icon: "hanger", title: "Số kệ, tình trạng đồ, hẹn trả", text: "Mỗi đơn ghi được số kệ hoặc túi, tình trạng đồ lúc nhận để tránh tranh cãi về sau, và ngày giờ hẹn trả. Đơn mới tự gợi ý hẹn trả sau 2 ngày, có nút chọn nhanh +1, +2 ngày.", eg: "Ghi «Áo trắng có vết ố cổ tay, khách đã đồng ý» ngay lúc nhận." },
-      { icon: "clock", title: "Giai đoạn giặt rõ từng đơn", text: "Mỗi đơn đi qua 4 bước: Đã nhận, Đang giặt, Giặt xong, Đã trả. Đổi giai đoạn bằng một nút ngay đầu đơn, danh sách Đơn đang mở có sẵn nhãn và bộ lọc theo giai đoạn. Đơn quá hẹn được đánh dấu đỏ.", eg: "Sáng mở app, lọc «Giặt xong» là biết những túi nào chờ khách đến lấy." },
-      { icon: "wallet", title: "Thu cọc, thu nốt, trả đồ một chỗ", text: "Nhận đồ không bắt phải thu tiền ngay, có nút thu cọc khi cần. Lúc khách đến lấy, hộp Bàn giao thu nốt phần còn lại, đánh dấu đã trả và đóng đơn. Đơn còn nợ thì không cho đóng nên không sót tiền.", eg: "Khách cọc 50.000đ lúc gửi, lấy đồ thì chỉ phải trả phần còn lại." },
-      { icon: "qr", title: "Thu tiền mặt hoặc QR chuyển khoản", text: "Một đơn thu được nhiều khoản. Mã VietQR hiện sẵn đúng số tiền. Đơn đã thu mà khách hủy hoặc lấy thiếu thì lập phiếu hủy, hoàn một phần hay cả đơn, tiền ghi vào sổ thu chi.", eg: "Khách đưa 100.000đ tiền mặt, phần còn lại quét QR, cả hai nằm trong cùng đơn." },
-      { icon: "printer", title: "In phiếu và tem đúng lúc", text: "Phiếu nhận đồ có số kệ, tình trạng, hẹn trả và mã QR của đơn. Tem 50×30 có mã vạch để dán lên túi, quét mã là mở đúng đơn. Có phiếu tạm tính, phiếu trả đồ kèm hóa đơn, in lại thì ghi rõ bản in lại. Hỗ trợ khổ K58, K80, A5.", eg: "Nút In ở POS mở danh sách loại phiếu, bấm một lần là in." },
-      { icon: "gift", title: "Thẻ trả trước cho khách quen", text: "Khách nạp tiền vào thẻ, mỗi lần giặt dùng thẻ để thanh toán, số dư luôn hiện trong hồ sơ khách. Tiền nạp ghi vào sổ thu chi, nạp nhầm thì hủy được, trả lại tiền thẻ cũng có sổ sách. Số dư không bao giờ âm.", eg: "Khách nạp 500.000đ, mỗi lần giặt trừ dần, lịch sử nạp và dùng xem được trong hồ sơ." },
-      { icon: "box", title: "Quản lý nước giặt, nước xả", text: "Vật tư dùng trong tiệm tách riêng khỏi hàng bán: không hiện ở POS nhưng có tồn kho, mức báo sắp hết và nhập hàng từ nhà cung cấp. Dùng đến đâu bấm xuất dùng đến đó. Túi nilon, móc áo bán cho khách thì là sản phẩm bình thường.", eg: "Có sẵn 6 vật tư mẫu như nước giặt, nước xả, túi nilon, móc áo." },
-      { icon: "truck", title: "Phụ thu và giao nhận tận nơi", text: "Phụ thu lấy nhanh thêm vào đơn như một dịch vụ, đơn có dòng này tự được đánh dấu lấy nhanh. Khách cần giao tận nơi thì ghi người nhận, số điện thoại, địa chỉ và phí giao ngay trong đơn.", eg: "Giặt lấy nhanh trong ngày: thêm dòng «Phụ thu lấy nhanh», đơn tự nổi lên." },
-      { icon: "chart", title: "Dashboard giặt là", text: "Tab Giặt là cho xem số đơn đang xử lý theo từng giai đoạn, số đơn quá hẹn, đồ nhận hôm nay (kg và món) và doanh thu theo từng dịch vụ. Số liệu tự làm mới sau mỗi phút, nên màn hình để ở quầy là thấy việc cần làm.", eg: "Đầu giờ chiều thấy «Quá hẹn: 2», bấm vào là gọi khách ngay." },
-      { icon: "percent", title: "Khách quen, tích điểm, khuyến mãi", text: "Gắn khách vào đơn, mua là tích điểm, lần sau dùng điểm trừ tiền. Khuyến mãi tự áp vào đơn, phần mềm chọn mức tốt nhất. Mức quy đổi điểm do chủ tiệm đặt.", eg: "Ví dụ cứ 10.000đ được 1 điểm, 1 điểm trừ 100đ." },
-      { icon: "users", title: "Nhân viên và dữ liệu an toàn", text: "Mỗi nhân viên một tài khoản. Nhân viên nhận đồ, thu tiền, đổi giai đoạn, in phiếu; báo cáo đầy đủ, thu chi, kiểm kho, hủy phiếu mặc định do chủ tiệm giữ. Dữ liệu nằm ngay trên máy bạn, có sao lưu và khôi phục, giao diện sáng hoặc tối." }
-    ],
-    storyTitle: "Một ngày ở tiệm giặt với TonFloraX",
-    story: [
-      { when: "7h30", title: "Mở tiệm", text: "Đăng nhập là thấy Dashboard giặt là: bao nhiêu đơn đang giặt, đồ nào hẹn trả hôm nay, có đơn nào quá hẹn từ hôm qua không." },
-      { when: "9h", title: "Khách gửi một túi đồ", text: "Mở POS, gắn khách, chọn «Giặt sấy thường», nhập 3,2 kg. Ghi số kệ, ghi lại áo có vết ố, hẹn trả sau 2 ngày. Khách cọc trước một phần." },
-      { when: "9h10", title: "In phiếu, dán tem", text: "In phiếu nhận đồ đưa khách, in tem 50×30 dán lên túi. Lúc sau quét mã trên tem là mở đúng đơn." },
-      { when: "11h", title: "Đồ giặt xong", text: "Đổi đơn sang «Đang giặt», rồi «Giặt xong» khi sấy gấp xong. Nước giặt gần hết thì xem Kho để nhập thêm." },
-      { when: "16h", title: "Khách đến lấy đồ", text: "Mở hộp Bàn giao: thu nốt phần còn lại bằng QR, đánh dấu đã trả và đóng đơn. Phiếu trả đồ kèm hóa đơn in ra, điểm tích lũy được cộng." },
-      { when: "21h", title: "Chốt ngày", text: "Xem doanh thu theo dịch vụ, đối chiếu sổ thu chi, xuất Excel nếu cần gửi chủ. Nhớ sao lưu dữ liệu." }
-    ],
-    file: "TonFloraX.exe",
-    versions: [
-      { v: "1.0.0", date: "02/11/2026", note: "Bản đầu tiên", sha: "" }
-    ]
-  }
-];
-/* ========================= */
+      <!-- Hero Mockup with Floating Badges -->
+      <div class="hero-mockup-wrapper">
+        <!-- Floating badge left -->
+        <div class="floating-card card-left">
+          <div class="floating-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+            </svg>
+          </div>
+          <div class="floating-info">
+            <h4>Quét Mã VietQR</h4>
+            <p>Tự điền số tiền & nội dung</p>
+          </div>
+        </div>
 
-const repoOf = p => p.repo || p.id; // tên repo trên GitHub (mặc định = id)
-const base = p => `https://github.com/${OWNER}/${repoOf(p)}/releases`;
-const $ = s => document.querySelector(s);
-const tabs = $("#tabs") || $(".tabs"), panel = $("#panel");
-const ICONS = {
-  cart: '<path d="M3 4h2l2.4 11h10.2l2-8H6.2"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/>',
-  tag: '<path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.2"/>',
-  scan: '<path d="M4 5v14M8 5v14M11 5v14M15 5v14M18 5v14"/>',
-  shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/>',
-  swap: '<path d="M4 8h14l-3-3M20 16H6l3 3"/>',
-  clip: '<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h4"/>',
-  box: '<path d="M3 7l9-4 9 4v10l-9 4-9-4V7zM3 7l9 4 9-4M12 11v10"/>',
-  chart: '<path d="M5 20v-6M12 20V5M19 20v-10"/>',
-  store: '<path d="M4 10l1-5h14l1 5M5 10v10h14V10M9 20v-5h6v5"/><path d="M4 10a2.5 2.5 0 005 0 2.5 2.5 0 005 0 2.5 2.5 0 005 0"/>',
-  gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v9h14v-9M8 8a2.5 2.5 0 010-5c2 0 4 2.5 4 5 0-2.5 2-5 4-5a2.5 2.5 0 010 5"/>',
-  cup: '<path d="M5 8h12v6a5 5 0 01-5 5h-2a5 5 0 01-5-5V8z"/><path d="M17 9h1.5a2.5 2.5 0 010 5H17M8 3v2M12 3v2"/>',
-  table: '<path d="M5 5h14v4H5zM6 9v10M18 9v10"/>',
-  qr: '<rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h2v2h-2zM18 14h2M14 18h2M18 18v2"/>',
-  printer: '<path d="M7 9V4h10v5M7 17H5a1 1 0 01-1-1v-6a1 1 0 011-1h14a1 1 0 011 1v6a1 1 0 01-1 1h-2"/><rect x="7" y="14" width="10" height="6"/>',
-  wallet: '<rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M16 15h2"/>',
-  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-  image: '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-8 8"/>',
-  percent: '<path d="M19 5L5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>',
-  drop: '<path d="M12 3s6 6.2 6 10.5a6 6 0 01-12 0C6 9.2 12 3 12 3z"/><path d="M9.5 14a2.5 2.5 0 002.5 2.5"/>',
-  hanger: '<path d="M12 8a2.2 2.2 0 10-2.2-2.2M12 8v2l9 6a1 1 0 01-.6 1.8H3.6A1 1 0 013 16l9-6"/>',
-  truck: '<path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/>',
-  users: '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5a3 3 0 010 6M21 20c0-2.5-1.5-4.6-3.6-5.5"/>'
-};
-const ico = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[n] || ""}</svg>`;
-const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+        <!-- Floating badge right -->
+        <div class="floating-card card-right">
+          <div class="floating-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <div class="floating-info">
+            <h4>0đ Trọn Đời</h4>
+            <p>Không lo tăng giá thuê bao</p>
+          </div>
+        </div>
 
-function show(i) {
-  const p = PRODUCTS[i], latest = p.versions[0];
-  document.documentElement.style.setProperty("--accent", p.color);
-  tabs.querySelectorAll(".tab").forEach((t, k) => t.setAttribute("aria-selected", k === i));
-  panel.innerHTML = `
-    ${p.video ? `<p class="vidt">Xem video hướng dẫn trước khi dùng</p>
-    <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/${esc(p.video)}" title="Video hướng dẫn ${esc(p.name)}" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-    <p class="vidl">Không xem được? <a href="https://www.youtube.com/watch?v=${esc(p.video)}" target="_blank" rel="noopener">Mở trên YouTube</a></p>` : ""}
-    <h2>${esc(p.name)}<small>${esc(p.label)}</small></h2>
-    ${p.who ? `<p class="who">${esc(p.who)}</p>` : ""}
-    ${p.tagline ? `<p class="tag">${esc(p.tagline)}</p>` : ""}
-    <span class="quick">✓ Chỉ cần tải về và dùng ngay</span>
-    <div class="dl">
-      <a class="btn" id="dlbtn" href="${base(p)}/latest/download/${p.file}">Tải ${esc(p.name)} về máy</a>
-      <div id="dlmeta">Dùng được ngay trên Windows 10 / 11 (64-bit)<small>Bản mới nhất · Phát hành ${esc(latest.date)}</small></div>
+        <!-- Main Window Container -->
+        <div class="mockup-window">
+          <div class="mockup-bar">
+            <div class="mockup-dots">
+              <span class="mockup-dot red"></span>
+              <span class="mockup-dot yellow"></span>
+              <span class="mockup-dot green"></span>
+            </div>
+            <div class="mockup-title">TonFlora - Màn Hình Bán Hàng POS Thu Ngân</div>
+            <div class="mockup-actions"></div>
+          </div>
+          <div class="mockup-screen" data-zoom-target="images/tonflora/02-ban-hang.webp" data-caption="Màn hình bán hàng POS của TonFlora">
+            <img src="images/tonflora/02-ban-hang.webp" alt="Giao diện bán hàng TonFlora" width="1366" height="728" loading="eager" decoding="async">
+          </div>
+        </div>
+      </div>
     </div>
-    ${p.smartNote ? `<p class="ssn">Nếu Windows SmartScreen báo chặn: chọn <b>Thông tin thêm</b> → <b>Vẫn chạy</b>.</p>` : ""}
-    ${p.intro ? `<div class="intro">${p.intro.map(([k, t]) => k === "h" ? `<h3 class="ih">${esc(t)}</h3>` : k === "f" ? `<p class="free">${esc(t)}</p>` : `<p>${esc(t)}</p>`).join("")}</div>` : ""}
-    ${p.image ? `<figure class="shot banner" style="margin-top:22px"><img src="${esc(p.image)}" alt="${esc(p.imageAlt || p.name)}" width="1200" height="630" decoding="async"></figure>` : ""}
-    ${p.noSteps ? "" : `<ol class="steps3">
-      <li><span class="n">1</span><span><b>Tải về</b>Bấm nút xanh ở trên</span></li>
-      <li><span class="n">2</span><span><b>Mở file</b>Bấm đúp, không cần cài đặt</span></li>
-      <li><span class="n">3</span><span><b>Dùng ngay</b>Đăng nhập và bắt đầu làm việc</span></li>
-    </ol>
-    <p class="warn">Windows báo chặn? Chọn <b>Thông tin thêm</b> rồi <b>Vẫn chạy</b>.</p>`}
-    ${p.features && p.features.length ? `<h3 style="margin-top:8px">${esc(p.name)} có những gì</h3>
-    <ul class="feat">${p.features.map(f => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}
-    ${p.shots ? `<h3>${esc(p.shotsTitle || "Xem nhanh")}</h3>
-    <div class="gal">${p.shots.map(x => `<figure><div class="shot"><img src="${esc(x.img)}" alt="${esc(x.t)}: ${esc(x.s)}" width="${x.w}" height="${x.h}" loading="lazy" decoding="async" data-zoom></div><figcaption><b>${esc(x.t)}</b><span>${esc(x.s)}</span></figcaption></figure>`).join("")}</div>` : ""}
-    ${p.theme ? `<h3>${esc(p.theme.title)}</h3>
-    <div class="seg" role="group" aria-label="Chế độ hiển thị"><button type="button" data-m="light" aria-pressed="true">☀ Sáng</button><button type="button" data-m="dark" aria-pressed="false">☾ Tối</button></div>
-    <figure class="shot themeshot"><img data-t="light" src="${esc(p.theme.light)}" alt="${esc(p.name)} chế độ sáng" width="${p.theme.w}" height="${p.theme.h}" loading="lazy" decoding="async" data-zoom><img data-t="dark" src="${esc(p.theme.dark)}" alt="${esc(p.name)} chế độ tối" width="${p.theme.w}" height="${p.theme.h}" loading="lazy" decoding="async" data-zoom hidden></figure>
-    <p class="sub">${esc(p.theme.sub)}</p>` : ""}
-    ${p.chips ? `<h3>${esc(p.chipsTitle || "Phù hợp với")}</h3>
-    <ul class="chips">${p.chips.map(c => `<li>${esc(c)}</li>`).join("")}</ul>` : ""}
-    ${p.highlights ? `<h3>Những việc ${esc(p.name)} làm giúp bạn</h3>
-    <div class="hls">${p.highlights.map(h => `<article class="hl"><div class="ic" aria-hidden="true">${ico(h.icon)}</div><h4>${esc(h.title)}</h4><p>${esc(h.text)}</p>${h.eg ? `<p class="eg"><b>Ví dụ:</b> ${esc(h.eg)}</p>` : ""}</article>`).join("")}</div>` : ""}
-    ${p.story ? `<h3>${esc(p.storyTitle)}</h3>
-    <p class="sub">Ví dụ minh họa các việc thường gặp.</p>
-    <ol class="story">${p.story.map(x => `<li><span class="when">${esc(x.when)}</span><b>${esc(x.title)}</b><span class="t">${esc(x.text)}</span></li>`).join("")}</ol>` : ""}
-    <div class="dl" style="margin-top:36px">
-      <a class="btn" href="${base(p)}/latest/download/${p.file}">Tải ${esc(p.name)} về máy</a>
-      <div id="dlmeta">Tải về, bấm mở là dùng ngay<small>${esc(p.freeNote || "Miễn phí · Không cần cài đặt")}</small></div>
-    </div>`;
-  if (p.theme && matchMedia("(prefers-color-scheme: dark)").matches) { const d = panel.querySelector('.seg [data-m="dark"]'); if (d) d.click(); }
-  $("#issues").href = `https://github.com/${OWNER}/${repoOf(p)}/issues`;
-  history.replaceState(null, "", "#" + p.id);
-}
+  </section>
 
-tabs.innerHTML = PRODUCTS.map((p, i) =>
-  `<button class="tab" role="tab" aria-selected="false" data-i="${i}">${esc(p.name)}<small>${esc(p.label)}</small></button>`).join("");
-const lb = $("#lb");
-panel.addEventListener("click", e => {
-  const mb = e.target.closest(".seg button");
-  if (mb) { const m = mb.dataset.m, f = panel.querySelector(".themeshot");
-    mb.parentNode.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === mb));
-    f.querySelectorAll("img").forEach(x => x.hidden = x.dataset.t !== m); return; }
-  const im = e.target.closest("img[data-zoom]"); if (!im || !lb.showModal) return;
-  lb.querySelector("img").src = im.src; lb.querySelector("img").alt = im.alt;
-  const cap = im.closest("figure").querySelector("b");
-  lb.querySelector("p").textContent = cap ? cap.textContent : im.alt;
-  lb.showModal();
-});
-lb.addEventListener("click", () => lb.close());
-tabs.addEventListener("click", e => { const b = e.target.closest(".tab"); if (b) show(+b.dataset.i); });
+  <!-- ========== STATS & HIGHLIGHTS ========== -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">0đ</div>
+          <div class="stat-label">Chi Phí Phần Mềm</div>
+          <div class="stat-sub">Miễn phí trọn đời vĩnh viễn</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1 Click</div>
+          <div class="stat-label">Không Cần Cài Đặt</div>
+          <div class="stat-sub">Tải 1 file exe chạy ngay lập tức</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Lưu Dữ Liệu Offline</div>
+          <div class="stat-sub">Máy tính của bạn, bạn làm chủ</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">8+</div>
+          <div class="stat-label">Ngành Hàng Có Sẵn</div>
+          <div class="stat-sub">Mẫu danh mục & hàng hóa chuẩn</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-const start = PRODUCTS.findIndex(p => "#" + p.id === location.hash);
-show(start < 0 ? 0 : start);
-$("#y").textContent = new Date().getFullYear();
-</script>
+  <!-- ========== COMPARISON SECTION: WHY TONFLORA ========== -->
+  <section class="comparison-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">So Sánh Thực Tế</span>
+        <h2 class="section-title">Tại Sao Nên Dùng TonFlora Thay Vì Thuê Phần Mềm?</h2>
+        <p class="section-sub">
+          Đa số các phần mềm trên thị trường bắt bạn trả tiền thuê hàng tháng, mạng chậm là đơ máy, và dữ liệu phụ thuộc máy chủ bên thứ ba.
+        </p>
+      </div>
+
+      <div class="comparison-grid">
+        <!-- Other Cloud Softwares -->
+        <div class="comp-col bad">
+          <div class="comp-header">
+            <h3>Phần Mềm Thuê Ngoài</h3>
+            <p>KiotViet, Sapo, Pos365 và các phần mềm theo thuê bao tháng</p>
+          </div>
+          <ul class="comp-list">
+            <li class="comp-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <div>
+                <strong>Chi phí 2.000.000đ - 5.000.000đ / năm</strong>
+                <p>Năm nào cũng phải gia hạn, hết tiền là bị khóa tài khoản không vào bán được.</p>
+              </div>
+            </li>
+            <li class="comp-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <div>
+                <strong>Phụ thuộc 100% vào mạng Internet</strong>
+                <p>Mạng chập chờn hoặc rớt mạng là đứng hình, khách đứng đợi thanh toán bức xúc.</p>
+              </div>
+            </li>
+            <li class="comp-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <div>
+                <strong>Dữ liệu nằm trên Cloud người khác</strong>
+                <p>Doanh thu, danh sách khách hàng, giá nhập có nguy cơ bị lộ hoặc phụ thuộc.</p>
+              </div>
+            </li>
+            <li class="comp-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <div>
+                <strong>Cấu hình phức tạp, nhiều tính năng thừa</strong>
+                <p>Người lớn tuổi hoặc nhân viên mới mất nhiều tuần mới quen cách bấm.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- TonFlora -->
+        <div class="comp-col good">
+          <span class="good-badge">Giải Pháp Tối Ưu</span>
+          <div class="comp-header">
+            <h3>TonFlora (TonSoft)</h3>
+            <p>Phần mềm quản lý bán hàng gọn nhẹ, chuyên dụng cho Windows</p>
+          </div>
+          <ul class="comp-list">
+            <li class="comp-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <div>
+                <strong>Miễn Phí Trọn Đời – 0đ chi phí</strong>
+                <p>Không phí khởi tạo, không phí tháng, không phí năm. Dành tặng anh chị em buôn bán.</p>
+              </div>
+            </li>
+            <li class="comp-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <div>
+                <strong>Chạy mượt mà, Offline vĩnh viễn</strong>
+                <p>Không cần mạng vẫn tạo đơn, in hóa đơn ầm ầm. Tốc độ tức thì, không bao giờ lag.</p>
+              </div>
+            </li>
+            <li class="comp-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <div>
+                <strong>Bảo mật 100% – Dữ liệu ở máy bạn</strong>
+                <p>Toàn bộ cơ sở dữ liệu nằm trên ổ cứng của bạn. Dễ dàng sao lưu, copy ra USB.</p>
+              </div>
+            </li>
+            <li class="comp-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <div>
+                <strong>Bật lên là biết dùng – Có mẫu sẵn 8 ngành</strong>
+                <p>Giao diện thuần Việt trực quan, chọn danh mục có sẵn và bán được ngay sau 2 phút.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 8 INDUSTRIES PRESET ========== -->
+  <section class="industries-section" id="nganh-hang">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Đa Dạng Ngành Nghề</span>
+        <h2 class="section-title">8 Ngành Hàng Được Chuẩn Bị Sẵn Hàng Mẫu</h2>
+        <p class="section-sub">
+          Không cần tốn công gõ từng món từ đầu! Khi mở TonFlora lần đầu, bạn chỉ cần chọn mô hình kinh doanh của mình, toàn bộ danh mục và sản phẩm mẫu sẽ được điền sẵn.
+        </p>
+      </div>
+
+      <div class="industry-chips-wrap">
+        <div class="industry-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+          Quần Áo &amp; Thời Trang
+        </div>
+        <div class="industry-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Tạp Hóa &amp; Văn Phòng Phẩm
+        </div>
+        <div class="industry-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9z"/><path d="M12 7v5l3 3"/></svg>
+          Hoa, Cây Cảnh &amp; Phụ Kiện
+        </div>
+        <div class="industry-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Tiệm Bánh Ngọt &amp; Bakery
+        </div>
+        <div class="industry-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          Đồ Trẻ Em &amp; Mẹ Bé
+        </div>
+        <div class="industry-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Vật Tư Xây Dựng &amp; Sơn
+        </div>
+        <div class="industry-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Điện Nước &amp; Gia Dụng
+        </div>
+        <div class="industry-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+          Nhà Thuốc &amp; Thực Phẩm Chức Năng
+        </div>
+      </div>
+
+      <div class="industry-banner">
+        <p>
+          💡 <strong>Bạn kinh doanh ngành nghề khác?</strong> Hoàn toàn linh hoạt! Bạn có thể dễ dàng sửa tên, thêm danh mục mới, hoặc nhập nhanh toàn bộ danh sách hàng từ file Excel chỉ bằng 1 thao tác.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DETAILED FEATURES SHOWCASE ========== -->
+  <section class="features-section" id="tinh-nang">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Tính Năng Thực Chiến</span>
+        <h2 class="section-title">Mọi Công Cụ Bạn Cần Để Vận Hành Cửa Hàng</h2>
+        <p class="section-sub">
+          Được thiết kế tối giản, loại bỏ những thao tác rườm rà. Tập trung chính xác vào tốc độ bán hàng tại quầy và sự chính xác của sổ sách.
+        </p>
+      </div>
+
+      <!-- Feature 1: POS & Barcode -->
+      <div class="feature-row">
+        <div class="feature-text">
+          <span class="feature-badge">01. Bán Hàng Siêu Tốc</span>
+          <h3 class="feature-title">Giao diện POS trực quan, quét mã vạch cực nhạy</h3>
+          <p class="feature-desc">
+            Nhân viên chỉ cần bấm chọn sản phẩm trên màn hình hoặc dùng máy quét mã vạch tít tít là vào giỏ hàng ngay. Hỗ trợ tìm kiếm nhanh theo tên, mã sản phẩm hoặc danh mục.
+          </p>
+          <ul class="feature-points">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Tự động tính tổng tiền, chiết khấu và tiền thừa trả khách
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Hỗ trợ bán hàng nhiều đơn cùng lúc (tạm lưu đơn)
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Thao tác bằng bàn phím hoặc màn hình cảm ứng mượt mà
+            </li>
+          </ul>
+        </div>
+        <div class="feature-img-box" data-zoom-target="images/tonflora/02-ban-hang.webp" data-caption="Giao diện bán hàng POS">
+          <img src="images/tonflora/02-ban-hang.webp" alt="Giao diện bán hàng POS TonFlora" width="1366" height="728" loading="lazy">
+          <div class="feature-img-caption">
+            <span><strong>Màn hình POS</strong>: Bấm chọn món, tiền tự tính tức thì</span>
+            <span style="color:#34d399">Phóng to 🔍</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: VietQR & In bill -->
+      <div class="feature-row reverse">
+        <div class="feature-text">
+          <span class="feature-badge">02. Thanh Toán Hiện Đại</span>
+          <h3 class="feature-title">Quét mã VietQR tự động & In hóa đơn K80, K58, A5</h3>
+          <p class="feature-desc">
+            Không cần gõ số tiền hay đọc số tài khoản cho khách! Khi chọn thanh toán chuyển khoản, TonFlora lập tức hiển thị mã VietQR động có sẵn số tiền chính xác và nội dung đơn. Khách chỉ cần mở app ngân hàng quét là xong.
+          </p>
+          <ul class="feature-points">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Mã QR ngân hàng chuẩn VietQR tương thích tất cả ngân hàng Việt Nam
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              In hóa đơn nhiệt khổ K80, K58 hoặc giấy A5 cực đẹp và rõ nét
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Tùy chỉnh thông tin cửa hàng, hotline, lời cảm ơn trên bill
+            </li>
+          </ul>
+        </div>
+        <div class="feature-img-box" data-zoom-target="images/tonflora/03-thanh-toan-qr.webp" data-caption="Thanh toán VietQR động">
+          <img src="images/tonflora/03-thanh-toan-qr.webp" alt="Màn hình thanh toán VietQR TonFlora" width="1366" height="728" loading="lazy">
+          <div class="feature-img-caption">
+            <span><strong>VietQR &amp; In Bill</strong>: Thanh toán chính xác từng nghìn đồng</span>
+            <span style="color:#34d399">Phóng to 🔍</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3: Product & Barcode printing -->
+      <div class="feature-row">
+        <div class="feature-text">
+          <span class="feature-badge">03. Hàng Hóa & Tem Nhãn</span>
+          <h3 class="feature-title">Quản lý sản phẩm đa biến thể & Tự in tem mã vạch</h3>
+          <p class="feature-desc">
+            Một sản phẩm có nhiều màu, nhiều size, nhiều đơn vị tính? TonFlora quản lý cực kỳ gọn gàng. Bạn còn có thể tự in tem mã vạch từ máy in nhiệt thông thường để dán lên từng gói hàng.
+          </p>
+          <ul class="feature-points">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Quản lý giá vốn, giá bán lẻ, tồn kho cảnh báo sắp hết
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              In tem mã vạch nhiều khổ thông dụng (2 tem/hàng, 3 tem/hàng...)
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Nhập & xuất danh mục sản phẩm qua Excel dễ dàng
+            </li>
+          </ul>
+        </div>
+        <div class="feature-img-box" data-zoom-target="images/tonflora/05-san-pham.webp" data-caption="Quản lý sản phẩm và danh mục">
+          <img src="images/tonflora/05-san-pham.webp" alt="Quản lý sản phẩm TonFlora" width="1365" height="730" loading="lazy">
+          <div class="feature-img-caption">
+            <span><strong>Kho Hàng &amp; Tem Mã Vạch</strong>: Quản lý khoa học, không thất thoát</span>
+            <span style="color:#34d399">Phóng to 🔍</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 4: Cashbook & Reports -->
+      <div class="feature-row reverse">
+        <div class="feature-text">
+          <span class="feature-badge">04. Tài Chính Rõ Ràng</span>
+          <h3 class="feature-title">Sổ quỹ thu chi & Báo cáo doanh thu, lợi nhuận tức thì</h3>
+          <p class="feature-desc">
+            Tiền bán hàng tự động ghi nhận vào sổ quỹ. Các chi phí phát sinh như tiền mặt bằng, điện nước, nhập nguyên vật liệu... bạn ghi chép lại minh bạch. Cuối ngày mở báo cáo là biết ngay hôm nay lời bao nhiêu.
+          </p>
+          <ul class="feature-points">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Tự động hạch toán tiền bán vào sổ quỹ tiền mặt / ngân hàng
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Biểu đồ doanh thu theo ngày, tháng, xem món bán chạy nhất
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Xuất báo cáo tài chính ra file Excel chuẩn chỉ bằng 1 nút bấm
+            </li>
+          </ul>
+        </div>
+        <div class="feature-img-box" data-zoom-target="images/tonflora/08-thong-ke.webp" data-caption="Báo cáo thống kê doanh thu và lợi nhuận">
+          <img src="images/tonflora/08-thong-ke.webp" alt="Báo cáo thống kê TonFlora" width="1366" height="728" loading="lazy">
+          <div class="feature-img-caption">
+            <span><strong>Báo Cáo &amp; Sổ Quỹ</strong>: Biết chính xác lãi lỗ từng ngày</span>
+            <span style="color:#34d399">Phóng to 🔍</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== THEME LIGHT / DARK PREVIEW ========== -->
+  <section class="theme-preview-section" id="giao-dien">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Trải Nghiệm Thị Giác</span>
+        <h2 class="section-title">Giao Diện Sáng &amp; Tối – Đổi Ngay Bằng 1 Nút Bấm</h2>
+        <p class="section-sub">
+          Dù bạn thích giao diện sáng thanh lịch ban ngày hay giao diện tối dịu mắt ban đêm, TonFlora đều đáp ứng hoàn hảo.
+        </p>
+      </div>
+
+      <div class="theme-switch-wrap">
+        <div class="theme-segmented" role="group" aria-label="Chế độ hiển thị">
+          <button type="button" id="btn-theme-light" aria-pressed="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            Chế độ Sáng (Light)
+          </button>
+          <button type="button" id="btn-theme-dark" aria-pressed="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            Chế độ Tối (Dark)
+          </button>
+        </div>
+      </div>
+
+      <div class="theme-display-box" id="theme-preview-box">
+        <img id="img-theme-light" src="images/tonflora/09-che-do-sang.webp" alt="TonFlora chế độ sáng" width="1366" height="728" loading="lazy" data-zoom-target="images/tonflora/09-che-do-sang.webp" data-caption="Giao diện chế độ Sáng">
+        <img id="img-theme-dark" src="images/tonflora/10-che-do-toi.webp" alt="TonFlora chế độ tối" width="1366" height="728" loading="lazy" hidden data-zoom-target="images/tonflora/10-che-do-toi.webp" data-caption="Giao diện chế độ Tối">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY SCREENSHOTS ========== -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Thư Viện Ảnh Chụp Thật</span>
+        <h2 class="section-title">Xem Chi Tiết Mọi Màn Hình Của TonFlora</h2>
+        <p class="section-sub">
+          Bấm vào bất kỳ ảnh nào để phóng to và xem chất lượng giao diện phần mềm thực tế.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <div class="gallery-thumb" data-zoom-target="images/tonflora/01-chon-nganh.webp" data-caption="Chọn ngành kinh doanh - Có sẵn danh mục và sản phẩm mẫu">
+            <img src="images/tonflora/01-chon-nganh.webp" alt="Chọn ngành kinh doanh" width="1184" height="712" loading="lazy">
+          </div>
+          <div class="gallery-info">
+            <h4>01. Chọn Ngành Kinh Doanh</h4>
+            <p>Có sẵn danh mục hàng hóa mẫu chuẩn bị sẵn.</p>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="gallery-thumb" data-zoom-target="images/tonflora/02-ban-hang.webp" data-caption="Màn hình bán hàng POS - Chạm là tính tiền">
+            <img src="images/tonflora/02-ban-hang.webp" alt="Màn hình bán hàng" width="1366" height="728" loading="lazy">
+          </div>
+          <div class="gallery-info">
+            <h4>02. Màn Hình Bán Hàng POS</h4>
+            <p>Bấm chọn món, phân loại, giá tự tính chuẩn xác.</p>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="gallery-thumb" data-zoom-target="images/tonflora/03-thanh-toan-qr.webp" data-caption="Hộp thanh toán và mã QR ngân hàng">
+            <img src="images/tonflora/03-thanh-toan-qr.webp" alt="Thanh toán VietQR" width="1366" height="728" loading="lazy">
+          </div>
+          <div class="gallery-info">
+            <h4>03. Thanh Toán &amp; VietQR</h4>
+            <p>Mã QR tự động đúng số tiền, khách quét tức thì.</p>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="gallery-thumb" data-zoom-target="images/tonflora/04-hoa-don.webp" data-caption="Mẫu in hóa đơn chuyên nghiệp">
+            <img src="images/tonflora/04-hoa-don.webp" alt="In hóa đơn" width="1023" height="641" loading="lazy">
+          </div>
+          <div class="gallery-info">
+            <h4>04. Mẫu In Hóa Đơn</h4>
+            <p>Hỗ trợ in nhiệt K80, K58, A5 cực sắc nét.</p>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="gallery-thumb" data-zoom-target="images/tonflora/06-tem-ma-vach.webp" data-caption="In tem nhãn và mã vạch cho sản phẩm">
+            <img src="images/tonflora/06-tem-ma-vach.webp" alt="In tem mã vạch" width="1366" height="728" loading="lazy">
+          </div>
+          <div class="gallery-info">
+            <h4>05. In Tem Mã Vạch</h4>
+            <p>In mã vạch dán lên từng sản phẩm để quét ở quầy.</p>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="gallery-thumb" data-zoom-target="images/tonflora/07-thu-chi.webp" data-caption="Sổ quỹ tiền mặt và thu chi nội bộ">
+            <img src="images/tonflora/07-thu-chi.webp" alt="Sổ quỹ thu chi" width="1366" height="728" loading="lazy">
+          </div>
+          <div class="gallery-info">
+            <h4>06. Sổ Quỹ Thu Chi</h4>
+            <p>Tiền vào, tiền ra minh bạch, không lo thất thoát.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW TO USE (3 STEPS) ========== -->
+  <section class="steps-section" id="huong-dan">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Bắt Đầu Cực Dễ</span>
+        <h2 class="section-title">Bắt Đầu Sử Dụng Chỉ Với 3 Bước Đơn Giản</h2>
+        <p class="section-sub">
+          Không cần cài SQL Server, không cần đăng ký tài khoản rườm rà. Mọi việc hoàn tất trong chưa đầy 1 phút.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Tải Về Máy</h3>
+          <p>
+            Bấm nút tải về file <code>TonFlora.exe</code>. Hãy lưu file vào một thư mục riêng như <code>D:\TonFlora\</code> để dễ quản lý.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Mở Lên Dùng Ngay</h3>
+          <p>
+            Bấm đúp chuột vào file để mở. (Nếu Windows báo bảo vệ SmartScreen: chọn <b>Thông tin thêm / More info</b> rồi bấm <b>Vẫn chạy / Run anyway</b>).
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Chọn Ngành &amp; Bán Hàng</h3>
+          <p>
+            Chọn ngành hàng của bạn để nạp mẫu sản phẩm có sẵn, chỉnh sửa lại giá bán và bắt đầu bấm thanh toán ngay!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ SECTION ========== -->
+  <section class="faq-section" id="cau-hoi">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Giải Đáp Thắc Mắc</span>
+        <h2 class="section-title">Những Câu Hỏi Thường Gặp</h2>
+        <p class="section-sub">
+          Tất cả những điều bạn cần biết trước khi bắt đầu sử dụng TonFlora.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>Phần mềm có thực sự Miễn Phí Trọn Đời không? Có bị thu phí về sau không?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <strong>Chắc chắn 100% miễn phí trọn đời!</strong> TonFlora được TonSoft phát triển với tôn chỉ hỗ trợ bà con tiểu thương, hộ kinh doanh nhỏ lẻ và các bạn trẻ mới khởi nghiệp tiết kiệm chi phí phần mềm. Bạn không phải trả bất kỳ khoản phí duy trì theo tháng hay năm nào.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Dữ liệu bán hàng và thông tin khách có an toàn không?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            Toàn bộ cơ sở dữ liệu được lưu trữ trực tiếp trên chính chiếc máy tính cá nhân của bạn, không gửi lên máy chủ của bên thứ ba nào. Bạn có toàn quyền làm chủ dữ liệu và có thể sao lưu ra USB hoặc Google Drive bất kỳ lúc nào.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Máy tính mất mạng Internet thì có bán hàng được không?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            Có! TonFlora hoạt động hoàn toàn Offline. Ngay cả khi rớt mạng, bạn vẫn mở máy, chọn hàng, in bill thanh toán bình thường. Mã VietQR vẫn sinh ra đúng số tiền để khách dùng 4G quét thanh toán dễ dàng.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Cần cấu hình máy tính như thế nào để chạy được phần mềm?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            TonFlora cực kỳ nhẹ mượt: Chỉ cần máy tính hoặc laptop chạy Windows 10 hoặc Windows 11 (64-bit), RAM từ 4GB trở lên là chạy siêu tốc. Phần mềm tương thích với mọi loại máy quét mã vạch và máy in nhiệt (K80, K58, A5) qua cổng USB.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Tôi đã có danh sách hàng trên Excel thì có nhập vào được không?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            Rất đơn giản! TonFlora có sẵn chức năng "Nhập từ Excel" và "Xuất ra Excel". Bạn chỉ cần tải file mẫu về, dán danh sách hàng và giá vào rồi bấm nạp là toàn bộ sản phẩm xuất hiện trong phần mềm ngay.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TONSOFT ECOSYSTEM ========== -->
+  <section class="eco-section" id="he-sinh-thai">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Hệ Sinh Thái TonSoft</span>
+        <h2 class="section-title">Các Phần Mềm Quản Lý Chuyên Ngành Khác</h2>
+        <p class="section-sub">
+          Ngoài TonFlora cho cửa hàng bán lẻ, TonSoft còn cung cấp các giải pháp chuyên sâu cho từng mô hình dịch vụ:
+        </p>
+      </div>
+
+      <div class="eco-grid">
+        <div class="eco-card">
+          <div class="eco-top">
+            <h4>TonCoffee</h4>
+            <p class="tag">Quán Cà Phê &amp; Trà Sữa</p>
+            <p class="desc">Gọi món theo size, mức đá, mức đường, topping. Sơ đồ bàn theo khu vực, khuyến mãi tự động.</p>
+          </div>
+          <a href="coffee.html" class="eco-link">
+            Xem trang TonCoffee →
+          </a>
+        </div>
+
+        <div class="eco-card">
+          <div class="eco-top">
+            <h4>TonMobile</h4>
+            <p class="tag">Cửa Hàng Điện Thoại &amp; Laptop</p>
+            <p class="desc">Ghi IMEI/Serial theo từng đơn, thu mua máy cũ vào kho, tự tính hạn bảo hành và dùng thử.</p>
+          </div>
+          <a href="mobile.html" class="eco-link">
+            Xem trang TonMobile →
+          </a>
+        </div>
+
+        <div class="eco-card">
+          <div class="eco-top">
+            <h4>TonBida</h4>
+            <p class="tag">Quán Bi-a &amp; Bida Club</p>
+            <p class="desc">Sơ đồ bàn trực quan, đồng hồ tự chạy theo loại bàn &amp; khung giờ vàng, gọi đồ uống tại bàn.</p>
+          </div>
+          <a href="bida.html" class="eco-link">
+            Xem trang TonBida →
+          </a>
+        </div>
+
+        <div class="eco-card">
+          <div class="eco-top">
+            <h4>TonPawn</h4>
+            <p class="tag">Tiệm Cầm Đồ &amp; Cho Vay</p>
+            <p class="desc">Hợp đồng cầm cố tài sản, tính lãi tự động theo tháng/ngày, chuộc đồ, thanh lý, thư viện ảnh CCCD.</p>
+          </div>
+          <a href="pawn.html" class="eco-link">
+            Xem trang TonPawn →
+          </a>
+        </div>
+
+        <div class="eco-card">
+          <div class="eco-top">
+            <h4>TonFloraX</h4>
+            <p class="tag">Tiệm Giặt Là &amp; Giặt Sấy</p>
+            <p class="desc">Nhận đồ theo kg / món, ghi số kệ, hẹn ngày trả, in tem dán túi, thẻ trả trước cho khách quen.</p>
+          </div>
+          <a href="florax.html" class="eco-link">
+            Xem trang TonFloraX →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BOTTOM CTA BANNER ========== -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Sẵn Sàng Bán Hàng Chuyên Nghiệp Ngay Hôm Nay?</h2>
+        <p>
+          Hãy để TonFlora gánh bớt nỗi lo chi phí và sổ sách cho bạn. Chỉ mất 30 giây tải về, trải nghiệm ngay sự đơn giản và mượt mà!
+        </p>
+        <a href="https://github.com/manhbui0811/TonFlora/releases/latest/download/TonFlora.exe" class="btn-main-download">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          Tải TonFlora Miễn Phí (Windows)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Ton<span>Flora</span> by TonSoft</h3>
+          <p>
+            Bộ giải pháp phần mềm quản lý cửa hàng đơn giản, dễ dùng, chạy trên máy tính Windows. Giúp hàng nghìn cửa hàng Việt tối ưu vận hành mà không tốn chi phí.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kênh Hỗ Trợ</h4>
+          <ul>
+            <li>Fanpage: <a href="https://www.facebook.com/tonsoftvn/" target="_blank" rel="noopener">facebook.com/tonsoftvn</a></li>
+            <li>Email: <a href="mailto:manhbui0811@gmail.com">manhbui0811@gmail.com</a></li>
+            <li>Báo lỗi: <a href="https://github.com/manhbui0811/TonFlora/issues" target="_blank" rel="noopener">GitHub Issues</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Thông Tin</h4>
+          <ul>
+            <li>Phiên bản: 1.0.0 (Mới nhất)</li>
+            <li>Hệ điều hành: Windows 10/11 64-bit</li>
+            <li>Chính sách: Miễn phí trọn đời</li>
+            <li>Bản quyền: © <span id="year"></span> TonSoft</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Phát triển bởi <strong>TonSoft</strong> vì cộng đồng kinh doanh nhỏ lẻ Việt Nam.</div>
+        <div>Mọi quyền được bảo lưu.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== LIGHTBOX MODAL ========== -->
+  <dialog id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Đóng">&times;</button>
+      <img class="lightbox-img" id="lightbox-img" src="" alt="">
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+  </dialog>
+
+  <!-- ========== JAVASCRIPT LOGIC ========== -->
+  <script>
+    // Set dynamic current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme Switcher (Light / Dark mode showcase)
+    const btnLight = document.getElementById("btn-theme-light");
+    const btnDark = document.getElementById("btn-theme-dark");
+    const imgLight = document.getElementById("img-theme-light");
+    const imgDark = document.getElementById("img-theme-dark");
+
+    btnLight.addEventListener("click", () => {
+      btnLight.setAttribute("aria-pressed", "true");
+      btnDark.setAttribute("aria-pressed", "false");
+      imgLight.hidden = false;
+      imgDark.hidden = true;
+    });
+
+    btnDark.addEventListener("click", () => {
+      btnDark.setAttribute("aria-pressed", "true");
+      btnLight.setAttribute("aria-pressed", "false");
+      imgLight.hidden = true;
+      imgDark.hidden = false;
+    });
+
+    // Lightbox modal logic
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    const lightboxClose = document.getElementById("lightbox-close");
+
+    document.querySelectorAll("[data-zoom-target]").forEach(elem => {
+      elem.addEventListener("click", () => {
+        const src = elem.getAttribute("data-zoom-target") || (elem.querySelector("img") && elem.querySelector("img").src);
+        const caption = elem.getAttribute("data-caption") || (elem.querySelector("img") && elem.querySelector("img").alt) || "";
+        if (src && lightbox.showModal) {
+          lightboxImg.src = src;
+          lightboxCaption.textContent = caption;
+          lightbox.showModal();
+        }
+      });
+    });
+
+    lightboxClose.addEventListener("click", () => lightbox.close());
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) lightbox.close();
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll(".faq-question").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item");
+        const isActive = item.classList.contains("active");
+        document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("active"));
+        if (!isActive) item.classList.add("active");
+      });
+    });
+  </script>
 </body>
 </html>

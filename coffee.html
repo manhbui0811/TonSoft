@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TonCoffee – Phần mềm quản lý quán Cà Phê, Trà Sữa | TonSoft</title>
+  <meta name="description" content="TonCoffee – Phần mềm quản lý bán hàng chuyên biệt cho quán cà phê, trà sữa, sinh tố. Gọi món theo size, đá, đường, topping, sơ đồ bàn, VietQR tự động.">
+  <link rel="canonical" href="https://manhbui0811.github.io/TonSoft/coffee.html">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TonCoffee by TonSoft">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:url" content="https://manhbui0811.github.io/TonSoft/coffee.html">
+  <meta property="og:title" content="TonCoffee – Quản lý quán Cà Phê, Trà Sữa dễ dùng trên máy tính">
+  <meta property="og:description" content="Gọi món tùy chỉnh đá đường topping, sơ đồ bàn, khuyến mãi giờ vàng, VietQR hiện sẵn đúng số tiền. Tải về dùng ngay.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #f59e0b;
+      --primary-dark: #d97706;
+      --primary-deep: #b45309;
+      --primary-glow: rgba(245, 158, 11, 0.28);
+      
+      --accent: #fbbf24;
+      --accent-soft: rgba(251, 191, 36, 0.12);
+      
+      --bg: #0f0d0a;
+      --bg-card: #181410;
+      --surface: #221b14;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(245, 158, 11, 0.35);
+      
+      --ink: #fef3c7;
+      --ink-muted: #d1b89d;
+      --ink-dim: #8c7662;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      
+      --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.35);
+      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.55);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", "Be Vietnam Pro", system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(217, 119, 6, 0.22), transparent 70%),
+        radial-gradient(circle at 90% 20%, rgba(180, 83, 9, 0.14), transparent 40%),
+        radial-gradient(circle at 10% 60%, rgba(245, 158, 11, 0.08), transparent 50%);
+      background-attachment: fixed;
+    }
+
+    a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
+    img { max-width: 100%; height: auto; display: block; }
+    button { font: inherit; cursor: pointer; border: none; outline: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(15, 13, 10, 0.85);
+      border-bottom: 1px solid var(--surface-border);
+    }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #f59e0b, #b45309);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
+    }
+    .brand span.prod {
+      color: #fbbf24;
+      background: linear-gradient(120deg, #fde68a, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav.nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    nav.nav-links a {
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    nav.nav-links a:hover {
+      color: #fff;
+    }
+
+    /* Products Dropdown */
+    .nav-dropdown { position: relative; display: inline-block; }
+    .nav-dropdown-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+    .nav-dropdown:hover .nav-dropdown-btn { color: #fff; background: rgba(255,255,255,0.06); }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: -20px;
+      width: 320px;
+      background: #1c1611;
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 10px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 110;
+      backdrop-filter: blur(20px);
+    }
+    .nav-dropdown:hover .dropdown-menu { display: flex; }
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+    }
+    .dropdown-item:hover { background: rgba(255,255,255,0.07); }
+    .dropdown-item.active { background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.35); }
+    .dropdown-item-icon {
+      width: 36px; height: 36px; border-radius: 9px; display: grid; place-items: center; font-size: 1.1rem; flex-shrink: 0;
+    }
+    .dropdown-item strong { font-size: 0.9rem; color: #fff; display: block; margin-bottom: 2px; }
+    .dropdown-item p { font-size: 0.76rem; color: var(--ink-muted); line-height: 1.3; }
+
+    .btn-nav-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: 999px;
+      box-shadow: 0 4px 16px rgba(217, 119, 6, 0.35);
+    }
+    .btn-nav-download:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(217, 119, 6, 0.5); }
+
+    /* HERO */
+    .hero-section { padding: 70px 0 60px; text-align: center; }
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #fbbf24;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .hero-title {
+      font-size: clamp(2.3rem, 5.5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .hero-title .text-gradient {
+      background: linear-gradient(135deg, #fff 30%, #fde68a 80%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin: 0 auto 36px;
+      max-width: 760px;
+    }
+    .hero-desc strong { color: #fef3c7; }
+
+    .btn-main-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+      color: #ffffff;
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 18px 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(217, 119, 6, 0.45);
+      transition: all 0.2s;
+    }
+    .btn-main-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(217, 119, 6, 0.6);
+    }
+    .download-meta {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      font-size: 0.88rem;
+      color: var(--ink-dim);
+      margin-top: 14px;
+    }
+
+    /* STATS */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 40px 0 60px;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--surface-border);
+      padding: 24px 20px;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .stat-number { font-size: 2.2rem; font-weight: 800; color: #fbbf24; margin-bottom: 6px; }
+    .stat-label { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .stat-sub { font-size: 0.8rem; color: var(--ink-dim); }
+
+    /* HIGHLIGHTS GRID */
+    .section-head { text-align: center; max-width: 720px; margin: 0 auto 50px; }
+    .section-tag {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: #fbbf24;
+      margin-bottom: 12px;
+      background: rgba(245, 158, 11, 0.1);
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+    .section-title { font-size: clamp(1.8rem, 3.8vw, 2.6rem); font-weight: 800; color: #fff; margin-bottom: 16px; }
+    .section-sub { font-size: 1.05rem; color: var(--ink-muted); line-height: 1.7; }
+
+    .hl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin-bottom: 70px;
+    }
+    .hl-card {
+      background: var(--bg-card);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: all 0.25s;
+    }
+    .hl-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(245, 158, 11, 0.4);
+      box-shadow: var(--shadow-md);
+    }
+    .hl-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+    }
+    .hl-card h3 { font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 10px; }
+    .hl-card p { font-size: 0.95rem; color: var(--ink-muted); line-height: 1.6; margin-bottom: 12px; }
+    .hl-eg {
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid #f59e0b;
+      font-size: 0.88rem;
+      color: #fef3c7;
+    }
+
+    /* STORY TIMELINE */
+    .story-section {
+      background: rgba(255, 255, 255, 0.015);
+      border-top: 1px solid var(--surface-border);
+      border-bottom: 1px solid var(--surface-border);
+      padding: 70px 0;
+    }
+    .story-timeline {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .story-item {
+      display: flex;
+      gap: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      align-items: flex-start;
+    }
+    .story-time {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #f59e0b, #b45309);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: grid;
+      place-items: center;
+    }
+    .story-body h4 { font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .story-body p { font-size: 0.95rem; color: var(--ink-muted); line-height: 1.6; }
+
+    /* CTA BANNER */
+    .cta-banner { padding: 80px 0; }
+    .cta-box {
+      background: linear-gradient(135deg, #2b1d0c 0%, #171109 100%);
+      border: 2px solid rgba(245, 158, 11, 0.4);
+      border-radius: var(--radius-xl);
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    }
+    .cta-box h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 16px; color: #fff; }
+    .cta-box p { font-size: 1.15rem; color: #fde68a; max-width: 640px; margin: 0 auto 36px; }
+
+    /* FOOTER */
+    footer.site-footer {
+      border-top: 1px solid var(--surface-border);
+      padding: 40px 0;
+      background: #090807;
+      color: var(--ink-dim);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      nav.nav-links { display: none; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .hl-grid { grid-template-columns: 1fr; }
+      .story-item { flex-direction: column; gap: 12px; }
+      .cta-box { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">☕</div>
+        <div>Ton<span class="prod">Coffee</span></div>
+      </a>
+
+      <nav class="nav-links">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" type="button">
+            Phần mềm
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown-menu">
+            <a href="index.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background:rgba(16,185,129,0.2);color:#34d399">🏪</div>
+              <div><strong>TonFlora</strong><p>Cửa hàng bán lẻ, tạp hóa, thời trang</p></div>
+            </a>
+            <a href="coffee.html" class="dropdown-item active">
+              <div class="dropdown-item-icon" style="background:rgba(217,119,6,0.2);color:#fbbf24">☕</div>
+              <div><strong>TonCoffee (Đang xem)</strong><p>Quán cà phê, trà sữa, sinh tố</p></div>
+            </a>
+            <a href="mobile.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background:rgba(37,99,235,0.2);color:#60a5fa">📱</div>
+              <div><strong>TonMobile</strong><p>Cửa hàng điện thoại, laptop, linh kiện</p></div>
+            </a>
+            <a href="bida.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background:rgba(220,38,38,0.2);color:#f87171">🎱</div>
+              <div><strong>TonBida</strong><p>Quán bi-a, câu lạc bộ bida</p></div>
+            </a>
+            <a href="pawn.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background:rgba(124,58,237,0.2);color:#c084fc">💎</div>
+              <div><strong>TonPawn</strong><p>Tiệm cầm đồ, quản lý vay lãi</p></div>
+            </a>
+            <a href="florax.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background:rgba(2,132,199,0.2);color:#38bdf8">🧺</div>
+              <div><strong>TonFloraX</strong><p>Tiệm giặt là, giặt sấy, giặt hấp</p></div>
+            </a>
+          </div>
+        </div>
+        <a href="#tinh-nang">Tính năng</a>
+        <a href="#quy-trinh">Một ngày ở quán</a>
+        <a href="#tai-ve">Tải phần mềm</a>
+        <a href="https://www.facebook.com/tonsoftvn/" target="_blank" rel="noopener">Hỗ trợ</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://github.com/manhbui0811/TonCoffee/releases/latest/download/TonCoffee.exe" class="btn-nav-download">
+          Tải TonCoffee
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="pill-badge">
+        ☕ Chuyên Biệt Cho Quán Cà Phê, Trà Sữa &amp; Đồ Uống
+      </div>
+
+      <h1 class="hero-title">
+        Gọi Món Tùy Chỉnh Siêu Tốc &amp; <span class="text-gradient">Quản Lý Quán Gọn Nhẹ</span>
+      </h1>
+
+      <p class="hero-desc">
+        Khách gọi trà sữa <strong>size L, ít đá, 50% đường, thêm trân châu &amp; pudding</strong>? 
+        Chỉ vài cái chạm tay là xong, tiền tự tính chuẩn xác, mã VietQR hiện sẵn đúng số tiền. Tải về bấm mở là dùng ngay trên Windows, không phí tháng!
+      </p>
+
+      <a href="https://github.com/manhbui0811/TonCoffee/releases/latest/download/TonCoffee.exe" class="btn-main-download" id="tai-ve">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Tải TonCoffee Miễn Phí (Windows 10/11)
+      </a>
+
+      <div class="download-meta">
+        <span>✓ 1 file duy nhất, không cần cài đặt</span>
+        <span>•</span>
+        <span>✓ Dữ liệu an toàn trên máy</span>
+        <span>•</span>
+        <span>✓ Hỗ trợ in bill K58 / K80 / A5</span>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">0đ</div>
+          <div class="stat-label">Không Phí Duy Trì</div>
+          <div class="stat-sub">Không lo phát sinh chi phí</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3 Giây</div>
+          <div class="stat-label">Order 1 Món Đầy Đủ</div>
+          <div class="stat-sub">Đá, đường, size, topping</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">VietQR Tự Động</div>
+          <div class="stat-sub">Sinh mã QR đúng từng đồng</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Theo Ca</div>
+          <div class="stat-label">Chốt Sổ Cuối Ngày</div>
+          <div class="stat-sub">Doanh thu sáng / chiều / tối</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="container" id="tinh-nang">
+    <div class="section-head">
+      <span class="section-tag">Tính Năng Cốt Lõi</span>
+      <h2 class="section-title">Những Việc TonCoffee Giúp Quán Của Bạn</h2>
+      <p class="section-sub">
+        Từ quầy pha chế đến thu ngân, mọi thao tác đều được tính toán để phục vụ khách nhanh nhất trong giờ cao điểm.
+      </p>
+    </div>
+
+    <div class="hl-grid">
+      <div class="hl-card">
+        <div class="hl-icon">🧋</div>
+        <h3>Gọi món đủ kiểu khách thích</h3>
+        <p>Mỗi ly chọn được size, mức đá (0%, 30%, 50%, 100%), mức đường, topping và ghi chú. Dễ dàng nạp thực đơn từ Excel.</p>
+        <div class="hl-eg"><b>Ví dụ:</b> Trà sữa truyền thống size L, 50% đá, 70% đường, thêm trân châu trắng: chọn xong tiền tự cộng chuẩn xác.</div>
+      </div>
+
+      <div class="hl-card">
+        <div class="hl-icon">🪑</div>
+        <h3>Tại bàn hay mang đi đều gọn</h3>
+        <p>Chia khu vực (Tầng 1, Tầng 2, Ngoài trời) theo mặt bằng quán. Khách ngồi bàn nào chọn bàn đó, khách gọi thêm thì bổ sung vào đơn đang mở.</p>
+        <div class="hl-eg"><b>Ví dụ:</b> Khách bàn 04 đổi sang bàn 08: chuyển bàn 1 thao tác, đơn đồ uống tự chuyển theo.</div>
+      </div>
+
+      <div class="hl-card">
+        <div class="hl-icon">🏷️</div>
+        <h3>Khuyến mãi tự áp đúng giờ</h3>
+        <p>Giảm theo %, giảm số tiền hoặc đồng giá. Đặt lịch theo khung giờ vàng trong ngày hoặc ngày trong tuần, máy tự tính không cần sửa giá tay.</p>
+        <div class="hl-eg"><b>Ví dụ:</b> Giờ vàng: giảm 15% toàn bộ trà sữa từ 14h đến 17h thứ 2 đến thứ 6.</div>
+      </div>
+
+      <div class="hl-card">
+        <div class="hl-icon">📱</div>
+        <h3>VietQR chuyển khoản tức thì</h3>
+        <p>Khách trả tiền mặt hay chuyển khoản đều nhanh. Mã VietQR hiện ngay trên màn hình thu ngân đúng chính xác số tiền đơn hàng.</p>
+        <div class="hl-eg"><b>Ví dụ:</b> Khách đưa 50k tiền mặt, phần còn lại quét QR: cả 2 khoản ghi nhận trong cùng 1 hóa đơn.</div>
+      </div>
+
+      <div class="hl-card">
+        <div class="hl-icon">🧾</div>
+        <h3>In phiếu đúng lúc, đúng khổ</h3>
+        <p>Hỗ trợ in bill khổ K80, K58, A5. Có tính năng in phiếu tạm tính kèm mã QR để nhân viên mang ra bàn cho khách kiểm tra trước.</p>
+        <div class="hl-eg"><b>Ví dụ:</b> In phiếu tạm tính ra bàn: khách quét mã trên phiếu thanh toán luôn không cần ra quầy.</div>
+      </div>
+
+      <div class="hl-card">
+        <div class="hl-icon">📊</div>
+        <h3>Chốt ca & Thống kê doanh thu</h3>
+        <p>Xem doanh thu theo ngày, theo ca sáng/chiều/tối, biết món nào và topping nào bán chạy nhất để chuẩn bị nguyên liệu.</p>
+        <div class="hl-eg"><b>Ví dụ:</b> Cuối ca xuất Excel, nhập số tiền mặt đếm được trong két, máy tự đối chiếu số chênh lệch.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY TIMELINE -->
+  <section class="story-section" id="quy-trinh">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Trải Nghiệm Thực Tế</span>
+        <h2 class="section-title">Một Ngày Ở Quán Cùng TonCoffee</h2>
+        <p class="section-sub">Mọi việc diễn ra nhịp nhàng từ sáng mở cửa đến đêm chốt sổ.</p>
+      </div>
+
+      <div class="story-timeline">
+        <div class="story-item">
+          <div class="story-time">08h</div>
+          <div class="story-body">
+            <h4>Mở Quán</h4>
+            <p>Đăng nhập là thấy ngay thực đơn, danh mục và sơ đồ bàn đã sẵn sàng. Khuyến mãi ngày mới tự kích hoạt đúng giờ đã hẹn.</p>
+          </div>
+        </div>
+
+        <div class="story-item">
+          <div class="story-time">10h</div>
+          <div class="story-body">
+            <h4>Khách Ngồi Bàn 03</h4>
+            <p>Nhân viên chọn Bàn 03, gọi trà sữa size L, 50% đá, thêm trân châu trắng. Khách gọi thêm bánh hay nước thì thêm trực tiếp vào bàn đó.</p>
+          </div>
+        </div>
+
+        <div class="story-item">
+          <div class="story-time">14h</div>
+          <div class="story-body">
+            <h4>Giờ Vàng Ưu Đãi</h4>
+            <p>Đúng 14h, chương trình giờ vàng tự động trừ tiền khuyến mãi trên từng ly, thu ngân không phải nhớ hay sửa tay.</p>
+          </div>
+        </div>
+
+        <div class="story-item">
+          <div class="story-time">15h</div>
+          <div class="story-body">
+            <h4>Khách Thanh Toán</h4>
+            <p>In phiếu tạm tính hoặc hiện mã VietQR đúng số tiền. Khách quét là ting ting, hóa đơn in ra và điểm thưởng tự tích lũy.</p>
+          </div>
+        </div>
+
+        <div class="story-item">
+          <div class="story-time">22h</div>
+          <div class="story-body">
+            <h4>Chốt Ca Cuối Ngày</h4>
+            <p>Mở Thống kê xem doanh thu cả ngày và từng ca. Xuất Excel đối chiếu tiền mặt trong két, dữ liệu lưu an toàn trên máy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Nâng Tầm Quán Cà Phê, Trà Sữa Của Bạn</h2>
+        <p>Không cần đầu tư hệ thống đắt đỏ. Tải TonCoffee ngay hôm nay và bán hàng chuyên nghiệp như các chuỗi lớn!</p>
+        <a href="https://github.com/manhbui0811/TonCoffee/releases/latest/download/TonCoffee.exe" class="btn-main-download">
+          Tải TonCoffee Miễn Phí Về Máy
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="y"></span> <strong>TonCoffee by TonSoft</strong> – Phần mềm quản lý quán cà phê, trà sữa Việt Nam.</p>
+      <p style="margin-top:6px;font-size:0.85rem">Hỗ trợ: <a href="https://www.facebook.com/tonsoftvn/" target="_blank" rel="noopener" style="color:#fbbf24">facebook.com/tonsoftvn</a> • Email: manhbui0811@gmail.com</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
