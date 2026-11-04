@@ -195,6 +195,10 @@ footer{margin-top:60px}
 .themeshot img[hidden]{display:none}
 h1{max-width:none!important;font-size:clamp(2rem,5.2vw,3.3rem)!important}
 .hero{padding-top:28px!important}
+.panel .intro{margin:26px 0 4px}
+.panel .intro .ih{font-size:clamp(1.15rem,2.6vw,1.5rem);line-height:1.3;letter-spacing:-.02em;margin:0 0 14px}
+.intro p{margin:0 0 12px;max-width:68ch}
+.intro .free{display:inline-block;padding:10px 18px;border-radius:12px;background:var(--accent);color:var(--on);font-weight:800;margin:4px 0 16px}
 #lb{border:0;padding:0;background:transparent;max-width:96vw;max-height:94vh;overflow:visible}
 #lb::backdrop{background:rgba(0,0,0,.82)}
 #lb img{display:block;max-width:96vw;max-height:86vh;width:auto;height:auto;border-radius:12px;margin:0 auto}
@@ -205,7 +209,7 @@ h1{max-width:none!important;font-size:clamp(2rem,5.2vw,3.3rem)!important}
 <div class="wrap">
   <header class="top">
     <a class="logo" href="#">Ton<span>Soft</span></a>
-    <nav><a href="#tai">Tải phần mềm</a><a href="#cai-dat">Hướng dẫn</a><a href="#lien-he">Liên hệ</a></nav>
+    <nav><a href="#tai">Tải phần mềm</a><a href="#lien-he">Liên hệ</a></nav>
   </header>
 
   <main>
@@ -217,33 +221,9 @@ h1{max-width:none!important;font-size:clamp(2rem,5.2vw,3.3rem)!important}
       <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
     </section>
 
-    <section class="info" id="cai-dat">
-      <div class="cols">
-        <div>
-          <h2>Cách dùng: chỉ 3 bước</h2>
-          <ol>
-            <li>Chọn loại cửa hàng của bạn ở trên và bấm nút xanh <b>Tải về máy</b>.</li>
-            <li>Đặt file vào một thư mục riêng, ví dụ <code>C:\TonSoft\</code>. Phần mềm chỉ là một file, không cần cài đặt và không cần cài thêm gì.</li>
-            <li>Bấm đúp vào file là dùng được ngay. Nếu Windows báo chặn, chọn <b>Thông tin thêm</b> rồi <b>Vẫn chạy</b>.</li>
-          </ol>
-        </div>
-        <div>
-          <h2>Yêu cầu máy tính</h2>
-          <ul class="plain">
-            <li>Windows 10 hoặc 11, 64-bit</li>
-            <li>RAM từ 4 GB</li>
-            <li>Trống 500 MB ổ cứng</li>
-            <li>Microsoft Edge WebView2 (Windows 11 và hầu hết Windows 10 đã có sẵn, nếu máy báo thiếu thì <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener">tải tại đây</a>)</li>
-          </ul>
-        </div>
-      </div>
-      <h3>Kiểm tra file tải về</h3>
-      <p>Muốn chắc file tải về là bản gốc, bạn có thể nhờ TonSoft gửi mã kiểm tra (SHA256) qua Zalo.</p>
-    </section>
-
     <section class="info" id="lien-he">
       <h2>Liên hệ và hỗ trợ</h2>
-      <p>Zalo / điện thoại: <a href="tel:09740413209"><b>09740413209</b></a><br>Email: <a href="mailto:manhbui0811@gmail.com">manhbui0811@gmail.com</a><br>Báo lỗi: <a id="issues" href="#">trang Issues trên GitHub</a></p>
+      <p>Fanpage: <a href="https://www.facebook.com/tonsoftvn/" target="_blank" rel="noopener"><b>facebook.com/tonsoftvn</b></a><br>Email: <a href="mailto:manhbui0811@gmail.com">manhbui0811@gmail.com</a><br>Báo lỗi: <a id="issues" href="#">trang Issues trên GitHub</a></p>
     </section>
   </main>
 
@@ -288,8 +268,15 @@ const PRODUCTS = [
   },
   {
     id: "TonFlora", name: "TonFlora", label: "Cửa hàng bán lẻ", color: "#2f7d5b",
-    tagline: "Chọn ngành, có sẵn hàng mẫu. Sửa giá rồi bán ngay.",
     features: [],
+    intro: [
+      ["h", "ANH CHỊ EM KINH DOANH NHỎ LẺ, MỚI KHỞI NGHIỆP ĐÃ CÓ PHẦN MỀM QUẢN LÝ BÁN HÀNG MIỄN PHÍ TRỌN ĐỜI!"],
+      ["p", "Kinh doanh đã có đủ thứ chi phí phải lo, tại sao còn phải mất thêm tiền thuê phần mềm quản lý hàng tháng?"],
+      ["p", "TonFlora được Tonsoft phát triển với mong muốn giúp các cửa hàng nhỏ, hộ kinh doanh và những người mới khởi nghiệp quản lý bán hàng dễ dàng hơn mà không phải lo chi phí phần mềm."],
+      ["f", "Miễn phí trọn đời – Không phí tháng – Không phí năm!"],
+      ["p", "Từ quần áo, tạp hóa, hoa tươi, bánh ngọt đến điện nước, vật tư xây dựng, nhà thuốc và nhiều ngành hàng khác... TonFlora đều có thể đáp ứng."],
+      ["p", "Chỉ cần tải về, chọn mô hình kinh doanh và bắt đầu sử dụng. Danh mục, sản phẩm mẫu đã được chuẩn bị sẵn, không cần mất công thiết lập từ đầu."]
+    ],
     chipsTitle: "8 ngành có sẵn hàng mẫu",
     chips: ["Quần áo & thời trang", "Tạp hóa & văn phòng phẩm", "Hoa, cây cảnh & phụ kiện", "Bánh ngọt", "Trẻ em & sơ sinh", "Vật tư xây dựng", "Điện nước & gia dụng", "Nhà thuốc"],
     image: "images/og-tonflora.jpg", imageAlt: "TonFlora – quản lý bán hàng miễn phí trọn đời",
@@ -489,6 +476,7 @@ function show(i) {
       <div id="dlmeta">Dùng được ngay trên Windows 10 / 11 (64-bit)<small>Bản mới nhất · Phát hành ${esc(latest.date)}</small></div>
     </div>
     ${p.smartNote ? `<p class="ssn">Nếu Windows SmartScreen báo chặn: chọn <b>Thông tin thêm</b> → <b>Vẫn chạy</b>.</p>` : ""}
+    ${p.intro ? `<div class="intro">${p.intro.map(([k, t]) => k === "h" ? `<h3 class="ih">${esc(t)}</h3>` : k === "f" ? `<p class="free">${esc(t)}</p>` : `<p>${esc(t)}</p>`).join("")}</div>` : ""}
     ${p.image ? `<figure class="shot banner" style="margin-top:22px"><img src="${esc(p.image)}" alt="${esc(p.imageAlt || p.name)}" width="1200" height="630" decoding="async"></figure>` : ""}
     ${p.noSteps ? "" : `<ol class="steps3">
       <li><span class="n">1</span><span><b>Tải về</b>Bấm nút xanh ở trên</span></li>
