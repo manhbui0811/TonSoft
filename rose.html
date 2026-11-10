@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="vi" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TonRose – Phần mềm quản lý nhà nghỉ | Bản quyền 300.000đ trọn đời</title>
+<meta name="description" content="Phần mềm quản lý nhà nghỉ, khách sạn mini trên Windows: sơ đồ phòng, tính tiền theo giờ và ngày, VietQR, đặt lịch, dọn phòng, báo cáo. 300.000đ dùng trọn đời.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#1c1517">
+<link rel="canonical" href="https://manhbui0811.github.io/TonSoft/rose.html">
+<link rel="alternate" hreflang="vi" href="https://manhbui0811.github.io/TonSoft/rose.html">
+
+<link rel="icon" type="image/x-icon" href="images/tonrose/app.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="images/tonrose/favicon-32.png">
+<link rel="apple-touch-icon" href="images/tonrose/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TonRose by TonSoft">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:url" content="https://manhbui0811.github.io/TonSoft/rose.html">
+<meta property="og:title" content="TonRose – Phần mềm quản lý nhà nghỉ, khách sạn mini">
+<meta property="og:description" content="Nhận phòng, tính tiền theo giờ hoặc ngày, thu cọc bằng QR, đặt lịch và dọn phòng trong một phần mềm. Mua một lần 300.000đ, dùng trọn đời, chạy offline trên Windows.">
+<meta property="og:image" content="https://manhbui0811.github.io/TonSoft/images/tonrose/banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TonRose – phần mềm quản lý nhà nghỉ, khách sạn mini">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TonRose – Phần mềm quản lý nhà nghỉ, khách sạn mini">
+<meta name="twitter:description" content="Nhận phòng, tính tiền theo giờ hoặc ngày, thu cọc bằng QR, đặt lịch và dọn phòng trong một phần mềm. Mua một lần 300.000đ, dùng trọn đời, chạy offline trên Windows.">
+<meta name="twitter:image" content="https://manhbui0811.github.io/TonSoft/images/tonrose/banner.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap&subset=vietnamese" rel="stylesheet">
+<script>document.documentElement.className='js'</script>
+<style>
+:root{--ink:#1c1517;--ink2:#291f22;--text:#2b2326;--muted:#6f6366;--line:#e9e1dd;--ivory:#faf7f4;--paper:#fff;
+--rose:#9b1c31;--rose-d:#7d1426;--rose-soft:#f5e9ea;--on-dark:#f3ece9;--on-dark-m:#b9aaae;--serif:'Playfair Display',Georgia,'Times New Roman',serif;
+--sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--text);background:var(--ivory);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:#000;padding:8px 14px;border-radius:8px;z-index:200}
+.skip:focus{left:8px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
+.dark .eyebrow,.hero .eyebrow{color:#d9a3ad}
+.sec{padding:96px 0}
+.sec-head{max-width:640px;margin:0 auto 56px;text-align:center}
+.sec-head h2{font-size:clamp(28px,4vw,40px);margin-top:12px}
+.sec-head p{color:var(--muted);margin-top:14px}
+.dark .sec-head p{color:var(--on-dark-m)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 26px;border-radius:10px;font-weight:600;font-size:15px;border:1px solid transparent;transition:background .2s,border-color .2s,color .2s}
+.btn-primary{background:var(--rose);color:#fff}
+.btn-primary:hover{background:var(--rose-d)}
+.btn-ghost{border-color:rgba(255,255,255,.28);color:var(--on-dark)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.6)}
+.btn-line{border-color:var(--line);color:var(--text);background:#fff}
+.btn-line:hover{border-color:var(--rose);color:var(--rose)}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+.dark :focus-visible,.hero :focus-visible,header :focus-visible{outline-color:#e7b6bf}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(28,21,23,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.07);color:var(--on-dark)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:36px;height:36px;border-radius:9px}
+.brand b{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:.01em}
+.brand small{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-m);margin-top:-3px}
+.links{display:flex;align-items:center;gap:30px;font-size:14px;color:var(--on-dark-m)}
+.links a:hover,.eco>button:hover{color:#fff}
+.eco{position:relative}
+.eco>button{background:none;border:0;color:inherit;display:flex;align-items:center;gap:6px;padding:20px 0}
+.eco>button .ic{width:14px;height:14px}
+.eco-menu{display:none;position:absolute;left:-12px;top:100%;width:300px;background:var(--ink2);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.eco:hover .eco-menu,.eco:focus-within .eco-menu{display:block}
+.eco-menu a{display:block;padding:10px 12px;border-radius:8px;line-height:1.35}
+.eco-menu a:hover,.eco-menu a.cur{background:rgba(255,255,255,.07)}
+.eco-menu strong{display:block;font-size:14px;color:#fff;font-weight:600}
+.eco-menu span{font-size:12px;color:var(--on-dark-m)}
+.nav .btn{padding:9px 18px;font-size:14px}
+
+/* hero */
+.hero{background:radial-gradient(900px 480px at 18% -8%,#4a1c29 0%,rgba(74,28,41,0) 70%),var(--ink);color:var(--on-dark);padding:88px 0 0;overflow:hidden}
+.hero-in{max-width:760px;margin:0 auto;text-align:center}
+.hero h1{font-size:clamp(34px,5.4vw,58px);margin:18px 0 22px;color:#fff}
+.hero h1 em{font-style:italic;font-weight:500;color:#e7b6bf}
+.hero p.lead{font-size:18px;color:var(--on-dark-m);max-width:620px;margin:0 auto}
+.hero p.lead strong{color:#fff;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px;font-size:13px;color:var(--on-dark-m)}
+.chips span{padding:6px 14px;border:1px solid rgba(255,255,255,.14);border-radius:999px}
+.cta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:34px}
+.hero .note{font-size:13px;color:var(--on-dark-m);margin-top:20px}
+.hero .note a{text-decoration:underline;text-underline-offset:3px}
+.frame{margin:64px auto 0;max-width:1040px;padding:10px;border-radius:18px 18px 0 0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-bottom:0}
+.frame img{border-radius:10px 10px 0 0;width:100%}
+
+/* pain */
+.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pain{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px}
+.pain h3{font-family:var(--sans);font-size:16px;font-weight:600;letter-spacing:0;margin-bottom:8px}
+.pain p{font-size:14.5px;color:var(--muted)}
+.bridge{text-align:center;margin-top:44px;font-family:var(--serif);font-size:clamp(20px,2.6vw,26px);color:var(--text)}
+.bridge em{color:var(--rose);font-style:italic}
+
+/* features */
+.feat{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center;padding:44px 0}
+.feat+.feat{border-top:1px solid var(--line)}
+.feat.rev{grid-template-columns:1.15fr 1fr}
+.feat.rev .feat-t{order:2}
+.feat h3{font-size:clamp(24px,3vw,32px);margin:10px 0 14px}
+.feat p{color:var(--muted)}
+.feat ul{list-style:none;margin-top:22px;display:grid;gap:12px}
+.feat li{display:flex;gap:12px;font-size:15px}
+.feat li .ic{color:var(--rose);width:18px;height:18px;margin-top:3px}
+.feat-m{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 24px 50px -28px rgba(28,21,23,.35)}
+.feat-m img{border-radius:8px;width:100%}
+.feat-m.narrow{max-width:400px;margin:0 auto}
+
+/* gallery */
+.dark{background:var(--ink);color:var(--on-dark)}
+.dark h2{color:#fff}
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:40px}
+.tabs button{padding:10px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:transparent;color:var(--on-dark-m);font-size:14px;font-weight:500;transition:all .2s}
+.tabs button:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+.tabs button[aria-selected=true]{background:var(--rose);border-color:var(--rose);color:#fff}
+.js .panel[hidden]{display:none}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:start}
+.gallery figure.wide{grid-column:1/-1}
+.gallery figure.center{grid-column:1/-1;justify-self:center}
+.gallery .shot{background:#fff;border-radius:12px;padding:8px}
+.gallery figure.narrow .shot{max-width:100%;width:fit-content;margin:0 auto}
+.gallery figure.narrow img{width:auto;max-width:100%}
+.gallery img{border-radius:6px;width:100%}
+figcaption{font-size:14px;color:var(--on-dark-m);margin-top:12px;text-align:center}
+img.zoomable{cursor:zoom-in}
+
+/* extras / why / steps */
+.extras{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.extra{padding:28px;background:var(--paper);border:1px solid var(--line);border-radius:14px}
+.extra .ic{width:24px;height:24px;color:var(--rose)}
+.extra h3{font-family:var(--sans);font-size:16px;font-weight:600;letter-spacing:0;margin:16px 0 8px}
+.extra p{font-size:14.5px;color:var(--muted)}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.why div{border-top:2px solid var(--rose);padding-top:20px}
+.why h3{font-size:22px;margin-bottom:10px}
+.why p{color:var(--muted);font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s}
+.step{counter-increment:s;padding:28px;background:var(--paper);border:1px solid var(--line);border-radius:14px}
+.step::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);font-size:30px;color:var(--rose);display:block;margin-bottom:10px}
+.step h3{font-family:var(--sans);font-size:16px;font-weight:600;letter-spacing:0;margin-bottom:8px}
+.step p{font-size:14.5px;color:var(--muted)}
+
+/* pricing */
+.price-card{max-width:480px;margin:0 auto;background:var(--paper);border:1px solid var(--rose);border-radius:20px;padding:44px 40px;text-align:center;box-shadow:0 30px 60px -34px rgba(155,28,49,.45)}
+.price-card h3{font-size:24px}
+.price{font-family:var(--serif);font-size:clamp(46px,8vw,64px);font-weight:600;color:var(--ink);margin:18px 0 4px;line-height:1}
+.price-sub{font-size:14px;color:var(--muted)}
+.price-card hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+.price-card ul{list-style:none;text-align:left;display:grid;gap:13px;font-size:15px}
+.price-card li{display:flex;gap:12px}
+.price-card li .ic{color:var(--rose);width:18px;height:18px;margin-top:3px}
+.price-note{font-size:13px;color:var(--muted);margin:24px 0;text-align:left;background:var(--ivory);border-radius:10px;padding:12px 14px}
+.price-card .btn{width:100%}
+.price-card .btn+.btn{margin-top:12px}
+
+/* faq */
+.faq{max-width:760px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 36px 22px 0;font-weight:600;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';position:absolute;right:4px;top:18px;font-size:24px;font-weight:300;color:var(--rose);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{padding:0 36px 24px 0;color:var(--muted);font-size:15px}
+
+/* footer */
+footer{background:#120c0e;color:var(--on-dark-m);padding:56px 0 40px;font-size:14px}
+.foot{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between}
+.foot .brand b{color:#fff}
+.foot p{max-width:340px;margin-top:14px;font-size:13.5px}
+.foot nav{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start}
+.foot nav a:hover{color:#fff}
+.eco-line{margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 18px}
+.eco-line span{color:#fff}
+.eco-line a:hover{color:#fff}
+.copy{margin-top:20px;font-size:12.5px;color:#7c6e72}
+
+/* nổi + modal + lightbox */
+.fab{position:fixed;right:22px;bottom:22px;z-index:60}
+.fab button{width:52px;height:52px;border-radius:50%;border:0;background:var(--rose);color:#fff;box-shadow:0 10px 26px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.fab button:hover{background:var(--rose-d)}
+.fab .ic{width:22px;height:22px}
+#modal{position:fixed;inset:0;z-index:90;background:rgba(18,12,14,.72);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:20px}
+#modal.open{display:flex}
+.modal-c{background:#fff;border-radius:18px;max-width:420px;width:100%;padding:34px 30px 30px;position:relative;text-align:center}
+.modal-c h3{font-size:22px;margin-bottom:10px}
+.modal-c p{font-size:14.5px;color:var(--muted);margin-bottom:22px}
+.modal-c .btn{width:100%}
+.modal-c .btn+.btn{margin-top:10px}
+.x{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;border:0;background:var(--ivory);color:var(--muted);font-size:18px;line-height:1}
+#lb{position:fixed;inset:0;z-index:100;background:rgba(10,6,8,.93);display:none;align-items:center;justify-content:center;padding:56px 64px 72px}
+#lb.open{display:flex}
+#lb-img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6);cursor:zoom-in;transition:transform .2s;user-select:none}
+#lb-img.zoomed{transform:scale(1.8);cursor:zoom-out}
+#lb button{position:absolute;width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center}
+#lb button:hover{background:rgba(255,255,255,.25)}
+#lb-close{top:14px;right:16px}#lb-prev{left:14px;top:50%;transform:translateY(-50%)}#lb-next{right:14px;top:50%;transform:translateY(-50%)}
+#lb-cap{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:#e8dfe1;font-size:14px;padding:0 16px}
+#lb-cap small{display:block;color:#9d8f93;margin-top:2px}
+
+@media(max-width:900px){
+ .links a,.eco{display:none}
+ .sec{padding:68px 0}
+ .pains,.extras,.why,.steps{grid-template-columns:1fr}
+ .why{gap:28px}
+ .feat,.feat.rev{grid-template-columns:1fr;gap:28px}
+ .feat.rev .feat-t{order:0}
+ .gallery{grid-template-columns:1fr}
+ .hero{padding-top:60px}
+ .price-card{padding:36px 24px}
+ #lb{padding:56px 8px 80px}#lb-prev,#lb-next{top:auto;bottom:14px;transform:none}#lb-prev{left:14px}#lb-next{right:14px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "TonRose", "applicationCategory": "BusinessApplication", "operatingSystem": "Windows 10, Windows 11", "inLanguage": "vi", "description": "Phần mềm quản lý nhà nghỉ, khách sạn mini trên Windows: sơ đồ phòng, tính tiền theo giờ và ngày, VietQR, đặt lịch, dọn phòng, báo cáo. 300.000đ dùng trọn đời.", "url": "https://manhbui0811.github.io/TonSoft/rose.html", "image": "https://manhbui0811.github.io/TonSoft/images/tonrose/banner.png", "screenshot": ["https://manhbui0811.github.io/TonSoft/images/tonrose/board.png", "https://manhbui0811.github.io/TonSoft/images/tonrose/rate-hourly.png", "https://manhbui0811.github.io/TonSoft/images/tonrose/checkout.png", "https://manhbui0811.github.io/TonSoft/images/tonrose/dashboard.png"], "offers": {"@type": "Offer", "price": "300000", "priceCurrency": "VND", "url": "https://manhbui0811.github.io/TonSoft/rose.html", "availability": "https://schema.org/InStock"}, "publisher": {"@type": "Organization", "name": "TonSoft", "url": "https://www.facebook.com/tonsoftvn/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "TonRose dùng cho loại hình nào?", "acceptedAnswer": {"@type": "Answer", "text": "Nhà nghỉ và khách sạn mini. Khi thiết lập lần đầu, bạn chọn loại hình: nhà nghỉ có thuê theo giờ và theo ngày, khách sạn mini chỉ thuê theo ngày."}}, {"@type": "Question", "name": "Bản quyền 300.000đ có phải trả phí hằng tháng không?", "acceptedAnswer": {"@type": "Answer", "text": "Không. Bạn thanh toán một lần và dùng không giới hạn thời gian trên một máy tính. Không có phí thuê bao hằng tháng hay hằng năm."}}, {"@type": "Question", "name": "Phần mềm có cần Internet không?", "acceptedAnswer": {"@type": "Answer", "text": "Không cần Internet để sử dụng hằng ngày. TonRose chạy trên Windows 10/11 và lưu dữ liệu ngay trên máy của bạn."}}, {"@type": "Question", "name": "Tiền phòng được tính như thế nào?", "acceptedAnswer": {"@type": "Answer", "text": "Bạn đặt bảng giá cho từng loại phòng: giá theo giờ chia theo mốc, giá theo ngày có thể khác nhau theo thứ trong tuần hoặc ngày lễ. Phần mềm gợi ý số tiền khi trả phòng, lễ tân có thể chỉnh lại nếu cần."}}, {"@type": "Question", "name": "Có tạo mã QR chuyển khoản không?", "acceptedAnswer": {"@type": "Answer", "text": "Có. Sau khi nhập tài khoản ngân hàng ở mục VietQR, phần mềm tạo mã QR đúng số tiền cho tiền cọc và thanh toán khi trả phòng, kể cả trên phiếu in."}}, {"@type": "Question", "name": "TonRose có xuất hóa đơn điện tử không?", "acceptedAnswer": {"@type": "Answer", "text": "Chưa. Phiếu nhận phòng, trả phòng và đặt lịch là phiếu in dùng nội bộ, chưa phải hóa đơn điện tử theo quy định thuế. Phần mềm cũng chưa kết nối khai báo lưu trú trực tuyến, kênh đặt phòng trực tuyến hay khóa cửa thông minh."}}, {"@type": "Question", "name": "Có dùng được trên nhiều máy không?", "acceptedAnswer": {"@type": "Answer", "text": "Mỗi bản quyền dùng trên một máy tính. Nếu cần dùng thêm máy hoặc chuyển sang máy khác, vui lòng nhắn Fanpage TonSoft để được hướng dẫn."}}, {"@type": "Question", "name": "Tôi có được hỗ trợ cài đặt không?", "acceptedAnswer": {"@type": "Answer", "text": "Có. TonSoft hỗ trợ cài đặt và hướng dẫn sử dụng từ xa qua UltraViewer hoặc TeamViewer."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua điều hướng</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16v10H9.5L5 19.5v-4H4z"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V11M10 20V4M16 20v-6M2.5 20h19"/></symbol>
+<symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3.5 8h15a2 2 0 012 2v8a2 2 0 01-2 2h-13a2 2 0 01-2-2zM3.5 8l12-3.5V8M16 14h2"/></symbol>
+<symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3.5h10V9M7 17H4.5v-7h15v7H17M7 14h10v6.5H7z"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20c.8-4 3.7-6 7.5-6s6.7 2 7.5 6"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/></symbol>
+<symbol id="i-disk" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+</defs></svg>
+<header>
+ <div class="wrap nav">
+  <a class="brand" href="#top" aria-label="TonRose – về đầu trang">
+   <img src="images/tonrose/app-icon.png" alt="Biểu tượng TonRose" width="36" height="36">
+   <span><b>TonRose</b><small>Quản lý nhà nghỉ</small></span>
+  </a>
+  <nav class="links" aria-label="Điều hướng chính">
+   <div class="eco"><button type="button" aria-haspopup="true">Hệ sinh thái <svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></button>
+    <div class="eco-menu"><a href="index.html"><strong>TonFlora</strong><span>Cửa hàng bán lẻ, tạp hóa, thời trang</span></a><a href="coffee.html"><strong>TonCoffee</strong><span>Quán cà phê, trà sữa, sinh tố</span></a><a href="mobile.html"><strong>TonMobile</strong><span>Điện thoại, laptop, linh kiện</span></a><a href="bida.html"><strong>TonBida</strong><span>Quán bi-a, câu lạc bộ bida</span></a><a href="pawn.html"><strong>TonPawn</strong><span>Tiệm cầm đồ, vay lãi</span></a><a href="daisy.html"><strong>TonDaisy</strong><span>Tiệm cho thuê trang phục</span></a><a href="florax.html"><strong>TonFloraX</strong><span>Tiệm giặt là, giặt sấy, giặt hấp</span></a><a href="rose.html" class="cur"><strong>TonRose (đang xem)</strong><span>Nhà nghỉ, khách sạn mini</span></a></div></div>
+   <a href="#tinh-nang">Tính năng</a><a href="#giao-dien">Giao diện</a><a href="#bang-gia">Bảng giá</a><a href="#hoi-dap">Hỏi đáp</a>
+  </nav>
+  <a class="btn btn-primary" href="#bang-gia">Mua bản quyền</a>
+ </div>
+</header>
+<main id="main">
+<section class="hero" id="top">
+ <div class="wrap">
+  <div class="hero-in">
+   <span class="eyebrow">Dành cho nhà nghỉ và khách sạn mini</span>
+   <h1>Phần mềm quản lý nhà nghỉ, <em>mua một lần dùng trọn đời</em></h1>
+   <p class="lead">TonRose giúp lễ tân nhận phòng, tính tiền theo giờ hoặc theo ngày, thu cọc, trả phòng và xem doanh thu trên cùng một phần mềm. Bản quyền <strong>300.000đ</strong>, không phí hằng tháng.</p>
+   <div class="chips"><span>Windows 10/11</span><span>Chạy offline</span><span>100% tiếng Việt</span></div>
+   <div class="cta">
+    <a class="btn btn-primary" href="#bang-gia">Sở hữu với 300.000đ</a>
+    <a class="btn btn-ghost" href="#giao-dien">Xem giao diện thực tế</a>
+   </div>
+   <p class="note">Hỗ trợ cài đặt từ xa qua UltraViewer hoặc TeamViewer · <a href="https://github.com/manhbui0811/tonrose/releases/latest/download/TonRose.exe">Tải bản dùng thử</a></p>
+  </div>
+  <div class="frame"><img src="images/tonrose/board.png" alt="TonRose – Bảng điều khiển phòng" width="1440" height="900" class="zoomable" fetchpriority="high"></div>
+ </div>
+</section>
+<section class="sec" id="van-de">
+ <div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Quầy lễ tân</span>
+   <h2>Những việc quen thuộc mỗi ngày</h2>
+   <p>Nếu bạn vẫn đang ghi sổ tay hoặc dùng bảng tính, hẳn đã gặp những việc dưới đây.</p></div>
+  <div class="pains"><div class="pain"><h3>Nhẩm giờ vào, giờ ra</h3><p>Mỗi lần trả phòng phải tính lại tiền giờ, dễ lệch vài chục nghìn.</p></div><div class="pain"><h3>Giá thay đổi theo ngày</h3><p>Cuối tuần và ngày lễ giá khác ngày thường, khó nhớ hết.</p></div><div class="pain"><h3>Đặt trước dễ trùng phòng</h3><p>Khách hẹn qua điện thoại, ghi sổ tay thì khó nhìn lịch cả tuần.</p></div><div class="pain"><h3>Chưa rõ phòng nào đã dọn</h3><p>Lễ tân phải hỏi lại buồng phòng trước khi nhận khách mới.</p></div><div class="pain"><h3>Tiền cọc và chuyển khoản</h3><p>Khó đối chiếu khách nào đã cọc, khách nào đã chuyển khoản.</p></div><div class="pain"><h3>Cuối tháng khó tổng kết</h3><p>Doanh thu phòng, dịch vụ và chi phí nằm rải rác ở nhiều quyển sổ.</p></div></div>
+  <p class="bridge">TonRose gom tất cả vào <em>một màn hình quản lý</em>.</p>
+ </div>
+</section>
+<section class="sec" id="tinh-nang" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+ <div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Tính năng chính</span>
+   <h2>Đủ cho việc vận hành hằng ngày</h2>
+   <p>Từ lúc khách đặt phòng đến khi trả phòng và tổng kết doanh thu.</p></div>
+  <div class="feat">
+  <div class="feat-t"><span class="eyebrow">Bảng giá</span><h3>Giá linh hoạt, tính tiền tự động</h3><p>Thiết lập giá một lần cho từng loại phòng. Phần mềm tự tính tiền khi nhận và trả phòng; lễ tân vẫn sửa tay được khi cần.</p><ul><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Giá theo giờ chia theo mốc (1 giờ, 2 giờ, qua đêm…), có giá giờ thêm và thời gian ân hạn.</span></li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Giá theo ngày: giá mặc định, giá theo thứ trong tuần, giá riêng cho ngày lễ.</span></li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Hộp «Thử tính giá» giúp kiểm tra kết quả trước khi áp dụng.</span></li></ul></div>
+  <div class="feat-m"><img src="images/tonrose/rate-hourly.png" alt="TonRose – Giá theo giờ linh hoạt" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div>
+ </div>
+ <div class="feat rev">
+  <div class="feat-t"><span class="eyebrow">Lễ tân</span><h3>Sơ đồ phòng nhìn một lần là rõ</h3><p>Toàn bộ phòng theo từng tầng, phân màu theo trạng thái: trống, có khách, chờ dọn, đang dọn, bảo trì.</p><ul><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Phòng có khách hiển thị giờ vào, thời gian đã ở và số tiền tạm tính.</span></li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Lọc nhanh theo trạng thái; phòng có lịch đặt mang huy hiệu «Lên lịch».</span></li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Nhận phòng chỉ cần chọn phòng và hình thức thuê; tên khách, giấy tờ là tùy chọn.</span></li></ul></div>
+  <div class="feat-m"><img src="images/tonrose/board.png" alt="TonRose – Bảng điều khiển phòng" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div>
+ </div>
+ <div class="feat">
+  <div class="feat-t"><span class="eyebrow">Thanh toán</span><h3>Trả phòng và thu tiền gọn gàng</h3><p>Hộp trả phòng nêu rõ số tiền cần thanh toán: tiền phòng, dịch vụ và khoản cọc đã thu.</p><ul><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Tiền mặt hoặc chuyển khoản; mã VietQR có sẵn số tiền và nội dung.</span></li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Dịch vụ đính kèm (nước uống, mì, giặt ủi…) được cộng vào hóa đơn của phòng.</span></li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Mọi khoản thu ghi vào sổ thu chi; trường hợp ghi nợ có kèm lý do.</span></li></ul></div>
+  <div class="feat-m narrow"><img src="images/tonrose/checkout.png" alt="TonRose – Trả phòng và QR thanh toán" width="488" height="741" class="zoomable" loading="lazy" decoding="async"></div>
+ </div>
+ <div class="feat rev">
+  <div class="feat-t"><span class="eyebrow">Đặt lịch</span><h3>Đặt phòng trước, dọn phòng đúng lúc</h3><p>Nhận đặt phòng theo ngày, xem lịch cả tuần và thu cọc bằng QR. Phòng vừa trả sẽ chuyển sang danh sách chờ dọn.</p><ul><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Lịch phòng 7 ngày; đặt nhiều phòng trong cùng một phiếu.</span></li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Cảnh báo khi lịch đặt xung đột với khách đang ở hoặc phòng chưa dọn xong, kèm gợi ý đổi phòng.</span></li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Bảng công việc dọn phòng theo ba cột: chưa làm, đang làm, đã xong.</span></li></ul></div>
+  <div class="feat-m"><img src="images/tonrose/bookings.png" alt="TonRose – Lịch đặt phòng" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div>
+ </div>
+ 
+ </div>
+</section>
+<section class="sec dark" id="giao-dien">
+ <div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Giao diện thực tế</span>
+   <h2>Hình ảnh từ phần mềm</h2>
+   <p>Dữ liệu trong ảnh là dữ liệu mẫu. Bấm vào ảnh để xem lớn.</p></div>
+  <div class="tabs" role="tablist" aria-label="Nhóm màn hình"><button type="button" role="tab" id="t-gia" aria-controls="p-gia" aria-selected="true" tabindex="0">Bảng giá</button><button type="button" role="tab" id="t-letan" aria-controls="p-letan" aria-selected="false" tabindex="-1">Lễ tân</button><button type="button" role="tab" id="t-tra" aria-controls="p-tra" aria-selected="false" tabindex="-1">Lưu trú và trả phòng</button><button type="button" role="tab" id="t-lich" aria-controls="p-lich" aria-selected="false" tabindex="-1">Đặt lịch</button><button type="button" role="tab" id="t-baocao" aria-controls="p-baocao" aria-selected="false" tabindex="-1">Dọn phòng và báo cáo</button></div>
+  <div class="panel" role="tabpanel" id="p-gia" aria-labelledby="t-gia"><div class="gallery"><figure class=""><div class="shot"><img src="images/tonrose/rate-hourly.png" alt="TonRose – Giá theo giờ linh hoạt" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Giá theo giờ linh hoạt</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/rate-daily.png" alt="TonRose – Giá theo ngày, cuối tuần, ngày lễ" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Giá theo ngày, cuối tuần, ngày lễ</figcaption></figure><figure class="center narrow"><div class="shot"><img src="images/tonrose/rate-quote.png" alt="TonRose – Thử tính giá từng mốc, từng đêm" width="608" height="547" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Thử tính giá từng mốc, từng đêm</figcaption></figure></div></div><div class="panel" role="tabpanel" id="p-letan" aria-labelledby="t-letan" hidden><div class="gallery"><figure class="wide"><div class="shot"><img src="images/tonrose/board.png" alt="TonRose – Bảng điều khiển phòng" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Bảng điều khiển phòng</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/checkin.png" alt="TonRose – Nhận phòng nhanh" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Nhận phòng nhanh</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/checkin-daily.png" alt="TonRose – Nhận phòng theo ngày" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Nhận phòng theo ngày</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/checkin-services.png" alt="TonRose – Dịch vụ đính kèm phòng" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Dịch vụ đính kèm phòng</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/deposit-qr-sub.png" alt="TonRose – Cọc chuyển khoản bằng QR" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Cọc chuyển khoản bằng QR</figcaption></figure></div></div><div class="panel" role="tabpanel" id="p-tra" aria-labelledby="t-tra" hidden><div class="gallery"><figure class=""><div class="shot"><img src="images/tonrose/stay-detail.png" alt="TonRose – Chi tiết lưu trú" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Chi tiết lưu trú</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/stay-charge.png" alt="TonRose – Thêm dịch vụ cho khách" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Thêm dịch vụ cho khách</figcaption></figure><figure class="wide"><div class="shot"><img src="images/tonrose/print-checkout.png" alt="TonRose – Hóa đơn in có mã QR" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Hóa đơn in có mã QR</figcaption></figure><figure class=" narrow"><div class="shot"><img src="images/tonrose/checkout.png" alt="TonRose – Trả phòng và QR thanh toán" width="488" height="741" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Trả phòng và QR thanh toán</figcaption></figure><figure class=" narrow"><div class="shot"><img src="images/tonrose/checkout-cash.png" alt="TonRose – Thu tiền mặt, tính tiền thừa" width="488" height="741" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Thu tiền mặt, tính tiền thừa</figcaption></figure><figure class="center narrow"><div class="shot"><img src="images/tonrose/stay-move.png" alt="TonRose – Đổi phòng giữa chừng" width="488" height="315" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Đổi phòng giữa chừng</figcaption></figure></div></div><div class="panel" role="tabpanel" id="p-lich" aria-labelledby="t-lich" hidden><div class="gallery"><figure class="wide"><div class="shot"><img src="images/tonrose/bookings.png" alt="TonRose – Lịch đặt phòng" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Lịch đặt phòng</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/booking-new.png" alt="TonRose – Đặt lịch nhanh" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Đặt lịch nhanh</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/booking-deposit-qr.png" alt="TonRose – Cọc đặt lịch bằng QR" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Cọc đặt lịch bằng QR</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/booking-multi.png" alt="TonRose – Đặt nhiều phòng trong một phiếu" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Đặt nhiều phòng trong một phiếu</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/booking-group-list.png" alt="TonRose – Danh sách đặt lịch gom theo phiếu" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Danh sách đặt lịch gom theo phiếu</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/board-scheduled.png" alt="TonRose – Lên lịch nhận phòng" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Lên lịch nhận phòng</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/board-checkin-planned.png" alt="TonRose – Nhận khách theo lịch" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Nhận khách theo lịch</figcaption></figure><figure class="center narrow"><div class="shot"><img src="images/tonrose/board-schedule-conflict.png" alt="TonRose – Cảnh báo xung đột lịch" width="488" height="528" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Cảnh báo xung đột lịch</figcaption></figure></div></div><div class="panel" role="tabpanel" id="p-baocao" aria-labelledby="t-baocao" hidden><div class="gallery"><figure class="wide"><div class="shot"><img src="images/tonrose/dashboard.png" alt="TonRose – Báo cáo doanh thu" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Báo cáo doanh thu</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/housekeeping.png" alt="TonRose – Quản lý dọn phòng" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Quản lý dọn phòng</figcaption></figure><figure class=""><div class="shot"><img src="images/tonrose/history.png" alt="TonRose – Lịch sử lưu trú" width="1440" height="900" class="zoomable" loading="lazy" decoding="async"></div><figcaption>Lịch sử lưu trú</figcaption></figure></div></div>
+ </div>
+</section>
+<section class="sec" id="tien-ich">
+ <div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Đi kèm</span><h2>Những tiện ích cần thiết</h2></div>
+  <div class="extras"><div class="extra"><svg class="ic" aria-hidden="true"><use href="#i-chart"/></svg><h3>Báo cáo</h3><p>Doanh thu, chi phí, lãi và công suất phòng theo ngày, 7 ngày hoặc tháng. Xuất ra Excel.</p></div><div class="extra"><svg class="ic" aria-hidden="true"><use href="#i-wallet"/></svg><h3>Thu chi</h3><p>Ghi các khoản thu, chi ngoài lưu trú; sổ quỹ tổng hợp theo ngày.</p></div><div class="extra"><svg class="ic" aria-hidden="true"><use href="#i-print"/></svg><h3>In phiếu</h3><p>Phiếu nhận phòng, trả phòng, đặt lịch; tùy chỉnh đầu phiếu, cuối phiếu và khổ giấy.</p></div><div class="extra"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><h3>Khách hàng</h3><p>Lưu thông tin khách quen, đánh dấu khách cần lưu ý, xem lịch sử lưu trú.</p></div><div class="extra"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><h3>Phân quyền</h3><p>Tài khoản quản lý và lễ tân có quyền riêng; chỉ quản lý được sửa bảng giá.</p></div><div class="extra"><svg class="ic" aria-hidden="true"><use href="#i-disk"/></svg><h3>Sao lưu</h3><p>Sao lưu và khôi phục dữ liệu bằng hộp thoại Windows quen thuộc.</p></div></div>
+ </div>
+</section>
+<section class="sec" id="uu-diem" style="background:var(--paper);border-top:1px solid var(--line)">
+ <div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Vì sao chọn TonRose</span><h2>Đơn giản, rõ ràng, chi phí một lần</h2></div>
+  <div class="why"><div><h3>Trả một lần</h3><p>300.000đ, không có phí thuê bao hằng tháng hay hằng năm.</p></div><div><h3>Dữ liệu ở trên máy bạn</h3><p>Chạy offline, dữ liệu lưu ngay trên máy tính của bạn và có sao lưu.</p></div><div><h3>Dễ làm quen</h3><p>Giao diện tiếng Việt, ít thao tác. Có hỗ trợ cài đặt và hướng dẫn từ xa.</p></div></div>
+ </div>
+</section>
+<section class="sec" id="bat-dau">
+ <div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Bắt đầu</span><h2>Ba bước để dùng ngay</h2></div>
+  <div class="steps"><div class="step"><h3>Cài đặt</h3><p>Tải về và cài đặt. Cần hỗ trợ, TonSoft cài từ xa qua UltraViewer hoặc TeamViewer.</p></div><div class="step"><h3>Thiết lập cơ sở</h3><p>Chọn nhà nghỉ (giờ và ngày) hoặc khách sạn mini (ngày), nhập phòng và bảng giá.</p></div><div class="step"><h3>Nhận khách</h3><p>Mở Bảng điều khiển, chọn phòng và bắt đầu nhận khách.</p></div></div>
+ </div>
+</section>
+<section class="sec" id="bang-gia" style="background:var(--paper);border-top:1px solid var(--line)">
+ <div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Bảng giá</span><h2>Một mức giá, dùng trọn đời</h2>
+   <p>Không phí ẩn, không thuê bao hằng tháng.</p></div>
+  <div class="price-card">
+   <h3>TonRose</h3>
+   <div class="price">300.000đ</div>
+   <div class="price-sub">Thanh toán một lần · dùng trọn đời trên 01 máy tính</div>
+   <hr>
+   <ul><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Không giới hạn số lượt lưu trú</span></li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Đầy đủ chức năng: sơ đồ phòng, đặt lịch, dọn phòng, báo cáo</span></li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Chạy độc lập trên Windows 10/11, không cần Internet</span></li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Tạo mã VietQR cho tiền cọc và thanh toán</span></li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Dữ liệu lưu trên máy của bạn, có sao lưu và khôi phục</span></li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Hỗ trợ cài đặt và hướng dẫn sử dụng</span></li></ul>
+   <p class="price-note">Bạn có thể tải bản dùng thử để làm quen trước khi kích hoạt bản quyền.</p>
+   <a class="btn btn-primary" href="https://github.com/manhbui0811/tonrose/releases/latest/download/TonRose.exe"><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg><span>Tải về và kích hoạt</span></a>
+   <a class="btn btn-line" href="https://www.facebook.com/tonsoftvn/" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg><span>Đặt mua qua Fanpage</span></a>
+  </div>
+ </div>
+</section>
+<section class="sec" id="hoi-dap">
+ <div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Hỏi đáp</span><h2>Câu hỏi thường gặp</h2></div>
+  <div class="faq"><details><summary>TonRose dùng cho loại hình nào?</summary><p>Nhà nghỉ và khách sạn mini. Khi thiết lập lần đầu, bạn chọn loại hình: nhà nghỉ có thuê theo giờ và theo ngày, khách sạn mini chỉ thuê theo ngày.</p></details><details><summary>Bản quyền 300.000đ có phải trả phí hằng tháng không?</summary><p>Không. Bạn thanh toán một lần và dùng không giới hạn thời gian trên một máy tính. Không có phí thuê bao hằng tháng hay hằng năm.</p></details><details><summary>Phần mềm có cần Internet không?</summary><p>Không cần Internet để sử dụng hằng ngày. TonRose chạy trên Windows 10/11 và lưu dữ liệu ngay trên máy của bạn.</p></details><details><summary>Tiền phòng được tính như thế nào?</summary><p>Bạn đặt bảng giá cho từng loại phòng: giá theo giờ chia theo mốc, giá theo ngày có thể khác nhau theo thứ trong tuần hoặc ngày lễ. Phần mềm gợi ý số tiền khi trả phòng, lễ tân có thể chỉnh lại nếu cần.</p></details><details><summary>Có tạo mã QR chuyển khoản không?</summary><p>Có. Sau khi nhập tài khoản ngân hàng ở mục VietQR, phần mềm tạo mã QR đúng số tiền cho tiền cọc và thanh toán khi trả phòng, kể cả trên phiếu in.</p></details><details><summary>TonRose có xuất hóa đơn điện tử không?</summary><p>Chưa. Phiếu nhận phòng, trả phòng và đặt lịch là phiếu in dùng nội bộ, chưa phải hóa đơn điện tử theo quy định thuế. Phần mềm cũng chưa kết nối khai báo lưu trú trực tuyến, kênh đặt phòng trực tuyến hay khóa cửa thông minh.</p></details><details><summary>Có dùng được trên nhiều máy không?</summary><p>Mỗi bản quyền dùng trên một máy tính. Nếu cần dùng thêm máy hoặc chuyển sang máy khác, vui lòng nhắn Fanpage TonSoft để được hướng dẫn.</p></details><details><summary>Tôi có được hỗ trợ cài đặt không?</summary><p>Có. TonSoft hỗ trợ cài đặt và hướng dẫn sử dụng từ xa qua UltraViewer hoặc TeamViewer.</p></details></div>
+ </div>
+</section>
+</main>
+<footer>
+ <div class="wrap">
+  <div class="foot">
+   <div>
+    <div class="brand"><img src="images/tonrose/app-icon.png" alt="" width="36" height="36"><span><b>TonRose</b></span></div>
+    <p>Phần mềm quản lý nhà nghỉ, khách sạn mini. Mua một lần, dùng trọn đời.</p>
+   </div>
+   <nav aria-label="Liên kết chân trang">
+    <a href="#tinh-nang">Tính năng</a><a href="#giao-dien">Giao diện</a><a href="#bang-gia">Bảng giá 300.000đ</a>
+    <a href="#hoi-dap">Hỏi đáp</a><a href="https://www.facebook.com/tonsoftvn/" target="_blank" rel="noopener noreferrer">Fanpage hỗ trợ</a>
+   </nav>
+  </div>
+  <div class="eco-line"><span>Phần mềm khác của TonSoft:</span><a href="index.html">TonFlora</a><a href="coffee.html">TonCoffee</a><a href="mobile.html">TonMobile</a><a href="bida.html">TonBida</a><a href="pawn.html">TonPawn</a><a href="daisy.html">TonDaisy</a><a href="florax.html">TonFloraX</a></div>
+  <div class="copy">© 2026 TonRose by TonSoft.</div>
+ </div>
+</footer>
+
+<div class="fab"><button type="button" data-open-modal aria-label="Liên hệ mua bản quyền" title="Liên hệ mua bản quyền"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg></button></div>
+
+<div id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-t">
+ <div class="modal-c">
+  <button class="x" type="button" data-close aria-label="Đóng">&times;</button>
+  <h3 id="modal-t">Liên hệ mua và cài đặt</h3>
+  <p>Bản quyền TonRose <strong>300.000đ</strong>, dùng trọn đời. Nhắn Fanpage để được hỗ trợ cài đặt từ xa qua UltraViewer hoặc TeamViewer.</p>
+  <a class="btn btn-primary" href="https://www.facebook.com/tonsoftvn/" target="_blank" rel="noopener noreferrer">Nhắn Fanpage TonSoft</a>
+  <a class="btn btn-line" href="https://github.com/manhbui0811/tonrose/releases/latest/download/TonRose.exe">Tải TonRose về máy</a>
+ </div>
+</div>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Xem ảnh">
+ <button id="lb-close" type="button" aria-label="Đóng">&times;</button>
+ <button id="lb-prev" type="button" aria-label="Ảnh trước">&#8249;</button>
+ <img id="lb-img" src="" alt="">
+ <button id="lb-next" type="button" aria-label="Ảnh sau">&#8250;</button>
+ <div id="lb-cap"></div>
+</div>
+<script>
+(function(){
+ // Tabs
+ var tabs=[].slice.call(document.querySelectorAll('[role=tab]')),panels=[].slice.call(document.querySelectorAll('[role=tabpanel]'));
+ function pick(t,focus){tabs.forEach(function(b){var on=b===t;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1});
+  panels.forEach(function(p){p.hidden=p.id!==t.getAttribute('aria-controls')});if(focus)t.focus()}
+ tabs.forEach(function(t,i){t.addEventListener('click',function(){pick(t)});
+  t.addEventListener('keydown',function(e){var n=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:null;
+   if(n===null)return;e.preventDefault();pick(tabs[(n+tabs.length)%tabs.length],true)})});
+ // Modal liên hệ
+ var m=document.getElementById('modal');
+ function openM(){m.classList.add('open');m.querySelector('a').focus()}
+ function closeM(){m.classList.remove('open')}
+ [].forEach.call(document.querySelectorAll('[data-open-modal]'),function(b){b.addEventListener('click',openM)});
+ m.addEventListener('click',function(e){if(e.target===m||e.target.hasAttribute('data-close'))closeM()});
+ // Lightbox
+ var imgs=[].slice.call(document.querySelectorAll('img.zoomable')),seen={},list=[];
+ imgs.forEach(function(im){var k=im.getAttribute('src');if(!(k in seen)){seen[k]=list.length;list.push(im)}});
+ var lb=document.getElementById('lb'),big=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),cur=0;
+ function show(i){cur=(i+list.length)%list.length;var im=list[cur];big.classList.remove('zoomed');big.src=im.getAttribute('src');big.alt=im.alt||'';
+  cap.innerHTML=(im.alt||'')+'<small>'+(cur+1)+' / '+list.length+'</small>'}
+ function openL(i){show(i);lb.classList.add('open');document.body.style.overflow='hidden'}
+ function closeL(){lb.classList.remove('open');document.body.style.overflow=''}
+ imgs.forEach(function(im){im.addEventListener('click',function(){openL(seen[im.getAttribute('src')])})});
+ document.getElementById('lb-close').onclick=closeL;
+ document.getElementById('lb-prev').onclick=function(e){e.stopPropagation();show(cur-1)};
+ document.getElementById('lb-next').onclick=function(e){e.stopPropagation();show(cur+1)};
+ big.onclick=function(e){e.stopPropagation();big.classList.toggle('zoomed')};
+ lb.addEventListener('click',function(e){if(e.target===lb||e.target===cap)closeL()});
+ document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){closeM();if(lb.classList.contains('open'))closeL();return}
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='ArrowLeft')show(cur-1);else if(e.key==='ArrowRight')show(cur+1)});
+ var x0=null;
+ lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+ lb.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1))});
+})();
+</script>
+</body>
+</html>
